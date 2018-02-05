@@ -297,8 +297,11 @@ right_label = "self";
 left_label  = "other";
 }
 
-// IAT stimuli -------------------------------------------------------------------------
-var self_other_stimulus = [
+// IAT stimuli --------------------------------------------------------------------------
+// IAT stimuli which are used during the IAT. For now there is duplicated code but
+// because it all appears here, I probably won't bother changing the implementation. -cb
+
+var iat_block_1_stim = [
   {stimulus: "I",          stim_key_association: self_side},
   {stimulus: "me",         stim_key_association: self_side},
   {stimulus: "my",         stim_key_association: self_side},
@@ -309,6 +312,18 @@ var self_other_stimulus = [
   {stimulus: "themselves", stim_key_association: other_side}
 ]
 
+var iat_block_2_stim = [
+  {stimulus: "calculus",   stim_key_association: self_side},
+  {stimulus: "equation",   stim_key_association: self_side},
+  {stimulus: "geometry",   stim_key_association: self_side},
+  {stimulus: "equation",   stim_key_association: self_side},
+  {stimulus: "poetry",     stim_key_association: other_side},
+  {stimulus: "literature", stim_key_association: other_side},
+  {stimulus: "theater",    stim_key_association: other_side},
+  {stimulus: "symphony",   stim_key_association: other_side}
+]
+// IAT blocks ---------------------------------------------------------------------------
+// Building the IAT task. 
 
 var IAT_block_1 = {
   timeline: [
@@ -328,8 +343,10 @@ var IAT_block_1 = {
       data: { iat_type: 'practice' }
     }
   ],
-timeline_variables: self_other_stimulus,
+timeline_variables: iat_block_1_stim,
 randomize_order: true}
+// IAT task -----------------------------------------------------------------------------
+// Pushing every IAT block to build the task.
 
 timeline.push(IAT_block_1);
 // end fullscreen -----------------------------------------------------------------------
