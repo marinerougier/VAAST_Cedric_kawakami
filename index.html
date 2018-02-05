@@ -173,6 +173,30 @@ var saving_vaast_trial = function(){
 });
 }
 
+var saving_iat_trial = function(){
+	var id = get_id();
+
+	KeenAsync.ready(function(){
+    // Configure a client instance
+    var client = new KeenAsync({
+    	projectId: stream_projectID,
+    	writeKey: stream_writeKey
+    });
+
+    if(data_stream) {
+    // Record an event
+    client.recordEvent('iat_trial', {
+    	session_id: id,
+    	trial_data: jsPsych.data.get().last().json()
+    });
+	}
+});
+}
+
+var save_iat_trial = {
+    type: 'call-function',
+    func: saving_iat_trial
+}
 
 // Initialize timeline ------------------------------------------------------------------
 
@@ -464,7 +488,8 @@ var IAT_block_1 = {
       right_category_label: [block_1_right_label],
       response_ends_trial: true,
       data: { iat_type: 'practice' }
-    }
+    },
+    save_iat_trial
   ],
 timeline_variables: iat_block_1_stim,
 randomize_order: true}
@@ -485,7 +510,8 @@ var IAT_block_2 = {
       right_category_label: [block_2_right_label],
       response_ends_trial: true,
       data: { iat_type: 'practice' }
-    }
+    },
+    save_iat_trial
   ],
 timeline_variables: iat_block_2_stim,
 randomize_order: true}
@@ -507,7 +533,8 @@ var IAT_block_3 = {
       right_category_label: [block_3_right_label_top, block_3_right_label_bottom],
       response_ends_trial: true,
       data: { iat_type: 'practice' }
-    }
+    },
+    save_iat_trial
   ],
 timeline_variables: iat_block_3_stim,
 randomize_order: true}
@@ -528,7 +555,8 @@ var IAT_block_4 = {
       right_category_label: [block_4_right_label],
       response_ends_trial: true,
       data: { iat_type: 'practice' }
-    }
+    },
+    save_iat_trial
   ],
 timeline_variables: iat_block_4_stim,
 randomize_order: true}
@@ -549,7 +577,8 @@ var IAT_block_5 = {
       right_category_label: [block_5_right_label_top, block_5_right_label_bottom],
       response_ends_trial: true,
       data: { iat_type: 'practice' }
-    }
+    },
+    save_iat_trial
   ],
 timeline_variables: iat_block_5_stim,
 randomize_order: true}
@@ -573,7 +602,6 @@ jsPsych.init({
 	on_finish: function() {
 	}
 });
-
 
   </script>
 </html>
