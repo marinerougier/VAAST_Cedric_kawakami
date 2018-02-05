@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> | LIP-PC2S</title>
+        <!-- jsPsych core library and plugins -->
+    	<script src="jspsych-6.0.1/jspsych.js"></script>
+    	<script src="jspsych-6.0.1/plugins/jspsych-html-keyboard-response.js"></script>
+    	<script src="jspsych-6.0.1/plugins/jspsych-survey-text.js"></script>
+    	<script src="jspsych-6.0.1/plugins/jspsych-call-function.js"></script>
+    	<script src="jspsych-6.0.1/plugins/jspsych-fullscreen.js"></script>
+    	<script src="jspsych-6.0.1/plugins/jspsych-iat-html.js"></script>
+
+
+
+    	<!-- VAAST custom plugins -->
+    	<script src = "jspsych-6.0.1/vaast/jspsych-vaast-image.js"></script>
+    	<script src = "jspsych-6.0.1/vaast/jspsych-vaast-fixation.js"></script>
+
+    	<!-- style sheet --> 
+    	<link rel="stylesheet" href="jspsych-6.0.1/css/jspsych.css"></link>
+    	<link rel="stylesheet" href="css/custom.css"></link>
+    	<link href="https://fonts.googleapis.com/css?family=Questrial|Slabo+27px" rel="stylesheet">
+
+    	<meta charset="UTF-8">
+  	</head>
+  <body></body>
+  <script>
+// keen.io initialization ---------------------------------------------------------------
+  !function(name,path,ctx){
+    var latest,prev=name!=='Keen'&&window.Keen?window.Keen:false;ctx[name]=ctx[name]||{ready:function(fn){var h=document.getElementsByTagName('head')[0],s=document.createElement('script'),w=window,loaded;s.onload=s.onerror=s.onreadystatechange=function(){if((s.readyState&&!(/^c|loade/.test(s.readyState)))||loaded){return}s.onload=s.onreadystatechange=null;loaded=1;latest=w.Keen;if(prev){w.Keen=prev}else{try{delete w.Keen}catch(e){w.Keen=void 0}}ctx[name]=latest;ctx[name].ready(fn)};s.async=1;s.src=path;h.parentNode.insertBefore(s,h)}}
+  }('KeenAsync','https://d26b395fwzu5fz.cloudfront.net/keen-tracking-1.1.3.min.js',this);
+
+// Data logging -------------------------------------------------------------------------
+// set parameters to log data to a keen.io project.
+var stream_projectID = '5a7455dd46e0fb000143e095';
+var  stream_writeKey = '88C3D73F07F5A3FC34992230594B87E84D4E6E1D6949C6C6E590F44EBCFBB9C7EFFDE0121CAA4CA4D66BD1FD3A0CD802798C0AE847E7B43240DDA7A22033EDCDD1CAF9D073AF38FE7BD33B66DF6415F1433F7A5E0CEEF823A9BC1314962E0140';
+
+var      data_stream = false;
+
+// VAAST stimulus -----------------------------------------------------------------------
+var arts_movement  = "approach";
+var maths_movement = "avoidance";
+
+var stim_arts = [
+	{stimulus: 'stimuli/arts_01.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_02.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_03.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_04.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_05.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_06.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_07.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_08.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_09.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_10.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_11.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_12.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_13.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_14.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_15.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_16.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_17.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_18.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_19.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_20.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_21.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_22.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_23.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/arts_24.bmp', movement: arts_movement},
+	{stimulus: 'stimuli/maths_01.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_02.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_03.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_04.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_05.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_06.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_07.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_08.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_09.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_10.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_11.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_12.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_13.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_14.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_15.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_16.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_17.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_18.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_19.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_20.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_21.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_22.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_23.bmp', movement: maths_movement},
+	{stimulus: 'stimuli/maths_24.bmp', movement: maths_movement}
+];
+
+// Background images --------------------------------------------------------------------
+var background = [
+	"background/2.jpg",
+	"background/3.jpg",
+	"background/4.jpg",
+	"background/5.jpg",
+	"background/6.jpg"
+]
+
+// Stimulus sizes -----------------------------------------------------------------------
+
+var stim_sizes = [
+	282,
+	302,
+	324,
+	350,
+	382
+]
+
+// Helper functions ---------------------------------------------------------------------
+// next_position():
+// Compute next position as function of current position and correct movement. Because 
+// participant have to press the correct response key, it always shows the correct
+// position.
+
+var next_position = function(){
+		var current_position = jsPsych.data.getLastTrialData().values()[0].position;
+		var current_movement = jsPsych.data.getLastTrialData().values()[0].movement;
+		var position = current_position;
+		if(current_movement == "approach") {
+			position = position + 1;
+		}
+		if(current_movement == "avoidance") {
+			position = position -1;
+		}
+
+		return(position)
+	}
+
+
+// get_id 
+
+var get_id = function() {
+	// Prolific_id is the first node
+	var id = jsPsych.data.getDataByTimelineNode("0.0-1.0").values()[0].responses.slice(7, -2);
+
+	return(id)
+}
+
+// Saving blocks ---------------------------------------------------------------------
+var saving_id = function(){
+	var id = get_id();
+
+	KeenAsync.ready(function(){
+    // Configure a client instance
+    var client = new KeenAsync({
+    	projectId: stream_projectID,
+    	writeKey: stream_writeKey,
+    });
+    if(data_stream) {
+    // Record an event
+    client.recordEvent('session_id', {
+    	session_id: id
+    });
+}
+});
+}
+
+var saving_vaast_trial = function(){
+	var id = get_id();
+
+	KeenAsync.ready(function(){
+    // Configure a client instance
+    var client = new KeenAsync({
+    	projectId: stream_projectID,
+    	writeKey: stream_writeKey
+    });
+
+    if(data_stream) {
+    // Record an event
+    client.recordEvent('vaast_trial', {
+    	session_id: id,
+    	trial_data: jsPsych.data.get().last(3).json()
+    });
+	}
+});
+}
+
+
+// Initialize timeline ------------------------------------------------------------------
+
+var timeline = [];
+
+// Switching to fullscreen --------------------------------------------------------------
+var fullscreen_trial = {
+	type: 'fullscreen',
+	fullscreen_mode: true
+}
+
+timeline.push(fullscreen_trial)
+
+// Prolific identification --------------------------------------------------------------
+
+var prolific_id = {
+ type: 'survey-text',
+  questions: [{prompt: "Please enter your Prolific ID:"}],
+  button_label: "Start the experiment"
+};
+
+var save_id = {
+    type: 'call-function',
+    func: saving_id
+}
+timeline.push(prolific_id, save_id);
+
+// Instructions -------------------------------------------------------------------------
+
+var instructions = {
+  type: "html-keyboard-response",
+  stimulus: "<h1 class ='custom-title'> Title </h1>" +
+  	  "<p>In this experiment, a circle will appear in the center " +
+      "of the screen.</p><p>If the circle is <strong>blue</strong>, " +
+      "press the letter F on the keyboard as fast as you can.</p>" +
+      "<p>If the circle is <strong>orange</strong>, press the letter J " +
+      "as fast as you can.</p>" +
+      "<p>Press <strong>space</strong> to begin.</p>",
+  choices: [32],
+  post_trial_gap: 2000
+};
+
+timeline.push(instructions);
+
+
+// VAAST --------------------------------------------------------------------------------
+// Creating a trial ---------------------------------------------------------------------
+
+var VAAST_fixation = {
+  type: 'vaast-fixation',
+  fixation: "+",
+  font_size:  324,
+  position: 3,
+  background_images: background
+}
+
+var VAAST_first_step = {
+  type: 'vaast-image',
+  stimulus: jsPsych.timelineVariable('stimulus'),
+  position: 3,
+  background_images: background,
+  stim_sizes:  stim_sizes,
+  stim_movement: jsPsych.timelineVariable('movement'),
+  html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
+  force_correct_key_press: true,
+  display_feedback: true,
+  timing_response: 3000, //Only if display_feedback is false
+  response_ends_trial: true
+}
+
+var VAAST_second_step = {
+  type: 'vaast-image',
+  position: next_position,
+  stimulus: jsPsych.timelineVariable('stimulus'),
+  background_images: background,
+  stim_sizes:  stim_sizes,
+  stim_movement: jsPsych.timelineVariable('movement'),
+  html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
+  force_correct_key_press: true,
+  display_feedback: true,
+  timing_response: 3000, //Only if display_feedback is false
+  response_ends_trial: true
+}
+
+var save_vaast_trial = {
+    type: 'call-function',
+    func: saving_vaast_trial
+}
+
+// VAAST training block -----------------------------------------------------------------
+
+var VAAST_procedure = {
+  timeline: [VAAST_fixation, VAAST_first_step, VAAST_second_step, save_vaast_trial],
+  timeline_variables: stim_arts,
+  repetitions: 2,
+  randomize_order: true
+}
+
+// timeline.push(VAAST_procedure);
+
+// IAT ----------------------------------------------------------------------------------
+// IAT variable definitions -------------------------------------------------------------
+var self_side = "left"; // either "left" or "right"
+
+// IAT variable initialization ----------------------------------------------------------
+var other_side = undefined;
+
+if(self_side == "left") {
+other_side  = "right";
+right_label = "other";
+left_label  = "self";
+} else {
+other_side  = "left";
+right_label = "self";
+left_label  = "other";
+}
+
+// IAT stimuli -------------------------------------------------------------------------
+var self_other_stimulus = [
+  {stimulus: "I",          stim_key_association: self_side},
+  {stimulus: "me",         stim_key_association: self_side},
+  {stimulus: "my",         stim_key_association: self_side},
+  {stimulus: "mine",       stim_key_association: self_side},
+  {stimulus: "they",       stim_key_association: other_side},
+  {stimulus: "theirs",     stim_key_association: other_side},
+  {stimulus: "them",       stim_key_association: other_side},
+  {stimulus: "themselves", stim_key_association: other_side}
+]
+
+
+var IAT_block_1 = {
+  timeline: [
+    {
+      type: 'iat-html',
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
+      html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
+      bottom_instructions: '<p>If you press the wrong key, a red X will appear. Press the other key to continue</p>',
+      force_correct_key_press: true,
+      display_feedback: true,
+      left_category_key:  'E',
+      right_category_key: 'I',
+      left_category_label:  [left_label],
+      right_category_label: [right_label],
+      response_ends_trial: true,
+      data: { iat_type: 'practice' }
+    }
+  ],
+timeline_variables: self_other_stimulus,
+randomize_order: true}
+
+timeline.push(IAT_block_1);
+// end fullscreen -----------------------------------------------------------------------
+
+var fullscreen_trial_exit = {
+	type: 'fullscreen',
+	fullscreen_mode: false
+}
+
+timeline.push(fullscreen_trial_exit);
+
+// Launch experiment --------------------------------------------------------------------
+
+jsPsych.init({
+	timeline: timeline,
+	on_finish: function() {
+	}
+});
+
+
+  </script>
+</html>
