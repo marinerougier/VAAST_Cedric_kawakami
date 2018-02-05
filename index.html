@@ -10,7 +10,7 @@
     	<script src="jspsych-6.0.1/plugins/jspsych-fullscreen.js"></script>
     	<script src="jspsych-6.0.1/plugins/jspsych-iat-html.js"></script>
 
-
+      <script src="jspsych-6.0.1/keenio-credentials.js"></script>
 
     	<!-- VAAST custom plugins -->
     	<script src = "jspsych-6.0.1/vaast/jspsych-vaast-image.js"></script>
@@ -282,23 +282,107 @@ var VAAST_procedure = {
 
 // IAT ----------------------------------------------------------------------------------
 // IAT variable definitions -------------------------------------------------------------
-var self_side = "left"; // either "left" or "right"
+var iat_self    = "left"; // either "left" or "right"
+var iat_maths_1 = "left"; // either "left" or "right"
 
 // IAT variable initialization ----------------------------------------------------------
-var other_side = undefined;
+// nb: there is a lot of variable defined here. Even though they are dinamycally 
+// defined, there might be a better way to do it. If 
 
-if(self_side == "left") {
-other_side  = "right";
-right_label = "other";
-left_label  = "self";
-} else {
-other_side  = "left";
-right_label = "self";
-left_label  = "other";
+// Correct responses -----------------------
+var self_side      = undefined;
+var other_side     = undefined;
+var maths_side_1st = undefined;
+var arts_side_1st  = undefined;
+var maths_side_2nd = undefined;
+var arts_side_2nd  = undefined;
+
+// Label -----------------------------------
+var block_1_left_label          = undefined;
+var block_1_right_label         = undefined;
+var block_2_left_label          = undefined;
+var block_2_right_label         = undefined;
+var block_3_left_label_top      = undefined;
+var block_3_right_label_top     = undefined;
+var block_3_left_label_bottom   = undefined;
+var block_3_right_label_bottom  = undefined;
+var block_4_left_label          = undefined;
+var block_4_right_label         = undefined;
+var block_5_left_label_top      = undefined;
+var block_5_right_label_top     = undefined;
+var block_5_left_label_bottom   = undefined;
+var block_5_right_label_bottom  = undefined;
+
+switch(iat_self) {
+	case "left":
+        self_side               = "left";
+        other_side              = "right";
+
+        block_1_left_label      = "SELF";
+        block_1_right_label     = "OTHER";
+        block_3_left_label_top  = "SELF";
+        block_3_right_label_top = "OTHER";
+        block_5_left_label_top  = "SELF";
+        block_5_right_label_top = "OTHER";
+
+		break;
+
+	case "right":
+        self_side               = "right";
+        other_side              = "left";
+
+        block_1_left_label      = "OTHER";
+        block_1_right_label     = "SELF";
+        block_3_left_label_top  = "OTHER";
+        block_3_right_label_top = "SELF";
+        block_5_left_label_top  = "OTHER";
+        block_5_right_label_top = "SELF";
+
+		break;
 }
 
-// IAT stimuli -------------------------------------------------------------------------
-var self_other_stimulus = [
+switch(iat_maths_1) {
+	case "left":
+	    maths_side_1st = "left";
+	    arts_side_1st  = "right";
+	    maths_side_2nd = "right";
+	    arts_side_2nd  = "left";
+
+		block_2_left_label          = "MATHS";
+		block_2_right_label         = "ARTS";
+		block_3_left_label_bottom   = "MATHS";
+		block_3_right_label_bottom  = "ARTS";
+		block_4_left_label          = "ARTS";
+		block_4_right_label         = "MATHS";
+		block_5_left_label_bottom   = "ARTS";
+		block_5_right_label_bottom  = "MATHS";
+
+		break;
+
+	case "right":
+        maths_side_1st = "right";
+        arts_side_1st  = "left";
+        maths_side_2nd = "left";
+        arts_side_2nd  = "right";
+
+		block_2_left_label          = "ARTS";
+		block_2_right_label         = "MATHS";
+		block_3_left_label_bottom   = "ARTS";
+		block_3_right_label_bottom  = "MATHS";
+		block_4_left_label          = "MATHS";
+		block_4_right_label         = "ARTS";
+		block_5_left_label_bottom   = "MATHS";
+		block_5_right_label_bottom  = "ARTS";
+
+		break;
+}
+
+
+// IAT stimuli --------------------------------------------------------------------------
+// IAT stimuli which are used during the IAT. For now there is duplicated code but
+// because it all appears here, I probably won't bother changing the implementation. -cb
+
+var iat_block_1_stim = [
   {stimulus: "I",          stim_key_association: self_side},
   {stimulus: "me",         stim_key_association: self_side},
   {stimulus: "my",         stim_key_association: self_side},
@@ -309,6 +393,67 @@ var self_other_stimulus = [
   {stimulus: "themselves", stim_key_association: other_side}
 ]
 
+var iat_block_2_stim = [
+  {stimulus: "calculus",   stim_key_association: maths_side_1st},
+  {stimulus: "equation",   stim_key_association: maths_side_1st},
+  {stimulus: "geometry",   stim_key_association: maths_side_1st},
+  {stimulus: "equation",   stim_key_association: maths_side_1st},
+  {stimulus: "poetry",     stim_key_association: arts_side_1st},
+  {stimulus: "literature", stim_key_association: arts_side_1st},
+  {stimulus: "theater",    stim_key_association: arts_side_1st},
+  {stimulus: "symphony",   stim_key_association: arts_side_1st}
+]
+
+var iat_block_3_stim = [ 
+  {stimulus: "I",          stim_key_association: self_side},
+  {stimulus: "me",         stim_key_association: self_side},
+  {stimulus: "my",         stim_key_association: self_side},
+  {stimulus: "mine",       stim_key_association: self_side},
+  {stimulus: "they",       stim_key_association: other_side},
+  {stimulus: "theirs",     stim_key_association: other_side},
+  {stimulus: "them",       stim_key_association: other_side},
+  {stimulus: "themselves", stim_key_association: other_side},
+  {stimulus: "calculus",   stim_key_association: maths_side_1st},
+  {stimulus: "equation",   stim_key_association: maths_side_1st},
+  {stimulus: "geometry",   stim_key_association: maths_side_1st},
+  {stimulus: "equation",   stim_key_association: maths_side_1st},
+  {stimulus: "poetry",     stim_key_association: arts_side_1st},
+  {stimulus: "literature", stim_key_association: arts_side_1st},
+  {stimulus: "theater",    stim_key_association: arts_side_1st},
+  {stimulus: "symphony",   stim_key_association: arts_side_1st}
+]
+
+var iat_block_4_stim = [
+  {stimulus: "calculus",   stim_key_association: maths_side_2nd},
+  {stimulus: "equation",   stim_key_association: maths_side_2nd},
+  {stimulus: "geometry",   stim_key_association: maths_side_2nd},
+  {stimulus: "equation",   stim_key_association: maths_side_2nd},
+  {stimulus: "poetry",     stim_key_association: arts_side_2nd},
+  {stimulus: "literature", stim_key_association: arts_side_2nd},
+  {stimulus: "theater",    stim_key_association: arts_side_2nd},
+  {stimulus: "symphony",   stim_key_association: arts_side_2nd}
+]
+
+var iat_block_5_stim = [ 
+  {stimulus: "I",          stim_key_association: self_side},
+  {stimulus: "me",         stim_key_association: self_side},
+  {stimulus: "my",         stim_key_association: self_side},
+  {stimulus: "mine",       stim_key_association: self_side},
+  {stimulus: "they",       stim_key_association: other_side},
+  {stimulus: "theirs",     stim_key_association: other_side},
+  {stimulus: "them",       stim_key_association: other_side},
+  {stimulus: "themselves", stim_key_association: other_side},
+  {stimulus: "calculus",   stim_key_association: maths_side_2nd},
+  {stimulus: "equation",   stim_key_association: maths_side_2nd},
+  {stimulus: "geometry",   stim_key_association: maths_side_2nd},
+  {stimulus: "equation",   stim_key_association: maths_side_2nd},
+  {stimulus: "poetry",     stim_key_association: arts_side_2nd},
+  {stimulus: "literature", stim_key_association: arts_side_2nd},
+  {stimulus: "theater",    stim_key_association: arts_side_2nd},
+  {stimulus: "symphony",   stim_key_association: arts_side_2nd}
+]
+// IAT blocks ---------------------------------------------------------------------------
+// Building the IAT task. 
 
 var IAT_block_1 = {
   timeline: [
@@ -322,16 +467,103 @@ var IAT_block_1 = {
       display_feedback: true,
       left_category_key:  'E',
       right_category_key: 'I',
-      left_category_label:  [left_label],
-      right_category_label: [right_label],
+      left_category_label:  [block_1_left_label],
+      right_category_label: [block_1_right_label],
       response_ends_trial: true,
       data: { iat_type: 'practice' }
     }
   ],
-timeline_variables: self_other_stimulus,
+timeline_variables: iat_block_1_stim,
 randomize_order: true}
 
-timeline.push(IAT_block_1);
+var IAT_block_2 = {
+  timeline: [
+    {
+      type: 'iat-html',
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
+      html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
+      bottom_instructions: '<p>If you press the wrong key, a red X will appear. Press the other key to continue</p>',
+      force_correct_key_press: true,
+      display_feedback: true,
+      left_category_key:  'E',
+      right_category_key: 'I',
+      left_category_label:  [block_2_left_label],
+      right_category_label: [block_2_right_label],
+      response_ends_trial: true,
+      data: { iat_type: 'practice' }
+    }
+  ],
+timeline_variables: iat_block_2_stim,
+randomize_order: true}
+
+
+var IAT_block_3 = {
+  timeline: [
+    {
+      type: 'iat-html',
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
+      html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
+      bottom_instructions: '<p>If you press the wrong key, a red X will appear. Press the other key to continue</p>',
+      force_correct_key_press: true,
+      display_feedback: true,
+      left_category_key:  'E',
+      right_category_key: 'I',
+      left_category_label:  [block_3_left_label_top, block_3_left_label_bottom],
+      right_category_label: [block_3_right_label_top, block_3_right_label_bottom],
+      response_ends_trial: true,
+      data: { iat_type: 'practice' }
+    }
+  ],
+timeline_variables: iat_block_3_stim,
+randomize_order: true}
+
+var IAT_block_4 = {
+  timeline: [
+    {
+      type: 'iat-html',
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
+      html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
+      bottom_instructions: '<p>If you press the wrong key, a red X will appear. Press the other key to continue</p>',
+      force_correct_key_press: true,
+      display_feedback: true,
+      left_category_key:  'E',
+      right_category_key: 'I',
+      left_category_label:  [block_4_left_label],
+      right_category_label: [block_4_right_label],
+      response_ends_trial: true,
+      data: { iat_type: 'practice' }
+    }
+  ],
+timeline_variables: iat_block_4_stim,
+randomize_order: true}
+
+var IAT_block_5 = {
+  timeline: [
+    {
+      type: 'iat-html',
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
+      html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
+      bottom_instructions: '<p>If you press the wrong key, a red X will appear. Press the other key to continue</p>',
+      force_correct_key_press: true,
+      display_feedback: true,
+      left_category_key:  'E',
+      right_category_key: 'I',
+      left_category_label:  [block_5_left_label_top, block_5_left_label_bottom],
+      right_category_label: [block_5_right_label_top, block_5_right_label_bottom],
+      response_ends_trial: true,
+      data: { iat_type: 'practice' }
+    }
+  ],
+timeline_variables: iat_block_5_stim,
+randomize_order: true}
+// IAT task -----------------------------------------------------------------------------
+// Pushing every IAT block to build the task.
+
+timeline.push(IAT_block_1, IAT_block_2, IAT_block_3, IAT_block_4, IAT_block_5);
 // end fullscreen -----------------------------------------------------------------------
 
 var fullscreen_trial_exit = {
