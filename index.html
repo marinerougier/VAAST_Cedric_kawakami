@@ -3,18 +3,18 @@
     <head>
         <title> | LIP-PC2S</title>
         <!-- jsPsych core library and plugins -->
-    	<script src="jspsych-6.0.1/jspsych.js"></script>
-    	<script src="jspsych-6.0.1/plugins/jspsych-html-keyboard-response.js"></script>
-    	<script src="jspsych-6.0.1/plugins/jspsych-survey-text.js"></script>
-    	<script src="jspsych-6.0.1/plugins/jspsych-call-function.js"></script>
-    	<script src="jspsych-6.0.1/plugins/jspsych-fullscreen.js"></script>
-    	<script src="jspsych-6.0.1/plugins/jspsych-iat-html.js"></script>
+    	<script src="js/jspsych.js"></script>
+    	<script src="js/plugins/jspsych-html-keyboard-response.js"></script>
+    	<script src="js/plugins/jspsych-survey-text.js"></script>
+    	<script src="js/plugins/jspsych-call-function.js"></script>
+    	<script src="js/plugins/jspsych-fullscreen.js"></script>
+    	<script src="js/plugins/jspsych-iat-html.js"></script>
 
       <script src="jspsych-6.0.1/keenio-credentials.js"></script>
 
     	<!-- VAAST custom plugins -->
-    	<script src = "jspsych-6.0.1/vaast/jspsych-vaast-image.js"></script>
-    	<script src = "jspsych-6.0.1/vaast/jspsych-vaast-fixation.js"></script>
+    	<script src = "js/vaast-plugins/jspsych-vaast-image.js"></script>
+    	<script src = "js/vaast-plugins/jspsych-vaast-fixation.js"></script>
 
     	<!-- style sheet --> 
     	<link rel="stylesheet" href="jspsych-6.0.1/css/jspsych.css"></link>
@@ -31,8 +31,24 @@
   }('KeenAsync','https://d26b395fwzu5fz.cloudfront.net/keen-tracking-1.1.3.min.js',this);
 
 // VAAST stimulus -----------------------------------------------------------------------
-var arts_movement  = "approach";
-var maths_movement = "avoidance";
+
+var vaast_approach_training = "maths"; // either "arts" or "maths
+
+
+var arts_movement  = undefined;
+var maths_movement = undefined;
+
+switch(vaast_approach_training) {
+	case "maths":
+		arts_movement = "avoidance";
+		maths_movement = "approach";
+		break;
+
+	case "arts":
+		arts_movement = "approach";
+		maths_movement = "avoidance";
+		break;
+}
 
 var stim_arts = [
 	{stimulus: 'stimuli/arts_01.bmp', movement: arts_movement},
@@ -130,7 +146,6 @@ var next_position = function(){
 var get_id = function() {
 	// Prolific_id is the first node
 	var id = jsPsych.data.getDataByTimelineNode("0.0-1.0").values()[0].responses.slice(7, -2);
-
 	return(id)
 }
 
@@ -299,6 +314,7 @@ var VAAST_procedure = {
 
 // IAT ----------------------------------------------------------------------------------
 // IAT variable definitions -------------------------------------------------------------
+
 var iat_self    = "left"; // either "left" or "right"
 var iat_maths_1 = "left"; // either "left" or "right"
 
@@ -487,7 +503,13 @@ var IAT_block_1 = {
       left_category_label:  [block_1_left_label],
       right_category_label: [block_1_right_label],
       response_ends_trial: true,
-      data: { iat_type: 'practice' }
+      data: {
+      	iat_type: 'practice',
+        iat_block: 1,
+        vaast_approach_training: vaast_approach_training,
+        iat_self_side: iat_self,
+        iat_maths_1_side: iat_maths_1
+         }
     },
     save_iat_trial
   ],
@@ -509,7 +531,13 @@ var IAT_block_2 = {
       left_category_label:  [block_2_left_label],
       right_category_label: [block_2_right_label],
       response_ends_trial: true,
-      data: { iat_type: 'practice' }
+      data: {
+      	iat_type: 'practice',
+        iat_block: 2,
+        vaast_approach_training: vaast_approach_training,
+        iat_self_side: iat_self,
+        iat_maths_1_side: iat_maths_1
+         }
     },
     save_iat_trial
   ],
@@ -532,7 +560,13 @@ var IAT_block_3 = {
       left_category_label:  [block_3_left_label_top, block_3_left_label_bottom],
       right_category_label: [block_3_right_label_top, block_3_right_label_bottom],
       response_ends_trial: true,
-      data: { iat_type: 'practice' }
+      data: {
+      	iat_type: 'practice',
+        iat_block: 3,
+        vaast_approach_training: vaast_approach_training,
+        iat_self_side: iat_self,
+        iat_maths_1_side: iat_maths_1
+         }
     },
     save_iat_trial
   ],
@@ -554,7 +588,13 @@ var IAT_block_4 = {
       left_category_label:  [block_4_left_label],
       right_category_label: [block_4_right_label],
       response_ends_trial: true,
-      data: { iat_type: 'practice' }
+      data: {
+      	iat_type: 'practice',
+        iat_block: 4,
+        vaast_approach_training: vaast_approach_training,
+        iat_self_side: iat_self,
+        iat_maths_1_side: iat_maths_1
+         }
     },
     save_iat_trial
   ],
@@ -576,7 +616,13 @@ var IAT_block_5 = {
       left_category_label:  [block_5_left_label_top, block_5_left_label_bottom],
       right_category_label: [block_5_right_label_top, block_5_right_label_bottom],
       response_ends_trial: true,
-      data: { iat_type: 'practice' }
+      data: {
+      	iat_type: 'practice',
+        iat_block: 5,
+        vaast_approach_training: vaast_approach_training,
+        iat_self_side: iat_self,
+        iat_maths_1_side: iat_maths_1
+         }
     },
     save_iat_trial
   ],
