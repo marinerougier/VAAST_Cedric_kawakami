@@ -40,15 +40,22 @@ var vaast_approach_training = "maths"; // either "arts" or "maths
 var arts_movement  = undefined;
 var maths_movement = undefined;
 
+var approach_cat   = undefined;
+var avoidance_cat  = undefined;
+
 switch(vaast_approach_training) {
   case "maths":
-    arts_movement = "avoidance";
+    arts_movement  = "avoidance";
     maths_movement = "approach";
+    approach_cat   = "maths";
+    avoidance_cat  = "arts";
     break;
 
   case "arts":
     arts_movement = "approach";
     maths_movement = "avoidance";
+    approach_cat   = "arts";
+    avoidance_cat  = "maths";
     break;
 }
 
