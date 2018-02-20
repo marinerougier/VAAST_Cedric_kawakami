@@ -304,26 +304,33 @@ timeline.push(instructions);
 // VAAST --------------------------------------------------------------------------------
 var vaast_instructions_1 = {
   type: "html-keyboard-response",
-  stimulus: "<h1 class ='custom-title'> Part 1 </h1>" +
-            "<p class='instructions'>In this part, just like within a videogame, you" +
-            " will act within the environnement presented below.</p>" +
-            "<p class='instructions'> You will be able to move forward and backward" +
-            " using your keyboard.</p>" +
-            "<p>&nbsp;</p>" +
-            "<p class = 'continue-instructions'>Press <strong>space</strong> to" +
-            " continue.</p>",
+  stimulus:
+    "<h1 class ='custom-title'> Part 1 </h1>" +
+    "<p class='instructions'>In this part, just like within a videogame, you" +
+    " will act within the environnement presented below.</p>" +
+    "<p class='instructions'> You will be able to move forward and backward" +
+    " using your keyboard.</p>" +
+    "<br>" +
+    "<img src = 'media/keyboard-vaastt.png'>" +
+    "<br>" +
+    "<p class = 'continue-instructions'>Press <strong>space</strong> to" +
+    " continue.</p>",
   choices: [32]
 };
 
 var vaast_instructions_2 = {
   type: "html-keyboard-response",
-  stimulus: "<h1 class ='custom-title'> Part 1 </h1>" +
-            "<p class='instructions'>Some pictures will appear within the" +
-            " environnement and you will have to approach them or avoid them" +
-            " depending on the category they belong to.</p>" +
-            "<p>&nbsp;</p>" +
-            "<p class = 'continue-instructions'>Press <strong>space</strong> to" +
-            " continue.</p>",
+  stimulus:
+    "<h1 class ='custom-title'> Part 1 </h1>" +
+    "<p class='instructions'>Some pictures will appear within the" +
+    " environnement and you will have to approach them or avoid them" +
+    " depending on the category they belong to.</p>" +
+    "<p class='instructions'>In this experiment, you will have to" +
+    " approach maths-related pictures and to avoid arts-related" +
+    " pictures.</p>" +
+    "<br>" +
+    "<p class = 'continue-instructions'>Press <strong>space</strong> to" +
+    " continue.</p>",
   choices: [32]
 };
 
