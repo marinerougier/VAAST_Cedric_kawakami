@@ -377,6 +377,13 @@ var vaast_instructions_4 = {
     "<p class = 'continue-instructions'>Press <strong>space</strong> to start training.</p>",
   choices: [32]
 };
+
+timeline.push(
+  vaast_instructions_1,
+  vaast_instructions_2,
+  vaast_instructions_3,
+  vaast_instructions_4
+  );
 // Creating a trial ---------------------------------------------------------------------
 
 var vaast_fixation = {
@@ -428,14 +435,25 @@ var vaast_third_step = {
 
 // VAAST training block -----------------------------------------------------------------
 
-var vaast_procedure = {
+var vaast_block = {
   timeline: [vaast_fixation, vaast_first_step, vaast_second_step, vaast_third_step, save_vaast_trial],
   timeline_variables: vaast_stim,
   repetitions: 1,
   randomize_order: true
 }
 
-//timeline.push(VAAST_procedure);
+timeline.push(
+  vaast_block,
+  vaast_block,
+  vaast_block,
+  vaast_block,
+  vaast_block,
+  vaast_block,
+  vaast_block,
+  vaast_block,
+  vaast_block,
+  vaast_block
+  );
 
 // IAT ----------------------------------------------------------------------------------
 // IAT variable definitions -------------------------------------------------------------
