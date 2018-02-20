@@ -428,7 +428,7 @@ var vaast_third_step = {
   stim_sizes:  stim_sizes,
   stim_movement: jsPsych.timelineVariable('movement'),
   response_ends_trial: false,
-  trial_duration: 2000
+  trial_duration: 650
 }
 
 // VAAST training block -----------------------------------------------------------------
