@@ -401,10 +401,9 @@ var vaast_first_step = {
   background_images: background,
   stim_sizes:  stim_sizes,
   stim_movement: jsPsych.timelineVariable('movement'),
-  html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
+  html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
   force_correct_key_press: true,
   display_feedback: true,
-  timing_response: 3000, //Only if display_feedback is false
   response_ends_trial: true
 }
 
@@ -415,10 +414,9 @@ var vaast_second_step = {
   background_images: background,
   stim_sizes:  stim_sizes,
   stim_movement: jsPsych.timelineVariable('movement'),
-  html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
+  html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
   force_correct_key_press: true,
   display_feedback: true,
-  timing_response: 3000, //Only if display_feedback is false
   response_ends_trial: true
 }
 
