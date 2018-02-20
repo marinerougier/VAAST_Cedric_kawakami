@@ -150,7 +150,7 @@ var next_position = function(){
 // get_id():
 // Get id input.
 var get_id = function() {
-  var id = jsPsych.data.getDataByTimelineNode("0.0-2.0").values()[0].responses.slice(7, -2);
+  var id = jsPsych.data.getDataByTimelineNode("0.0-1.0").values()[0].responses.slice(7, -2);
   return(id)
 }
 
