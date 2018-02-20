@@ -7,8 +7,7 @@
 }
 
 .instructions {
-	margin-left: 15%;
-	margin-right: 15%;
+	width: 600px;
     text-align: justify;
 }
 
@@ -41,4 +40,8 @@
 .iat-instructions {
 	position: absolute;
 	
+}
+
+.vaast-table-instruction {
+	width: 600 px;
 }

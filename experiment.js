@@ -318,7 +318,7 @@ var vaast_instructions_1 = {
     "<p class='instructions'> You will be able to move forward and backward" +
     " using your keyboard.</p>" +
     "<br>" +
-    "<img src = 'media/keyboard-vaastt.png'>" +
+    "<img src = 'media/vaast-background.png'>" +
     "<br>" +
     "<p class = 'continue-instructions'>Press <strong>space</strong> to" +
     " continue.</p>",
@@ -331,10 +331,9 @@ var vaast_instructions_2 = {
     "<h1 class ='custom-title'> Part 1 </h1>" +
     "<p class='instructions'>Some pictures will appear within the" +
     " environnement and you will have to approach them or avoid them" +
-    " depending on the category they belong to.</p>" +
-    "<p class='instructions'>In this experiment, you will have to" +
-    " approach maths-related pictures and to avoid arts-related" +
-    " pictures.</p>" +
+    " according on the category they belong to.</p>" +
+    "<br>" +
+    "<img src = 'media/vaast-background.png'>" +
     "<br>" +
     "<p class = 'continue-instructions'>Press <strong>space</strong> to" +
     " continue.</p>",
@@ -343,18 +342,41 @@ var vaast_instructions_2 = {
 
 var vaast_instructions_3 = {
   type: "html-keyboard-response",
-  stimulus: "<h1 class ='custom-title'> Part 1 </h1>" +
-      "<p class='instructions'>In this task, you will have to respond using your" +
-      "keyboard. For every trial, once the picture appeared, you will " +
-      "have to press the quickest as possible on the correct response key.</p>" +
-      "<p class='instructions'>Note that you will have to press twice the correct " +
-      "key to pass the trial.</p>" +
-      "<p>&nbsp;</p>" +
-      "<p class = 'continue-instructions'>Press <strong>space</strong> to continue.</p>",
+  stimulus:
+    "<h1 class ='custom-title'> Part 1 </h1>" +
+    "<p class='instructions'>In this task, you will have to respond using your" +
+    "keyboard. For every trial, once the picture appeared, you will " +
+    "have to press the quickest as possible either on the \"approach\" key or the " +
+    "\"avoidance\" key (see below).</p>" +
+    "<p class='instructions'>Note that you will have to press twice the correct " +
+    "key to pass the trial.</p>" +
+    "<br>" +
+    "<img src = 'media/keyboard-vaastt.png'>" +
+    "<br>" +
+    "<p class = 'continue-instructions'>Press <strong>space</strong> to continue.</p>",
   choices: [32]
 };
 
-timeline.push(vaast_instructions_1, vaast_instructions_2, vaast_instructions_3);
+var vaast_instructions_4 = {
+  type: "html-keyboard-response",
+  stimulus:
+    "<h1 class ='custom-title'> Part 1 </h1>" +
+    "<p class='instructions'>In this task, you will have to approach " +
+     approach_cat + "-related pictures and you will have to avoid " +
+     avoidance_cat + "-related pictures. </p>" +
+     "<table align='center' class='vaast-table-instruction'>" +
+       "<tr>" +
+         "<th><img src='media/" + approach_cat + "_exemple.bmp'></th>" +
+         "<th><img src='media/" + avoidance_cat + "_exemple.bmp'></th>" +
+       "</tr>" +
+       "<tr>" +
+         "<th>Approach</th>" +
+         "<th>Avoid</th>" +
+       "</tr>" +
+     "</table>" +
+    "<p class = 'continue-instructions'>Press <strong>space</strong> to start training.</p>",
+  choices: [32]
+};
 // Creating a trial ---------------------------------------------------------------------
 
 var vaast_fixation = {
