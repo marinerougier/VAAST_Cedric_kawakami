@@ -5,3 +5,40 @@
 .jspsych-display-element {
 	font-family: 'Questrial', sans-serif;
 }
+
+.instructions {
+	margin-left: 15%;
+	margin-right: 15%;
+    text-align: justify;
+}
+
+.continue-instructions {
+	margin-right: 5%;
+	color: grey;
+}
+
+.key {
+	font-weight: bold;
+}
+.iat-category {
+	font-weight: bold;
+}
+
+.iat-important {
+	/*background-color: yellow;*/
+	text-decoration: underline;
+}
+
+.iat-progress{
+	text-align: center;
+	font-family: 'Slabo 27px', serif;
+}
+
+.iat-category{
+	font-weight:bold;
+}
+
+.iat-instructions {
+	position: absolute;
+	
+}
