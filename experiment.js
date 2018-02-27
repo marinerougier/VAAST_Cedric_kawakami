@@ -306,9 +306,10 @@ timeline.push(prolific_id, save_id);
 // First slide --------------------------------------------------------------------------
 var instructions = {
   type: "html-keyboard-response",
-  stimulus: "<h1 class ='custom-title'> Title </h1>" +
-            "<p>In this experiment, you will have engage in different parts. </p>" +
-            "<p>Press <strong>space</strong> to begin.</p>",
+  stimulus: "<h1 class ='custom-title'> Welcome </h1>" +
+            "<p>Thank you for deciding to complete this study. <br>" +
+            "In this study, you will have engage in different tasks. </p>" +
+            "<p class = 'continue-instructions'>Press <strong>space</strong> to start training.</p>",
   choices: [32]
 };
 
