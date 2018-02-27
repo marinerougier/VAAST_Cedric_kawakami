@@ -32,10 +32,11 @@
 // Variable input -----------------------------------------------------------------------
 // Variable used to define experimental condition.
 
-var vaast_approach_training = "maths"; // either "arts" or "maths
+var vaast_approach_training = jsPsych.randomization.sampleWithoutReplacement(["maths", "arts"], 1)[0];
+; // either "arts" or "maths
 
-var iat_self    = "left"; // either "left" or "right"
-var iat_maths_1 = "left"; // either "left" or "right"
+var iat_self    = jsPsych.randomization.sampleWithoutReplacement(["left", "right"], 1)[0];; // either "left" or "right"
+var iat_maths_1 = jsPsych.randomization.sampleWithoutReplacement(["left", "right"], 1)[0];; // either "left" or "right"
 
 var jspsych_id  = jsPsych.randomization.randomID();
 var prolific_pid = jsPsych.data.getURLVariable('PROLIFIC_PID');
