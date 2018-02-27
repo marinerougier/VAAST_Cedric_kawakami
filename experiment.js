@@ -34,6 +34,9 @@
 
 var vaast_approach_training = "maths"; // either "arts" or "maths
 
+var iat_self    = "left"; // either "left" or "right"
+var iat_maths_1 = "left"; // either "left" or "right"
+
 // VAAST --------------------------------------------------------------------------------
 // VAAST variables ----------------------------------------------------------------------
 
@@ -457,11 +460,6 @@ timeline.push(
   );
 
 // IAT ----------------------------------------------------------------------------------
-// IAT variable definitions -------------------------------------------------------------
-
-var iat_self    = "left"; // either "left" or "right"
-var iat_maths_1 = "left"; // either "left" or "right"
-
 // IAT variable initialization ----------------------------------------------------------
 // Correct responses -----------------------
 var self_side      = undefined;
