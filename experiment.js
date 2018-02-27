@@ -471,17 +471,17 @@ var vaast_test_block = {
 }
 
 timeline.push(
-  vaast_block,
-  vaast_block,
-  vaast_block,
-  vaast_block,
-  vaast_block,
-  vaast_block,
-  vaast_block,
-  vaast_block,
-  vaast_block,
-  vaast_block
-  );
+  vaast_training_block,
+  vaast_instructions_5,
+  vaast_test_block,
+  vaast_block_instructions(2),
+  vaast_test_block,
+  vaast_block_instructions(3),
+  vaast_test_block,
+  vaast_block_instructions(4),
+  vaast_test_block,
+  vaast_block_instructions(5)
+ );
 
 // IAT ----------------------------------------------------------------------------------
 // IAT variable initialization ----------------------------------------------------------
