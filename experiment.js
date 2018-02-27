@@ -37,6 +37,13 @@ var vaast_approach_training = "maths"; // either "arts" or "maths
 var iat_self    = "left"; // either "left" or "right"
 var iat_maths_1 = "left"; // either "left" or "right"
 
+var jspsych_id  = jsPsych.randomization.randomID();
+var prolific_pid = jsPsych.data.getURLVariable('PROLIFIC_PID');
+
+// check if URL prolific_pid exists and set prolific_pid to "" if it does not
+
+if(prolific_pid == null) {prolific_pid = "";}
+
 // VAAST --------------------------------------------------------------------------------
 // VAAST variables ----------------------------------------------------------------------
 
