@@ -392,6 +392,7 @@ var vaast_instructions_4 = {
   choices: [13]
 };
 
+
 timeline.push(
   vaast_instructions_1,
   // vaast_instructions_2,
@@ -674,7 +675,7 @@ var iat_block_1 = {
       stimulus: jsPsych.timelineVariable('stimulus'),
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
       html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
-      bottom_instructions: '<p>If you press the wrong key, a red cross will appear. Press the other key to continue.e=</p>',
+      bottom_instructions: '<p>If you press the wrong key, a red cross will appear. Press the other key to continue.</p>',
       force_correct_key_press: true,
       display_feedback: true,
       left_category_key:  'E',
