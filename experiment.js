@@ -287,10 +287,13 @@ if(data_stream) {
 }
 
 // Prolific identification --------------------------------------------------------------
+var prolific_pid = jsPsych.data.getURLVariable('PROLIFIC_PID');
+
+if(prolific_pid == null) {prolific_pid = "";}
 
 var prolific_id = {
  type: 'survey-text',
-  questions: [{prompt: "Please enter your Prolific ID:"}],
+  questions: [{prompt: "Please enter your Prolific ID:", value: prolific_pid}],
   button_label: "Start the experiment"
 };
 
