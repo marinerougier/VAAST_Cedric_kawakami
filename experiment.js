@@ -394,7 +394,7 @@ var vaast_instructions_4 = {
 
 timeline.push(
   vaast_instructions_1,
-  vaast_instructions_2,
+  // vaast_instructions_2,
   vaast_instructions_3,
   vaast_instructions_4
   );
