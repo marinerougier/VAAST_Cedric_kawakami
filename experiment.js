@@ -315,8 +315,8 @@ timeline.push(instructions);
 var vaast_instructions_1 = {
   type: "html-keyboard-response",
   stimulus:
-    "<h1 class ='custom-title'> Part 1 </h1>" +
     "<p class='instructions'>In this part, just like within a videogame, you" +
+    "<h1 class ='custom-title'> Task 1 </h1>" +
     " will act within the environnement presented below.</p>" +
     "<p class='instructions'> You will be able to move forward and backward" +
     " using your keyboard.</p>" +
@@ -331,7 +331,7 @@ var vaast_instructions_1 = {
 var vaast_instructions_2 = {
   type: "html-keyboard-response",
   stimulus:
-    "<h1 class ='custom-title'> Part 1 </h1>" +
+    "<h1 class ='custom-title'> Task 1 </h1>" +
     "<p class='instructions'>Some pictures will appear within the" +
     " environnement and you will have to approach them or avoid them" +
     " according on the category they belong to.</p>" +
@@ -346,8 +346,8 @@ var vaast_instructions_2 = {
 var vaast_instructions_3 = {
   type: "html-keyboard-response",
   stimulus:
-    "<h1 class ='custom-title'> Part 1 </h1>" +
     "<p class='instructions'>In this task, you will have to respond using your" +
+    "<h1 class ='custom-title'> Task 1 </h1>" +
     "keyboard. For every trial, once the picture appeared, you will " +
     "have to press the quickest as possible either on the \"approach\" key or the " +
     "\"avoidance\" key (see below).</p>" +
