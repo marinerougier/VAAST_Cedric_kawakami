@@ -452,7 +452,6 @@ var vaast_third_step = {
 
 // VAAST training block -----------------------------------------------------------------
 
-var vaast_block = {
 var vaast_training_block = {
   timeline: [vaast_fixation, vaast_first_step, vaast_second_step, vaast_third_step, save_vaast_trial],
   timeline_variables: vaast_stim,
