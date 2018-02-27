@@ -65,7 +65,9 @@ jsPsych.plugins["keen-ping"] = (function() {
             display_element.innerHTML = new_html;
           }
           else {
-            new_html = '<div id="jspsych-html-keyboard-response-stimulus">Connection established to our servers.<br /> Press any key to continue.</div>';
+            new_html =
+            '<div id="jspsych-html-keyboard-response-stimulus"><i class="fas fa-check"></i> Connection established to our servers.<br />' +
+            ' Press any key to continue.</div>';
             display_element.innerHTML = new_html;
 
             if (trial.choices != jsPsych.NO_KEYS) {
