@@ -468,6 +468,34 @@ var vaast_test_block = {
   timeline_variables: vaast_stim,
   repetitions: 1,
   randomize_order: true
+};
+
+var vaast_instructions_5 = {
+  type: "html-keyboard-response",
+  stimulus:
+    "<h1 class ='custom-title'> Task 1 </h1>" +
+    "<p class='instructions'>Training block is now over. </p>" +
+    "<p class='instructions'>You will now have to repeat this task for 10 new blocks." +
+    " Instructions are the same as in the training block of this task." +
+    "</p>" +
+    "<p class = 'continue-instructions'>Press <strong>space</strong> to start blocks n°1.</p>",
+  choices: [32]
+};
+
+var vaast_block_instructions = function(n)  {
+  var block_instructions = {
+    type: "html-keyboard-response",
+    stimulus:
+      "<h1 class ='custom-title'> Task 1 </h1>" +
+      "<p class='instructions'>Training block is now over. </p>" +
+      "<p class='instructions'>You will now have to repeat this task for 10 new blocks." +
+      " Instructions are the same as in the training block of this task." +
+      "</p>" +
+      "<p class = 'continue-instructions'>Press <strong>space</strong> to start blocks n°"+ n +".</p>",
+    choices: [32]
+  };
+
+  return(block_instructions)
 }
 
 timeline.push(
