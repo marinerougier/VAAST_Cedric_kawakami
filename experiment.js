@@ -264,7 +264,7 @@ var timeline = [];
 // Switching to fullscreen --------------------------------------------------------------
 var fullscreen_trial = {
   type: 'fullscreen',
-  message:  '<p>To take part in this experiment, your brower needs to be set on fullscreen.</p>',
+  message:  '<p>To take part in this experiment, your browser needs to be set on fullscreen.</p>',
   button_label: 'Switch to fullscreen',
   fullscreen_mode: true
 }
