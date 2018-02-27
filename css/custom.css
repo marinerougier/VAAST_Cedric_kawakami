@@ -45,3 +45,7 @@
 .vaast-table-instruction {
 	width: 600 px;
 }
+
+.vaast-movement-instructions {
+	font-weight: bold;
+}

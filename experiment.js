@@ -319,11 +319,14 @@ timeline.push(instructions);
 var vaast_instructions_1 = {
   type: "html-keyboard-response",
   stimulus:
-    "<p class='instructions'>In this part, just like within a videogame, you" +
     "<h1 class ='custom-title'> Task 1 </h1>" +
+    "<p class='instructions'>In the first task, just like in a videogame, you" +
     " will act within the environnement presented below.</p>" +
     "<p class='instructions'> You will be able to move forward and backward" +
     " using your keyboard.</p>" +
+    "<p class='instructions'>Some pictures will appear within the" +
+    " environnement and you will have to approach them or avoid them" +
+    " according to the category they belong to.</p>" +
     "<br>" +
     "<img src = 'media/vaast-background.png'>" +
     "<br>" +
@@ -338,7 +341,7 @@ var vaast_instructions_2 = {
     "<h1 class ='custom-title'> Task 1 </h1>" +
     "<p class='instructions'>Some pictures will appear within the" +
     " environnement and you will have to approach them or avoid them" +
-    " according on the category they belong to.</p>" +
+    " according to the category they belong to.</p>" +
     "<br>" +
     "<img src = 'media/vaast-background.png'>" +
     "<br>" +
@@ -350,8 +353,8 @@ var vaast_instructions_2 = {
 var vaast_instructions_3 = {
   type: "html-keyboard-response",
   stimulus:
-    "<p class='instructions'>In this task, you will have to respond using your" +
     "<h1 class ='custom-title'> Task 1 </h1>" +
+    "<p class='instructions'>In this task, you will have to respond using your " +
     "keyboard. For every trial, once the picture appeared, you will " +
     "have to press the quickest as possible either on the \"approach\" key or the " +
     "\"avoidance\" key (see below).</p>" +
@@ -367,10 +370,14 @@ var vaast_instructions_3 = {
 var vaast_instructions_4 = {
   type: "html-keyboard-response",
   stimulus:
-    "<h1 class ='custom-title'> Part 1 </h1>" +
-    "<p class='instructions'>In this task, you will have to approach " +
-     approach_cat + "-related pictures and you will have to avoid " +
-     avoidance_cat + "-related pictures. </p>" +
+    "<h1 class ='custom-title'> Task 1 </h1>" +
+    "<p class='instructions'>Your instructions are to <span class='vaast-movement-instructions'>approach " +
+     approach_cat + "-related pictures</span> and to <span class='vaast-movement-instructions'>avoid " +
+     avoidance_cat + "-related pictures</span>. </p>" +
+    "<p class='instructions'>It is very important to remember which action you will" +
+    " have to perform with each category. You need this information to complete the " +
+    "task successfully. Please make sure that you will remember these instructions before "+
+    "you start the training block of this task.</p>" +
      "<table align='center' class='vaast-table-instruction'>" +
        "<tr>" +
          "<th><img src='media/" + approach_cat + "_exemple.bmp'></th>" +
@@ -381,8 +388,8 @@ var vaast_instructions_4 = {
          "<th>Avoid</th>" +
        "</tr>" +
      "</table>" +
-    "<p class = 'continue-instructions'>Press <strong>space</strong> to start training.</p>",
-  choices: [32]
+    "<p class = 'continue-instructions'>Press <strong>enter</strong> to start training.</p>",
+  choices: [13]
 };
 
 timeline.push(
