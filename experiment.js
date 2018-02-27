@@ -518,6 +518,16 @@ timeline.push(
   // vaast_block_instructions(5)
  );
 
+var vaast_instructions_6 = {
+  type: "html-keyboard-response",
+  stimulus:
+    "<h1 class ='custom-title'> Task 1 </h1>" +
+    "<p class='instructions'>This part of the experiment is now over. </p>" +
+    "<p class = 'continue-instructions'>Press <strong>space</strong> to start Task 2.</p>",
+  choices: [32]
+};
+
+timeline.push(vaast_instructions_6);
 // IAT ----------------------------------------------------------------------------------
 // IAT variable initialization ----------------------------------------------------------
 // Correct responses -----------------------
