@@ -895,22 +895,22 @@ var iat_instructions_block_3_test = {
 // BLOCK 3 - Trials (practice + test) - stimuli -----------------------------------------
 
 var iat_block_3_stim = [
-  {stimulus: "I",          stim_key_association: self_side},
-  {stimulus: "me",         stim_key_association: self_side},
-  {stimulus: "my",         stim_key_association: self_side},
-  {stimulus: "mine",       stim_key_association: self_side},
-  {stimulus: "they",       stim_key_association: other_side},
-  {stimulus: "theirs",     stim_key_association: other_side},
-  {stimulus: "them",       stim_key_association: other_side},
-  {stimulus: "themselves", stim_key_association: other_side},
-  {stimulus: "calculus",   stim_key_association: maths_side_1st},
-  {stimulus: "equation",   stim_key_association: maths_side_1st},
-  {stimulus: "geometry",   stim_key_association: maths_side_1st},
-  {stimulus: "statistics", stim_key_association: maths_side_1st},
-  {stimulus: "poetry",     stim_key_association: arts_side_1st},
-  {stimulus: "literature", stim_key_association: arts_side_1st},
-  {stimulus: "theater",    stim_key_association: arts_side_1st},
-  {stimulus: "symphony",   stim_key_association: arts_side_1st}
+  {category: "self-other", stimulus: "I",          stim_key_association: self_side},
+  {category: "self-other", stimulus: "me",         stim_key_association: self_side},
+  {category: "self-other", stimulus: "my",         stim_key_association: self_side},
+  {category: "self-other", stimulus: "mine",       stim_key_association: self_side},
+  {category: "self-other", stimulus: "they",       stim_key_association: other_side},
+  {category: "self-other", stimulus: "theirs",     stim_key_association: other_side},
+  {category: "self-other", stimulus: "them",       stim_key_association: other_side},
+  {category: "self-other", stimulus: "themselves", stim_key_association: other_side},
+  {category: "maths-arts", stimulus: "calculus",   stim_key_association: maths_side_1st},
+  {category: "maths-arts", stimulus: "equation",   stim_key_association: maths_side_1st},
+  {category: "maths-arts", stimulus: "geometry",   stim_key_association: maths_side_1st},
+  {category: "maths-arts", stimulus: "statistics", stim_key_association: maths_side_1st},
+  {category: "maths-arts", stimulus: "poetry",     stim_key_association: arts_side_1st},
+  {category: "maths-arts", stimulus: "literature", stim_key_association: arts_side_1st},
+  {category: "maths-arts", stimulus: "theater",    stim_key_association: arts_side_1st},
+  {category: "maths-arts", stimulus: "symphony",   stim_key_association: arts_side_1st}
 ]
 
 var iat_block_3 = {
@@ -969,14 +969,14 @@ randomize_order: true}
 // BLOCK 4 - Trials - stimuli -----------------------------------------------------------
 
 var iat_block_4_stim = [
-  {stimulus: "calculus",   stim_key_association: maths_side_2nd},
-  {stimulus: "equation",   stim_key_association: maths_side_2nd},
-  {stimulus: "geometry",   stim_key_association: maths_side_2nd},
-  {stimulus: "statistics", stim_key_association: maths_side_2nd},
-  {stimulus: "poetry",     stim_key_association: arts_side_2nd},
-  {stimulus: "literature", stim_key_association: arts_side_2nd},
-  {stimulus: "theater",    stim_key_association: arts_side_2nd},
-  {stimulus: "symphony",   stim_key_association: arts_side_2nd}
+  {category: "maths-arts", stimulus: "calculus",   stim_key_association: maths_side_2nd},
+  {category: "maths-arts", stimulus: "equation",   stim_key_association: maths_side_2nd},
+  {category: "maths-arts", stimulus: "geometry",   stim_key_association: maths_side_2nd},
+  {category: "maths-arts", stimulus: "statistics", stim_key_association: maths_side_2nd},
+  {category: "maths-arts", stimulus: "poetry",     stim_key_association: arts_side_2nd},
+  {category: "maths-arts", stimulus: "literature", stim_key_association: arts_side_2nd},
+  {category: "maths-arts", stimulus: "theater",    stim_key_association: arts_side_2nd},
+  {category: "maths-arts", stimulus: "symphony",   stim_key_association: arts_side_2nd}
 ]
 
 // BLOCK 4 - Trials - procedure ---------------------------------------------------------
@@ -1010,22 +1010,22 @@ randomize_order: true}
 // BLOCK 5 - Trials (practice + test) - stimuli -----------------------------------------
 
 var iat_block_5_stim = [
-  {stimulus: "I",          stim_key_association: self_side},
-  {stimulus: "me",         stim_key_association: self_side},
-  {stimulus: "my",         stim_key_association: self_side},
-  {stimulus: "mine",       stim_key_association: self_side},
-  {stimulus: "they",       stim_key_association: other_side},
-  {stimulus: "theirs",     stim_key_association: other_side},
-  {stimulus: "them",       stim_key_association: other_side},
-  {stimulus: "themselves", stim_key_association: other_side},
-  {stimulus: "calculus",   stim_key_association: maths_side_2nd},
-  {stimulus: "equation",   stim_key_association: maths_side_2nd},
-  {stimulus: "geometry",   stim_key_association: maths_side_2nd},
-  {stimulus: "statistics", stim_key_association: maths_side_2nd},
-  {stimulus: "poetry",     stim_key_association: arts_side_2nd},
-  {stimulus: "literature", stim_key_association: arts_side_2nd},
-  {stimulus: "theater",    stim_key_association: arts_side_2nd},
-  {stimulus: "symphony",   stim_key_association: arts_side_2nd}
+  {category: "self-other", stimulus: "I",          stim_key_association: self_side},
+  {category: "self-other", stimulus: "me",         stim_key_association: self_side},
+  {category: "self-other", stimulus: "my",         stim_key_association: self_side},
+  {category: "self-other", stimulus: "mine",       stim_key_association: self_side},
+  {category: "self-other", stimulus: "they",       stim_key_association: other_side},
+  {category: "self-other", stimulus: "theirs",     stim_key_association: other_side},
+  {category: "self-other", stimulus: "them",       stim_key_association: other_side},
+  {category: "self-other", stimulus: "themselves", stim_key_association: other_side},
+  {category: "maths-arts", stimulus: "calculus",   stim_key_association: maths_side_2nd},
+  {category: "maths-arts", stimulus: "equation",   stim_key_association: maths_side_2nd},
+  {category: "maths-arts", stimulus: "geometry",   stim_key_association: maths_side_2nd},
+  {category: "maths-arts", stimulus: "statistics", stim_key_association: maths_side_2nd},
+  {category: "maths-arts", stimulus: "poetry",     stim_key_association: arts_side_2nd},
+  {category: "maths-arts", stimulus: "literature", stim_key_association: arts_side_2nd},
+  {category: "maths-arts", stimulus: "theater",    stim_key_association: arts_side_2nd},
+  {category: "maths-arts", stimulus: "symphony",   stim_key_association: arts_side_2nd}
 ]
 
 // BLOCK 5 - Trials (practice + test) - procedure ---------------------------------------
