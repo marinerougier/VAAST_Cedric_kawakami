@@ -785,14 +785,14 @@ var iat_instructions_block_2 = {
 // BLOCK 2 - Trials - stimuli -----------------------------------------------------------
 
 var iat_block_2_stim = [
-  {stimulus: "calculus",   stim_key_association: maths_side_1st},
-  {stimulus: "equation",   stim_key_association: maths_side_1st},
-  {stimulus: "geometry",   stim_key_association: maths_side_1st},
-  {stimulus: "statistics", stim_key_association: maths_side_1st},
-  {stimulus: "poetry",     stim_key_association: arts_side_1st},
-  {stimulus: "literature", stim_key_association: arts_side_1st},
-  {stimulus: "theater",    stim_key_association: arts_side_1st},
-  {stimulus: "symphony",   stim_key_association: arts_side_1st}
+  {category: "maths-arts", stimulus: "calculus",   stim_key_association: maths_side_1st},
+  {category: "maths-arts", stimulus: "equation",   stim_key_association: maths_side_1st},
+  {category: "maths-arts", stimulus: "geometry",   stim_key_association: maths_side_1st},
+  {category: "maths-arts", stimulus: "statistics", stim_key_association: maths_side_1st},
+  {category: "maths-arts", stimulus: "poetry",     stim_key_association: arts_side_1st},
+  {category: "maths-arts", stimulus: "literature", stim_key_association: arts_side_1st},
+  {category: "maths-arts", stimulus: "theater",    stim_key_association: arts_side_1st},
+  {category: "maths-arts", stimulus: "symphony",   stim_key_association: arts_side_1st}
 ]
 
 // BLOCK 2 - Trials - procedure ---------------------------------------------------------
