@@ -792,6 +792,8 @@ var iat_block_1 = {
     {
       type: 'iat-html',
       stimulus: jsPsych.timelineVariable('stimulus'),
+      category: jsPsych.timelineVariable('category'),
+      label_category: ['self-other'],
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
       html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
       bottom_instructions: '<p>If you press the wrong key, a red cross will appear. Press the other key to continue.</p>',
@@ -957,6 +959,8 @@ var iat_block_3 = {
     {
       type: 'iat-html',
       stimulus: jsPsych.timelineVariable('stimulus'),
+      category: jsPsych.timelineVariable('category'),
+      label_category: ['self-other', 'maths-arts'],
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
       html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
       bottom_instructions: '<p>If you press the wrong key, a red X will appear. Press the other key to continue</p>',
@@ -984,8 +988,6 @@ var iat_block_3_test = {
     {
       type: 'iat-html',
       stimulus: jsPsych.timelineVariable('stimulus'),
-      category: jsPsych.timelineVariable('category'),
-      label_category: ['self-other', 'maths-arts'],
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
       html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
       bottom_instructions: '<p>If you press the wrong key, a red X will appear. Press the other key to continue</p>',
