@@ -775,14 +775,14 @@ var iat_instructions_block_2 = {
 // BLOCK 1 - Trials - stimuli -----------------------------------------------------------
 
 var iat_block_1_stim = [
-  {stimulus: "I",          stim_key_association: self_side},
-  {stimulus: "me",         stim_key_association: self_side},
-  {stimulus: "my",         stim_key_association: self_side},
-  {stimulus: "mine",       stim_key_association: self_side},
-  {stimulus: "they",       stim_key_association: other_side},
-  {stimulus: "theirs",     stim_key_association: other_side},
-  {stimulus: "them",       stim_key_association: other_side},
-  {stimulus: "themselves", stim_key_association: other_side}
+  {category: "self-other", stimulus: "I",          stim_key_association: self_side},
+  {category: "self-other", stimulus: "me",         stim_key_association: self_side},
+  {category: "self-other", stimulus: "my",         stim_key_association: self_side},
+  {category: "self-other", stimulus: "mine",       stim_key_association: self_side},
+  {category: "self-other", stimulus: "they",       stim_key_association: other_side},
+  {category: "self-other", stimulus: "theirs",     stim_key_association: other_side},
+  {category: "self-other", stimulus: "them",       stim_key_association: other_side},
+  {category: "self-other", stimulus: "themselves", stim_key_association: other_side}
 ]
 
 // BLOCK 1 - Trials - procedure ---------------------------------------------------------
