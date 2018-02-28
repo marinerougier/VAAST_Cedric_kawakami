@@ -857,9 +857,10 @@ var iat_block_2 = {
     },
     save_iat_trial
   ],
-timeline_variables: iat_block_2_stim,
-randomize_order: true,
-repetitions: 3,}
+  timeline_variables: iat_block_2_stim,
+  randomize_order: true,
+  repetitions: 3,
+}
 
 // BLOCK 3 ------------------------------------------------------------------------------
 // BLOCK 3 - Instructions (practice + test) ---------------------------------------------
