@@ -24,7 +24,7 @@
         description: 'The HTML string to be displayed.'
       },
       left_category_key: {
-        type: jsPsych.plugins.parameterType.HTML_STRING, 
+        type: jsPsych.plugins.parameterType.HTML_STRING,
         pretty_name: 'Left category key',
         default: 'E',
         description: 'Key press that is associated with the left category label.'
@@ -67,7 +67,7 @@
         pretty_name: 'HTML when wrong',
         default: '<span style="color: red; font-size: 80px">X</span>',
         description: 'The image to display when a user presses the wrong key.'
-      }, 
+      },
       bottom_instructions: {
         type: jsPsych.plugins.parameterType.HTML_STRING,
         pretty_name: 'Bottom instructions',
@@ -99,6 +99,16 @@
         default: null,
         description: 'How long to show the trial.'
       },
+      category: {
+        type: jsPsych.plugins.parameterType.STRING,
+        pretty_name: 'Target category',
+        default: null
+      },
+      label_category:  {
+        type: jsPsych.plugins.parameterType.STRING,
+        pretty_name: 'label category',
+        default: null
+      }
     }
   }
 
@@ -107,28 +117,28 @@
 
     var html_str = "";
 
-    html_str += "<div style='position: absolute; height: 20%; width: 100%; margin-left: auto; margin-right: auto; top: 42%; left: 0; right: 0'><p id='jspsych-iat-stim'>" + trial.stimulus + "</p></div>";
+    html_str += "<div style='position: absolute; height: 20%; width: 100%; margin-left: auto; margin-right: auto; top: 42%; left: 0; right: 0'><p id='jspsych-iat-stim' class='" + trial.category + "'>" + trial.stimulus + "</p></div>";
 
     html_str += "<div id='trial_left_align' style='position: absolute; top: 18%; left: 20%'>";
 
     if(trial.left_category_label.length == 1) {
-      html_str += "<p>Press " + trial.left_category_key + " for:<br> " +
-      trial.left_category_label[0].bold() + "</p></div>";
+      html_str += "<p>Press <span class='key'>" + trial.left_category_key + "</span> for:<br> " +
+      "<span class ='"+ trial.label_category[0] +"'> "+ trial.left_category_label[0].bold() + "</span></p></div>";
     } else {
-      html_str += "<p>Press " + trial.left_category_key + " for:<br> " +
-      trial.left_category_label[0].bold() + "<br>" + "or<br>" +
-      trial.left_category_label[1].bold() + "</p></div>";
+      html_str += "<p>Press <span class='key'>" + trial.left_category_key + "</span> for:<br> " +
+      "<span class ='"+ trial.label_category[0] +"'> "+ trial.left_category_label[0].bold() + "</span><br>" + "or<br>" +
+      "<span class ='"+ trial.label_category[1] +"'> "+ trial.left_category_label[1].bold() + "</span></p></div>";
     }
 
     html_str += "<div id='trial_right_align' style='position: absolute; top: 18%; right: 20%'>";
 
     if(trial.right_category_label.length == 1) {
-      html_str += "<p>Press " + trial.right_category_key + " for:<br> " +
-      trial.right_category_label[0].bold() + '</p></div>';
+      html_str += "<p>Press <span class='key'>" + trial.right_category_key + "</span> for:<br> " +
+      "<span class ='"+ trial.label_category[0] +"'> "+ trial.right_category_label[0].bold() + '</span></p></div>';
     } else {
-      html_str += "<p>Press " + trial.right_category_key + " for:<br> " +
-      trial.right_category_label[0].bold() + "<br>" + "or<br>" +
-      trial.right_category_label[1].bold() + "</p></div>";
+      html_str += "<p>Press <span class='key'>" + trial.right_category_key + "</span> for:<br> " +
+      "<span class ='"+ trial.label_category[0] +"'> "+ trial.right_category_label[0].bold() + "</span><br>" + "or<br>" +
+      "<span class ='"+ trial.label_category[1] +"'> "+ trial.right_category_label[1].bold() + "</span></p></div>";
     }
 
     html_str += "<div id='wrongImgID' style='position:relative; top: 300px; margin-left: auto; margin-right: auto; left: 0; right: 0'>";
