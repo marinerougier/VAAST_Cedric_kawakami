@@ -187,7 +187,7 @@ var saving_id = function(){
     });
     if(data_stream) {
       client.recordEvent('session_id', {
-        session_id: id,
+        session_id: jspsych_id,
         vaast_approach_training: vaast_approach_training,
         iat_self_side: iat_self,
         iat_maths_1_side: iat_maths_1,
@@ -206,7 +206,7 @@ var saving_vaast_trial = function(){
     });
     if(data_stream) {
       client.recordEvent('vaast_trial', {
-        session_id: id,
+        session_id: jspsych_id,
         vaast_approach_training: vaast_approach_training,
         iat_self_side: iat_self,
         iat_maths_1_side: iat_maths_1,
@@ -218,7 +218,6 @@ var saving_vaast_trial = function(){
 
 // iat trial ----------------------------------------------------------------------------
 var saving_iat_trial = function(){
-  var id = get_id();
   KeenAsync.ready(function(){
     var client = new KeenAsync({
       projectId: stream_projectID,
@@ -226,7 +225,7 @@ var saving_iat_trial = function(){
     });
     if(data_stream) {
       client.recordEvent('iat_trial', {
-        session_id: id,
+        session_id: jspsych_id,
         vaast_approach_training: vaast_approach_training,
         iat_self_side: iat_self,
         iat_maths_1_side: iat_maths_1,
@@ -245,7 +244,7 @@ var saving_browser_events = function() {
       });
       if(data_stream) {
         client.recordEvent('session_info', {
-          session_id: id,
+          session_id: jspsych_id,
           event_data: jsPsych.data.getInteractionData().json()
         });
       }
