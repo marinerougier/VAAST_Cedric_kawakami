@@ -24,6 +24,7 @@
 // keen.io initialization ---------------------------------------------------------------
 // This part will work only if stream_projectID & stream_writeKey have been defined.
 // nb: the bang (!) is for self-invoking function.
+
 !function(name,path,ctx){
   'use strict';
   var latest,prev=name!=='Keen'&&window.Keen?window.Keen:false;ctx[name]=ctx[name]||{ready:function(fn){var h=document.getElementsByTagName('head')[0],s=document.createElement('script'),w=window,loaded;s.onload=s.onerror=s.onreadystatechange=function(){if((s.readyState&&!(/^c|loade/.test(s.readyState)))||loaded){return}s.onload=s.onreadystatechange=null;loaded=1;latest=w.Keen;if(prev){w.Keen=prev}else{try{delete w.Keen}catch(e){w.Keen=void 0}}ctx[name]=latest;ctx[name].ready(fn)};s.async=1;s.src=path;h.parentNode.insertBefore(s,h)}}
@@ -178,7 +179,6 @@ var get_id = function() {
 
 // init ---------------------------------------------------------------------------------
 var saving_id = function(){
-  var id = get_id();
 
   KeenAsync.ready(function(){
     var client = new KeenAsync({
@@ -198,7 +198,6 @@ var saving_id = function(){
 
 // vaast trial --------------------------------------------------------------------------
 var saving_vaast_trial = function(){
-  var id = get_id();
   KeenAsync.ready(function(){
     var client = new KeenAsync({
       projectId: stream_projectID,
@@ -236,7 +235,6 @@ var saving_iat_trial = function(){
 }
 
 var saving_browser_events = function() {
-  var id = get_id();
   KeenAsync.ready(function(){
     var client = new KeenAsync({
         projectId: stream_projectID,
@@ -617,9 +615,7 @@ switch(iat_maths_1) {
     break;
 }
 
-
-// IAT initial instructions -------------------------------------------------------------
-// IAT instructions ---------------------------------------------------------------------
+// iat instructions ---------------------------------------------------------------------
 
 var iat_instructions_1 = {
   type: "html-keyboard-response",
@@ -663,52 +659,7 @@ var iat_instructions_1 = {
   choices: [32]
 };
 
-var iat_instructions_2 = {
-  type: "html-keyboard-response",
-  stimulus:
-    "<h1 class ='custom-title'> Task 2 </h1>" +
-    "<h3 class='instructions'>Instructions</h3>" +
-    "<p class='instructions'>" +
-      "In the next task, you will have to put your middle or index fingers on the <span class='key'>E</span> " +
-      "and <span class='key'>I</span> keys of your keyboard. Words representing the categories will appear " +
-      "one-by-one in the middle of the screen and categories will appear at the top-left and top-right " +
-      "corner of the screen. " +
-      "When the item belongs to a category on the left, press the <span class='key'>E</span> key; when the item " +
-      "belongs to a category on he right, press the <span class='key'>I</span> key. Items belong to only one category. " +
-      "If you make an error, an X will appear - fix the error by hitting the other key." +
-    "</p>" +
-    "<p class='instructions'>" +
-      "This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. " +
-    "</p>" +
-    "<p>&nbsp;</p>" +
-    "<p class = 'continue-instructions'>Press <span class='key'>space</span>" +
-    " to continue.</p>",
-  choices: [32]
-};
-// var iat_instructions_2 = {
-//   type: "html-keyboard-response",
-//   stimulus: "<h1 class ='custom-title'> Part 2 </h1>" +
-//       "<p class='instructions'>To complete the task, you will have to use the " +
-//       "<span class='key'>E</span> and <span class='key'>I</span> computer " +
-//       "keys to categorize items into groups as fast as you can. These are the " +
-//       "four groups:</p>" +
-//       "<div class ='instructions'>" +
-//       "<ul>" +
-//       "<li><span class='iat-category'>SELF:</span> I, me, my, mine </li>" +
-//       "<li><span class='iat-category'>OTHER:</span> they, theirs, them, themselves </li>" +
-//       "<li><span class='iat-category'>ARTS:</span> poetry, literature, theater, symphony</li>" +
-//       "<li><span class='iat-category'>MATHS:</span> calculus, equation, geometry, statistics </li>" +
-//       "</ul>" +
-//       "</div>" +
-//       "<p class='instructions'>There are seven parts. The instructions change for " +
-//       "each part so pay attention." +
-//       "<p>&nbsp;</p>" +
-//       "<p class = 'continue-instructions'>Press <span class='key'>space</span> to continue.</p>",
-//   choices: [32]
-// };
-
-// BLOCK 1 ------------------------------------------------------------------------------
-// BLOCK 1 - Instructions ---------------------------------------------------------------
+// iat block instructions ---------------------------------------------------------------
 
 var iat_instructions_block_1 = {
   type: 'html-keyboard-response',
@@ -736,7 +687,7 @@ var iat_instructions_block_1 = {
       "This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. " +
     "</p>" +
   "</div> " +
-  "<br><br>" +
+  "<br>" +
   "<p class = 'continue-instructions'>Press <span class='key'>space bar</span> when you are ready to start.</p>",
   choices: [32]
 };
@@ -761,18 +712,175 @@ var iat_instructions_block_2 = {
     "</p>" +
     "<p class='instructions'>" +
       "When the items belong to a category to the left, press the <span class='key'>E</span> key; " +
-      "when tje item belongs to a category on the right, press the <span class='key'>I</span> key. " +
+      "when the item belongs to a category on the right, press the <span class='key'>I</span> key. " +
       "Items belong to only one category. " +
       "An X will appears after an error - fix the error by hitting the other key. " +
       "GO AS FAST AS YOU CAN. " +
     "</p>" +
   "</div> " +
-  "<br><br>" +
+  "<br>" +
   "<p class = 'continue-instructions'>Press <span class='key'>space bar</span> when you are ready to start.</p>",
   choices: [32]
 };
-// BLOCK 1 - Trials ---------------------------------------------------------------------
-// BLOCK 1 - Trials - stimuli -----------------------------------------------------------
+
+var iat_instructions_block_3 = {
+  type: 'html-keyboard-response',
+  stimulus:
+  "<div style='position: absolute; top: 18%; left: 20%'><p>" +
+    "Press <span class='key'>E</span> for:<br> " +
+    "<span class='iat-category self-other'>" + block_3_left_label_top  + "</span>" +
+    "<br>or<br>" +
+    "<span class='iat-category maths-arts'>" + block_3_left_label_bottom + "</span>" +
+  "</p></div>" +
+  "<div style='position: absolute; top: 18%; right: 20%'><p>" +
+    "Press <span class='key'>I</span>  for:<br>" +
+    "<span class='iat-category self-other'>" + block_3_right_label_top + "</span>" +
+    "<br>or<br>" +
+    "<span class='iat-category maths-arts'>" + block_3_right_label_bottom  + "</span>" +
+  "</p></div>" +
+  "<div class='iat-instructions' style='position: relative; top: 42%'> "+
+    "<p class='instructions'>" +
+    "See above, the four categories you saw separately now appear together. " +
+    "Remember, each item belongs to only one group." +
+    "</p>" +
+    "<p class='instructions'>" +
+    "The <span class='maths-arts'>green</span> and <span class='self-other'>black</span> labels " +
+    "and items may help to identify the appropriate category. " +
+    "Use the <span class='key'>E</span> and <span class='key'>I</span> keys to categorize " +
+    "items into the four groups left and right, and correct errors by hitting the other key." +
+    "</p>" +
+  "</div> " +
+  "<br />" +
+  "<p class = 'continue-instructions'>Press <span class='key'>space bar</span> when you are ready to start.</p>",
+  choices: [32]
+};
+
+var iat_instructions_block_3_test = {
+  type: 'html-keyboard-response',
+  stimulus:
+  "<div style='position: absolute; top: 18%; left: 20%'><p>" +
+    "Press <span class='key'>E</span> for:<br> " +
+    "<span class='iat-category self-other'>" + block_3_left_label_top  + "</span>" +
+    "<br>or<br>" +
+    "<span class='iat-category maths-arts'>" + block_3_left_label_bottom + "</span>" +
+  "</p></div>" +
+  "<div style='position: absolute; top: 18%; right: 20%'><p>" +
+    "Press <span class='key'>I</span>  for:<br>" +
+    "<span class='iat-category self-other'>" + block_3_right_label_top + "</span>" +
+    "<br>or<br>" +
+    "<span class='iat-category maths-arts'>" + block_3_right_label_bottom  + "</span>" +
+  "</p></div>" +
+  "<div class='iat-instructions' style='position: relative; top: 42%'> "+
+    "<p class='instructions'>" +
+    "Sort the same four categories again. Remember to go as fast as you can while " +
+    "making as few mistakes as possible." +
+    "</p>" +
+    "<p class='instructions'>" +
+    "The <span class='maths-arts'>green</span> and <span class='self-other'>black</span> labels " +
+    "and items may help to identify the appropriate category. " +
+    "Use the <span class='key'>E</span> and <span class='key'>I</span> keys to categorize " +
+    "items into the four groups left and right, and correct errors by hitting the other key." +
+    "</p>" +
+  "</div> " +
+  "<br />" +
+  "<p class = 'continue-instructions'>Press <span class='key'>space bar</span> when you are ready to start.</p>",
+  choices: [32]
+};
+
+var iat_instructions_block_4 = {
+  type: 'html-keyboard-response',
+  stimulus:
+  "<div style='position: absolute; top: 18%; left: 20%'> <p>Press " +
+    "<span class='key'>E</span> for:<br><span class='iat-category maths-arts'>" +
+    block_4_left_label  +
+    "</span></p>" +
+    "</div>" +
+    "<div style='position: absolute; top: 18%; right: 20%'><p>Press " +
+    "<span class='key'>I</span> for:<br><span class='iat-category maths-arts'>" +
+    block_4_right_label +
+    "</span></p>" +
+  "</div>" +
+  "<div class='iat-instructions' style='position: relative; top: 42%, width:80%;'> " +
+    "<p class='instructions'>" +
+      "Notice above, there are only two categories and they have switched positions. " +
+      "The concept that was previously on the left is now on the right, and the concept " +
+      "that was on the right is now on the left. Practice this new configuration."  +
+    "</p>" +
+    "<p class='instructions'>" +
+      "Use the <span class='key'>E</span> and <span class='key'>I</span> keys " +
+      "to categorize items left and right, and correct error " +
+      "by hitting the other key." +
+    "</p>" +
+  "</div> " +
+  "<br>" +
+  "<p class = 'continue-instructions'>Press <span class='key'>space bar</span> when you are ready to start.</p>",
+  choices: [32]
+};
+
+var iat_instructions_block_5 = {
+  type: 'html-keyboard-response',
+  stimulus:
+  "<div style='position: absolute; top: 18%; left: 20%'><p>" +
+    "Press <span class='key'>E</span> for:<br> " +
+    "<span class='iat-category self-other'>" + block_5_left_label_top  + "</span>" +
+    "<br>or<br>" +
+    "<span class='iat-category maths-arts'>" + block_5_left_label_bottom + "</span>" +
+  "</p></div>" +
+  "<div style='position: absolute; top: 18%; right: 20%'><p>" +
+    "Press <span class='key'>I</span>  for:<br>" +
+    "<span class='iat-category self-other'>" + block_5_right_label_top + "</span>" +
+    "<br>or<br>" +
+    "<span class='iat-category maths-arts'>" + block_5_right_label_bottom  + "</span>" +
+  "</p></div>" +
+  "<div class='iat-instructions' style='position: relative; top: 42%'> "+
+    "<p class='instructions'>" +
+    "See above, the four categories now appear together in a new configuration. " +
+    "Remember, each item belongs to only one group." +
+    "</p>" +
+    "<p class='instructions'>" +
+      "Use the <span class='key'>E</span> and <span class='key'>I</span> keys " +
+      "to categorize items into the four groups left and right, and correct error " +
+      "by hitting the other key." +
+    "</p>" +
+  "</div> " +
+  "<br />" +
+  "<p class = 'continue-instructions'>Press <span class='key'>space bar</span> when you are ready to start.</p>",
+  choices: [32]
+};
+
+var iat_instructions_block_5_test = {
+  type: 'html-keyboard-response',
+  stimulus:
+  "<div style='position: absolute; top: 18%; left: 20%'><p>" +
+    "Press <span class='key'>E</span> for:<br> " +
+    "<span class='iat-category self-other'>" + block_5_left_label_top  + "</span>" +
+    "<br>or<br>" +
+    "<span class='iat-category maths-arts'>" + block_5_left_label_bottom + "</span>" +
+  "</p></div>" +
+  "<div style='position: absolute; top: 18%; right: 20%'><p>" +
+    "Press <span class='key'>I</span>  for:<br>" +
+    "<span class='iat-category self-other'>" + block_5_right_label_top + "</span>" +
+    "<br>or<br>" +
+    "<span class='iat-category maths-arts'>" + block_5_right_label_bottom  + "</span>" +
+  "</p></div>" +
+  "<div class='iat-instructions' style='position: relative; top: 42%'> "+
+    "<p class='instructions'>" +
+    "Sort the same four categories again. Remember to go as fast as you can while " +
+    "making as few mistakes as possible." +
+    "</p>" +
+    "<p class='instructions'>" +
+    "The <span class='maths-arts'>green</span> and <span class='self-other'>black</span> labels " +
+    "and items may help to identify the appropriate category. " +
+    "Use the <span class='key'>E</span> and <span class='key'>I</span> keys to categorize " +
+    "items into the four groups left and right, and correct errors by hitting the other key." +
+    "</p>" +
+  "</div> " +
+  "<br />" +
+  "<p class = 'continue-instructions'>Press <span class='key'>space bar</span> when you are ready to start.</p>",
+  choices: [32]
+};
+
+// iat - stimuli ------------------------------------------------------------------------
 
 var iat_block_1_stim = [
   {category: "self-other", stimulus: "I",          stim_key_association: self_side},
@@ -785,7 +893,65 @@ var iat_block_1_stim = [
   {category: "self-other", stimulus: "themselves", stim_key_association: other_side}
 ]
 
-// BLOCK 1 - Trials - procedure ---------------------------------------------------------
+var iat_block_2_stim = [
+  {category: "maths-arts", stimulus: "calculus",   stim_key_association: maths_side_1st},
+  {category: "maths-arts", stimulus: "equation",   stim_key_association: maths_side_1st},
+  {category: "maths-arts", stimulus: "geometry",   stim_key_association: maths_side_1st},
+  {category: "maths-arts", stimulus: "statistics", stim_key_association: maths_side_1st},
+  {category: "maths-arts", stimulus: "poetry",     stim_key_association: arts_side_1st},
+  {category: "maths-arts", stimulus: "literature", stim_key_association: arts_side_1st},
+  {category: "maths-arts", stimulus: "theater",    stim_key_association: arts_side_1st},
+  {category: "maths-arts", stimulus: "symphony",   stim_key_association: arts_side_1st}
+]
+
+var iat_block_3_stim = [
+  {category: "self-other", stimulus: "I",          stim_key_association: self_side},
+  {category: "self-other", stimulus: "me",         stim_key_association: self_side},
+  {category: "self-other", stimulus: "my",         stim_key_association: self_side},
+  {category: "self-other", stimulus: "mine",       stim_key_association: self_side},
+  {category: "self-other", stimulus: "they",       stim_key_association: other_side},
+  {category: "self-other", stimulus: "theirs",     stim_key_association: other_side},
+  {category: "self-other", stimulus: "them",       stim_key_association: other_side},
+  {category: "self-other", stimulus: "themselves", stim_key_association: other_side},
+  {category: "maths-arts", stimulus: "calculus",   stim_key_association: maths_side_1st},
+  {category: "maths-arts", stimulus: "equation",   stim_key_association: maths_side_1st},
+  {category: "maths-arts", stimulus: "geometry",   stim_key_association: maths_side_1st},
+  {category: "maths-arts", stimulus: "statistics", stim_key_association: maths_side_1st},
+  {category: "maths-arts", stimulus: "poetry",     stim_key_association: arts_side_1st},
+  {category: "maths-arts", stimulus: "literature", stim_key_association: arts_side_1st},
+  {category: "maths-arts", stimulus: "theater",    stim_key_association: arts_side_1st},
+  {category: "maths-arts", stimulus: "symphony",   stim_key_association: arts_side_1st}
+]
+
+var iat_block_4_stim = [
+  {category: "maths-arts", stimulus: "calculus",   stim_key_association: maths_side_2nd},
+  {category: "maths-arts", stimulus: "equation",   stim_key_association: maths_side_2nd},
+  {category: "maths-arts", stimulus: "geometry",   stim_key_association: maths_side_2nd},
+  {category: "maths-arts", stimulus: "statistics", stim_key_association: maths_side_2nd},
+  {category: "maths-arts", stimulus: "poetry",     stim_key_association: arts_side_2nd},
+  {category: "maths-arts", stimulus: "literature", stim_key_association: arts_side_2nd},
+  {category: "maths-arts", stimulus: "theater",    stim_key_association: arts_side_2nd},
+  {category: "maths-arts", stimulus: "symphony",   stim_key_association: arts_side_2nd}
+]
+
+var iat_block_5_stim = [
+  {category: "self-other", stimulus: "I",          stim_key_association: self_side},
+  {category: "self-other", stimulus: "me",         stim_key_association: self_side},
+  {category: "self-other", stimulus: "my",         stim_key_association: self_side},
+  {category: "self-other", stimulus: "mine",       stim_key_association: self_side},
+  {category: "self-other", stimulus: "they",       stim_key_association: other_side},
+  {category: "self-other", stimulus: "theirs",     stim_key_association: other_side},
+  {category: "self-other", stimulus: "them",       stim_key_association: other_side},
+  {category: "self-other", stimulus: "themselves", stim_key_association: other_side},
+  {category: "maths-arts", stimulus: "calculus",   stim_key_association: maths_side_2nd},
+  {category: "maths-arts", stimulus: "equation",   stim_key_association: maths_side_2nd},
+  {category: "maths-arts", stimulus: "geometry",   stim_key_association: maths_side_2nd},
+  {category: "maths-arts", stimulus: "statistics", stim_key_association: maths_side_2nd},
+  {category: "maths-arts", stimulus: "poetry",     stim_key_association: arts_side_2nd},
+  {category: "maths-arts", stimulus: "literature", stim_key_association: arts_side_2nd},
+  {category: "maths-arts", stimulus: "theater",    stim_key_association: arts_side_2nd},
+  {category: "maths-arts", stimulus: "symphony",   stim_key_association: arts_side_2nd}
+]
 
 var iat_block_1 = {
   timeline: [
@@ -816,25 +982,6 @@ var iat_block_1 = {
   repetitions:3,
 }
 
-// BLOCK 2 ------------------------------------------------------------------------------
-// BLOCK 2 - Instructions ---------------------------------------------------------------
-
-// BLOCK 2 - Trials ---------------------------------------------------------------------
-// BLOCK 2 - Trials - stimuli -----------------------------------------------------------
-
-var iat_block_2_stim = [
-  {category: "maths-arts", stimulus: "calculus",   stim_key_association: maths_side_1st},
-  {category: "maths-arts", stimulus: "equation",   stim_key_association: maths_side_1st},
-  {category: "maths-arts", stimulus: "geometry",   stim_key_association: maths_side_1st},
-  {category: "maths-arts", stimulus: "statistics", stim_key_association: maths_side_1st},
-  {category: "maths-arts", stimulus: "poetry",     stim_key_association: arts_side_1st},
-  {category: "maths-arts", stimulus: "literature", stim_key_association: arts_side_1st},
-  {category: "maths-arts", stimulus: "theater",    stim_key_association: arts_side_1st},
-  {category: "maths-arts", stimulus: "symphony",   stim_key_association: arts_side_1st}
-]
-
-// BLOCK 2 - Trials - procedure ---------------------------------------------------------
-
 var iat_block_2 = {
   timeline: [
     {
@@ -863,96 +1010,6 @@ var iat_block_2 = {
   randomize_order: true,
   repetitions: 3,
 }
-
-// BLOCK 3 ------------------------------------------------------------------------------
-// BLOCK 3 - Instructions (practice + test) ---------------------------------------------
-
-var iat_instructions_block_3 = {
-  type: 'html-keyboard-response',
-  stimulus: "" +
-
-  "<div style='position: absolute; top: 18%; left: 20%'>" +
-    "Press <span class='key'>E</span> for:<br> " +
-    "<span class='iat-category'>" + block_3_left_label_top  + "</span>" +
-    "<br>or<br>" +
-    "<span class='iat-category'>" + block_3_left_label_bottom + "</span>" +
-  "</div>" +
-  "<div style='position: absolute; top: 18%; right: 20%'>" +
-    "Press <span class='key'>I</span>  for:<br>" +
-    "<span class='iat-category'>" + block_3_right_label_top + "</span>" +
-    "<br>or<br>" +
-    "<span class='iat-category'>" + block_3_right_label_bottom  + "</span>" +
-  "</div>" +
-  "<div class='instructions' style='position: relative; top: 42%'> "+
-    "<h3 class='iat-progress'>Part 3 / 7</h3>" +
-    "<p>" +
-      "Put a left finger on the <span class='key'>E</span> key for " +
-      "<span class='iat-category'>"  + block_3_left_label_top  + "</span>" +
-      " and for " +
-      "<span class='iat-category'>"  + block_3_left_label_bottom  + "</span>." +
-    "</p>" +
-    "<p>" +
-    "Put a right finger on the <span class='key'>I</span> key for " +
-    "<span class='iat-category'>" + block_3_right_label_top  + "</span>" +
-    " and for " +
-    "<span class='iat-category'>" + block_3_right_label_bottom + "</span>." +
-    "</p>" +
-    "<p>" +
-      "Each item belongs to one category." +
-    "</p>" +
-    "<br><br>" +
-    "If you make a mistake, a red X will appear. Press the correct key to continue. <br> " +
-    "<span class='iat-important'>Go as fast as you can</span> while being accurate.<br><br>" +
-  "</div> " +
-  "<br />" +
-  "<p class = 'continue-instructions'>Press <span class='key'>space bar</span> when you are ready to start.</p>",
-  choices: [32]
-};
-
-var iat_instructions_block_3_test = {
-  type: 'html-keyboard-response',
-  stimulus: "" +
-
-  "<div style='position: absolute; top: 18%; left: 20%'>Press <span class='key'>E</span> for:<br> " +
-  "<strong>" + block_3_left_label_top  + "</strong><br>or<br><strong>" + block_3_left_label_bottom   + "</strong></div>" +
-  "<div style='position: absolute; top: 18%; right: 20%'>Press <span class='key'>I</span>  for:<br>" +
-  "<strong>" + block_3_right_label_top + "</strong><br>or<br><strong>" + block_3_right_label_bottom  + "</strong></div>" +
-
-  "<div class='instructions' style='position: relative; top: 42%'> "+
-    "<h3 class='iat-progress'>Part 3 / 7</h3>" +
-    "Put a left finger on the <span class='key'>E</span> key for "  + block_3_left_label_top  + " and for "  + block_3_left_label_bottom  + ".<br />" +
-    "Put a right finger on the <span class='key'>I</span> key for " + block_3_right_label_top  + " and for " + block_3_right_label_bottom + ".<br />" +
-    "Each item belongs to one category." +
-    "<br><br>" +
-    "If you make a mistake, a red X will appear. Press the correct key to continue. <br> " +
-    "<span class='iat-important'>Go as fast as you can</span> while being accurate.<br><br>" +
-  "</div> " +
-  "<br />" +
-  "<p class = 'continue-instructions'>Press <span class='key'>space bar</span> when you are ready to start.</p>",
-  choices: [32]
-};
-
-// BLOCK 3 - Trials (practice + test) ---------------------------------------------------
-// BLOCK 3 - Trials (practice + test) - stimuli -----------------------------------------
-
-var iat_block_3_stim = [
-  {category: "self-other", stimulus: "I",          stim_key_association: self_side},
-  {category: "self-other", stimulus: "me",         stim_key_association: self_side},
-  {category: "self-other", stimulus: "my",         stim_key_association: self_side},
-  {category: "self-other", stimulus: "mine",       stim_key_association: self_side},
-  {category: "self-other", stimulus: "they",       stim_key_association: other_side},
-  {category: "self-other", stimulus: "theirs",     stim_key_association: other_side},
-  {category: "self-other", stimulus: "them",       stim_key_association: other_side},
-  {category: "self-other", stimulus: "themselves", stim_key_association: other_side},
-  {category: "maths-arts", stimulus: "calculus",   stim_key_association: maths_side_1st},
-  {category: "maths-arts", stimulus: "equation",   stim_key_association: maths_side_1st},
-  {category: "maths-arts", stimulus: "geometry",   stim_key_association: maths_side_1st},
-  {category: "maths-arts", stimulus: "statistics", stim_key_association: maths_side_1st},
-  {category: "maths-arts", stimulus: "poetry",     stim_key_association: arts_side_1st},
-  {category: "maths-arts", stimulus: "literature", stim_key_association: arts_side_1st},
-  {category: "maths-arts", stimulus: "theater",    stim_key_association: arts_side_1st},
-  {category: "maths-arts", stimulus: "symphony",   stim_key_association: arts_side_1st}
-]
 
 var iat_block_3 = {
   timeline: [
@@ -1008,22 +1065,6 @@ var iat_block_3_test = {
 timeline_variables: iat_block_3_stim,
 randomize_order: true}
 
-// BLOCK 4 - Trials ---------------------------------------------------------------------
-// BLOCK 4 - Trials - stimuli -----------------------------------------------------------
-
-var iat_block_4_stim = [
-  {category: "maths-arts", stimulus: "calculus",   stim_key_association: maths_side_2nd},
-  {category: "maths-arts", stimulus: "equation",   stim_key_association: maths_side_2nd},
-  {category: "maths-arts", stimulus: "geometry",   stim_key_association: maths_side_2nd},
-  {category: "maths-arts", stimulus: "statistics", stim_key_association: maths_side_2nd},
-  {category: "maths-arts", stimulus: "poetry",     stim_key_association: arts_side_2nd},
-  {category: "maths-arts", stimulus: "literature", stim_key_association: arts_side_2nd},
-  {category: "maths-arts", stimulus: "theater",    stim_key_association: arts_side_2nd},
-  {category: "maths-arts", stimulus: "symphony",   stim_key_association: arts_side_2nd}
-]
-
-// BLOCK 4 - Trials - procedure ---------------------------------------------------------
-
 var iat_block_4 = {
   timeline: [
     {
@@ -1048,30 +1089,6 @@ var iat_block_4 = {
   ],
 timeline_variables: iat_block_4_stim,
 randomize_order: true}
-
-// BLOCK 5 - Trials (practice + test) ---------------------------------------------------
-// BLOCK 5 - Trials (practice + test) - stimuli -----------------------------------------
-
-var iat_block_5_stim = [
-  {category: "self-other", stimulus: "I",          stim_key_association: self_side},
-  {category: "self-other", stimulus: "me",         stim_key_association: self_side},
-  {category: "self-other", stimulus: "my",         stim_key_association: self_side},
-  {category: "self-other", stimulus: "mine",       stim_key_association: self_side},
-  {category: "self-other", stimulus: "they",       stim_key_association: other_side},
-  {category: "self-other", stimulus: "theirs",     stim_key_association: other_side},
-  {category: "self-other", stimulus: "them",       stim_key_association: other_side},
-  {category: "self-other", stimulus: "themselves", stim_key_association: other_side},
-  {category: "maths-arts", stimulus: "calculus",   stim_key_association: maths_side_2nd},
-  {category: "maths-arts", stimulus: "equation",   stim_key_association: maths_side_2nd},
-  {category: "maths-arts", stimulus: "geometry",   stim_key_association: maths_side_2nd},
-  {category: "maths-arts", stimulus: "statistics", stim_key_association: maths_side_2nd},
-  {category: "maths-arts", stimulus: "poetry",     stim_key_association: arts_side_2nd},
-  {category: "maths-arts", stimulus: "literature", stim_key_association: arts_side_2nd},
-  {category: "maths-arts", stimulus: "theater",    stim_key_association: arts_side_2nd},
-  {category: "maths-arts", stimulus: "symphony",   stim_key_association: arts_side_2nd}
-]
-
-// BLOCK 5 - Trials (practice + test) - procedure ---------------------------------------
 
 var iat_block_5 = {
   timeline: [
@@ -1126,11 +1143,16 @@ randomize_order: true}
 // IAT task -----------------------------------------------------------------------------
 // Pushing every IAT block to build the task.
 // timeline.push(iat_instructions_1, iat_instructions_2, iat_instructions_3)
+
 timeline.push(
-  iat_instructions_block_1,      iat_block_1,
-  iat_instructions_block_2,      iat_block_2,
-  iat_instructions_block_3,      iat_block_3,
-  iat_instructions_block_3_test, iat_block_3_test,
+  iat_instructions_1,
+  iat_instructions_block_1,
+  iat_instructions_block_2,
+  iat_instructions_block_3,
+  iat_instructions_block_3_test,
+  iat_instructions_block_4,
+  iat_instructions_block_5,
+  iat_instructions_block_5_test,
   );
 
 // end fullscreen -----------------------------------------------------------------------
