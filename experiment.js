@@ -621,17 +621,70 @@ switch(iat_maths_1) {
 // IAT initial instructions -------------------------------------------------------------
 // IAT instructions ---------------------------------------------------------------------
 
-// var iat_instructions_1 = {
-//   type: "html-keyboard-response",
-//   stimulus: "<h1 class ='custom-title'> Part 2 </h1>" +
-//             "<p class='instructions'>In this part, you will be asked to sort words" +
-//             " into groups as fast as you can using the keyboard.</p>" +
-//             "<p>&nbsp;</p>" +
-//             "<p class = 'continue-instructions'>Press <span class='key'>space</span>" +
-//             " to continue.</p>",
-//   choices: [32]
-// };
+var iat_instructions_1 = {
+  type: "html-keyboard-response",
+  stimulus:
+    "<h1 class ='custom-title'> Task 2 </h1>" +
+    "<p class='instructions'>In this part, you will be asked to sort words" +
+    " into groups as fast as you can using the keyboard. The following is a" +
+    " list of category labels and the items that belong to each of those categories." +
+    "</p>" +
+    "<table>" +
+      "<tr>" +
+        "<th width='200px'>Category</th>" +
+        "<th align='left'>Item</th>" +
+      "</tr>" +
+      "<tr>" +
+        "<td>SELF</td>" +
+        "<td align='left'>I, me, my, mine</td>" +
+      "</tr>" +
+      "<tr>" +
+        "<td>OTHER</td>" +
+        "<td align='left'>they, theirs, them, themselves</td>" +
+      "</tr>" +
+      "<tr>" +
+        "<td>ARTS</td>" +
+        "<td align='left'>poetry, literature, theater, symphony</td>" +
+      "</tr>" +
+      "<tr>" +
+        "<td>MATHS</td>" +
+        "<td align='left'>calculus, equation, geometry, statistics</td>" +
+      "</tr>" +
+    "</table>" +
+    "<h3 class='instructions'>Instructions</h3>" +
+    "<ul class='instructions'>" +
+      "<li>Keep fingers on the 'e' and 'i' keys to enable rapid response.</li>" +
+      "<li>Labels at the top will tell you which items go with each key.</li>" +
+      "<li>Go as fast as you can.</li>" +
+    "</ul>" +
+    "<p>&nbsp;</p>" +
+    "<p class = 'continue-instructions'>Press <span class='key'>space</span>" +
+    " to continue.</p>",
+  choices: [32]
+};
 
+var iat_instructions_2 = {
+  type: "html-keyboard-response",
+  stimulus:
+    "<h1 class ='custom-title'> Task 2 </h1>" +
+    "<h3 class='instructions'>Instructions</h3>" +
+    "<p class='instructions'>" +
+      "In the next task, you will have to put your middle or index fingers on the <span class='key'>E</span> " +
+      "and <span class='key'>I</span> keys of your keyboard. Words representing the categories will appear " +
+      "one-by-one in the middle of the screen and categories will appear at the top-left and top-right " +
+      "corner of the screen. " +
+      "When the item belongs to a category on the left, press the <span class='key'>E</span> key; when the item " +
+      "belongs to a category on he right, press the <span class='key'>I</span> key. Items belong to only one category. " +
+      "If you make an error, an X will appear - fix the error by hitting the other key." +
+    "</p>" +
+    "<p class='instructions'>" +
+      "This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. " +
+    "</p>" +
+    "<p>&nbsp;</p>" +
+    "<p class = 'continue-instructions'>Press <span class='key'>space</span>" +
+    " to continue.</p>",
+  choices: [32]
+};
 // var iat_instructions_2 = {
 //   type: "html-keyboard-response",
 //   stimulus: "<h1 class ='custom-title'> Part 2 </h1>" +
@@ -659,43 +712,65 @@ switch(iat_maths_1) {
 
 var iat_instructions_block_1 = {
   type: 'html-keyboard-response',
-  stimulus: "" +
-            "<div style='position: absolute; top: 18%; left: 20%'> <p>Press " +
-              "<span class='key'>E</span> for:<br><span class='iat-category'>" +
-              block_1_left_label  +
-              "</span></p>" +
-            "</div>" +
-            "<div style='position: absolute; top: 18%; right: 20%'><p>Press " +
-              "<span class='key'>I</span> for:<br><span class='iat-category'>" +
-              block_1_right_label +
-              "</span></p>" +
-            "</div>" +
-            "<div class='iat-instructions' style='position: relative; top: 42%, width:80%;'> " +
-              "<h3 class='iat-progress'>Part 1 / 7</h3>" +
-              "<p>" +
-                "Put a left finger on the <span class='key'>E</span> key for items that " +
-                "belong to the <span class='iat-category'>" + block_1_left_label  +
-                "</span> category. " +
-              "</p>" +
-              "<p>" +
-                "Put a left finger on the <span class='key'>I</span> key for items that " +
-                "belong to the <span class='iat-category'>" + block_1_right_label  +
-                "</span> category. " +
-              "</p>" +
-              "<p>" +
-                "If you make a mistake, a red cross will appear. Press the correct" +
-                " key to continue." +
-              "</p>" +
-              "<p>" +
-               "<span class='iat-important'>Go as fast as you can</span> while being" +
-               " accurate." +
-              "</p>" +
-            "</div> " +
-            "<br><br>" +
-            "<p class = 'continue-instructions'>Press <span class='key'>space bar</span> when you are ready to start.</p>",
+  stimulus:
+  "<div style='position: absolute; top: 18%; left: 20%'> <p>Press " +
+    "<span class='key'>E</span> for:<br><span class='iat-category self-other'>" +
+    block_1_left_label  +
+    "</span></p>" +
+    "</div>" +
+    "<div style='position: absolute; top: 18%; right: 20%'><p>Press " +
+    "<span class='key'>I</span> for:<br><span class='iat-category self-other'>" +
+    block_1_right_label +
+    "</span></p>" +
+  "</div>" +
+  "<div class='iat-instructions' style='position: relative; top: 42%, width:80%;'> " +
+    "<p class='instructions'>" +
+      "In the next task, you will have to put your middle or index fingers on the <span class='key'>E</span> " +
+      "and <span class='key'>I</span> keys of your keyboard. Words representing the categories at the top " +
+      "will appear one-by-one in the middle of the screen. " +
+      "When the item belongs to a category on the left, press the <span class='key'>E</span> key; when the item " +
+      "belongs to a category on he right, press the <span class='key'>I</span> key. Items belong to only one category. " +
+      "If you make an error, an X will appear - fix the error by hitting the other key." +
+    "</p>" +
+    "<p class='instructions'>" +
+      "This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. " +
+    "</p>" +
+  "</div> " +
+  "<br><br>" +
+  "<p class = 'continue-instructions'>Press <span class='key'>space bar</span> when you are ready to start.</p>",
   choices: [32]
 };
 
+var iat_instructions_block_2 = {
+  type: 'html-keyboard-response',
+  stimulus:
+  "<div style='position: absolute; top: 18%; left: 20%'> <p>Press " +
+    "<span class='key'>E</span> for:<br><span class='iat-category maths-arts'>" +
+    block_2_left_label  +
+    "</span></p>" +
+    "</div>" +
+    "<div style='position: absolute; top: 18%; right: 20%'><p>Press " +
+    "<span class='key'>I</span> for:<br><span class='iat-category maths-arts'>" +
+    block_2_right_label +
+    "</span></p>" +
+  "</div>" +
+  "<div class='iat-instructions' style='position: relative; top: 42%, width:80%;'> " +
+    "<p class='instructions'>" +
+      "See above, the categories have changed. The items for sorting have changed as well. " +
+      "The rules, howerver, are the same." +
+    "</p>" +
+    "<p class='instructions'>" +
+      "When the items belong to a category to the left, press the <span class='key'>E</span> key; " +
+      "when tje item belongs to a category on the right, press the <span class='key'>I</span> key. " +
+      "Items belong to only one category. " +
+      "An X will appears after an error - fix the error by hitting the other key. " +
+      "GO AS FAST AS YOU CAN. " +
+    "</p>" +
+  "</div> " +
+  "<br><br>" +
+  "<p class = 'continue-instructions'>Press <span class='key'>space bar</span> when you are ready to start.</p>",
+  choices: [32]
+};
 // BLOCK 1 - Trials ---------------------------------------------------------------------
 // BLOCK 1 - Trials - stimuli -----------------------------------------------------------
 
@@ -741,45 +816,6 @@ var iat_block_1 = {
 
 // BLOCK 2 ------------------------------------------------------------------------------
 // BLOCK 2 - Instructions ---------------------------------------------------------------
-
-var iat_instructions_block_2 = {
-  type: 'html-keyboard-response',
-  stimulus: "" +
-            "<div style='position: absolute; top: 18%; left: 20%'> <p>Press " +
-              "<span class='key'>E</span> for:<br><span class='iat-category'>" +
-              block_2_left_label  +
-              "</span></p>" +
-            "</div>" +
-            "<div style='position: absolute; top: 18%; right: 20%'><p>Press " +
-              "<span class='key'>I</span> for:<br><span class='iat-category'>" +
-              block_2_right_label +
-              "</span></p>" +
-            "</div>" +
-            "<div class='instructions' style='position: relative; top: 42%, width:80%;'> " +
-              "<h3 class='iat-progress'>Part 1 / 7</h3>" +
-              "<p>" +
-                "Put a left finger on the <span class='key'>E</span> key for items that " +
-                "belong to the <span class='iat-category'>" + block_2_left_label  +
-                "</span> category. " +
-              "</p>" +
-              "<p>" +
-                "Put a left finger on the <span class='key'>I</span> key for items that " +
-                "belong to the <span class='iat-category'>" + block_2_right_label  +
-                "</span> category. " +
-              "</p>" +
-              "<p>" +
-                "If you make a mistake, a red &times; will appear. Press the correct" +
-                " key to continue." +
-              "</p>" +
-              "<p>" +
-               "<span class='iat-important'>Go as fast as you can</span> while being" +
-               " accurate." +
-              "</p>" +
-            "</div> " +
-            "<br><br>" +
-            "<p class = 'continue-instructions'>Press <span class='key'>space bar</span> when you are ready to start.</p>",
-  choices: [32]
-};
 
 // BLOCK 2 - Trials ---------------------------------------------------------------------
 // BLOCK 2 - Trials - stimuli -----------------------------------------------------------
