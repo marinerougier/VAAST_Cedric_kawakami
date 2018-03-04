@@ -282,8 +282,7 @@ timeline.push(fullscreen_trial)
 
 // ping keen.io -------------------------------------------------------------------------
 
-if(data_stream) {
-  var keen_ping = {
+var keen_ping = {
     type: 'keen-ping',
     loader_image: 'media/loading.gif',
     stream_name: 'connection_test',
@@ -292,7 +291,7 @@ if(data_stream) {
   }
 
   timeline.push(keen_ping)
-}
+
 
 // Prolific identification --------------------------------------------------------------
 var prolific_pid = jsPsych.data.getURLVariable('PROLIFIC_PID');
