@@ -1165,21 +1165,15 @@ var fullscreen_trial_exit = {
 timeline.push(fullscreen_trial_exit);
 
 // Launch experiment --------------------------------------------------------------------
+// Preloading. For some reason, it appears auto-preloading fails, so using it manually.
+// In principle, it should have ended when participants starts VAAST procedure (which)
+// contains most of the image that have to be pre-loaded.
+var vaast_stim_filename = vaast_stim.map(a => a.stimulus);
+var vaast_bg_filename   = background;
 
-jsPsych.pluginAPI.preloadImages(background, function(){ startExperiment(); }, function(nLoaded) { updateLoadedCount(nLoaded); });
+jsPsych.pluginAPI.preloadImages(vaast_stim_filename);
+jsPsych.pluginAPI.preloadImages(vaast_bg_filename);
 
-function updateLoadedCount(nLoaded){
-    var percentcomplete = nLoaded / background.length * 100;
-
-    // could put something fancier here, like a progress bar
-    // or updating text in the DOM.
-    console.log('Loaded '+percentcomplete+'% of images');
-}
-
-function startExperiment(){
-    jsPsych.init({
-        timeline: timeline,
-        show_preload_progress_bar: true
-    });
-}
-
+jsPsych.init({
+  timeline: timeline
+});
