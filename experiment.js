@@ -135,6 +135,7 @@ var background = [
   "background/6.jpg"
 ];
 
+
 // vaast stimuli sizes -------------------------------------------------------------------
 
 var stim_sizes = [
@@ -1165,8 +1166,20 @@ timeline.push(fullscreen_trial_exit);
 
 // Launch experiment --------------------------------------------------------------------
 
-jsPsych.init({
-  timeline: timeline,
-  show_preload_progress_bar: true
-});
+jsPsych.pluginAPI.preloadImages(background, function(){ startExperiment(); }, function(nLoaded) { updateLoadedCount(nLoaded); });
+
+function updateLoadedCount(nLoaded){
+    var percentcomplete = nLoaded / images.length * 100;
+
+    // could put something fancier here, like a progress bar
+    // or updating text in the DOM.
+    console.log('Loaded '+percentcomplete+'% of images');
+}
+
+function startExperiment(){
+    jsPsych.init({
+        timeline: exp,
+        show_preload_progress_bar: true
+    });
+}
 

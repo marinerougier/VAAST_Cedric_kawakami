@@ -11,7 +11,6 @@
   var plugin = {};
 
   jsPsych.pluginAPI.registerPreload('vaast-image', 'stimulus', 'image');
-  jsPsych.pluginAPI.registerPreload('vaast-image', 'background_image', 'image');
 
   plugin.info = {
     name: 'vaast-image',
