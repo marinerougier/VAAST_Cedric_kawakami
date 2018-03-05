@@ -385,8 +385,8 @@ var vaast_instructions_4 = {
     "you start the training block of this task.</p>" +
      "<table align='center' class='vaast-table-instruction'>" +
        "<tr>" +
-         "<th><img src='media/" + approach_cat + "_exemple.jpg'></th>" +
-         "<th><img src='media/" + avoidance_cat + "_exemple.jpg'></th>" +
+         "<th><img src='stimuli/" + approach_cat + "_exemple.jpg'></th>" +
+         "<th><img src='stimuli/" + avoidance_cat + "_exemple.jpg'></th>" +
        "</tr>" +
        "<tr>" +
          "<th>Approach</th>" +
