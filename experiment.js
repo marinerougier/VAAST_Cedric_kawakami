@@ -1178,7 +1178,7 @@ function updateLoadedCount(nLoaded){
 
 function startExperiment(){
     jsPsych.init({
-        timeline: exp,
+        timeline: timeline,
         show_preload_progress_bar: true
     });
 }
