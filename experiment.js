@@ -1167,7 +1167,6 @@ timeline.push(fullscreen_trial_exit);
 
 jsPsych.init({
   timeline: timeline,
-  on_finish: function() {
-  }
+  show_preload_progress_bar: true
 });
 
