@@ -1169,7 +1169,7 @@ timeline.push(fullscreen_trial_exit);
 jsPsych.pluginAPI.preloadImages(background, function(){ startExperiment(); }, function(nLoaded) { updateLoadedCount(nLoaded); });
 
 function updateLoadedCount(nLoaded){
-    var percentcomplete = nLoaded / images.length * 100;
+    var percentcomplete = nLoaded / background.length * 100;
 
     // could put something fancier here, like a progress bar
     // or updating text in the DOM.
