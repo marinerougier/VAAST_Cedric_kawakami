@@ -1170,7 +1170,7 @@ timeline.push(fullscreen_trial_exit);
 // In principle, it should have ended when participants starts VAAST procedure (which)
 // contains most of the image that have to be pre-loaded.
 var loading_gif               = ["media/loading.gif"]
-var vaast_instructions_images = ["media/arts_exemple.png", "media/maths_exemple.png"];
+var vaast_instructions_images = ["media/arts_exemple.bmp", "media/maths_exemple.bmp"];
 var vaast_stim_filename       = vaast_stim.map(a => a.stimulus);
 var vaast_bg_filename         = background;
 
