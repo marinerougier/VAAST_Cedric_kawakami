@@ -1036,6 +1036,7 @@ var iat_block_3 = {
     save_iat_trial
   ],
   timeline_variables: iat_block_3_stim,
+  repetitions: 2,
   sample: {
   type: 'without-replacement',
   size: 20
