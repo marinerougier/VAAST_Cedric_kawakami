@@ -328,7 +328,7 @@ var vaast_instructions_1 = {
     "<p class='instructions'>In the first task, just like in a videogame, you" +
     " will act within the environnement presented below.</p>" +
     "<p class='instructions'> You will be able to move forward and backward" +
-    " using your keyboard.</p>" +
+    " using your arrow keys on your keyboard.</p>" +
     "<p class='instructions'>Some pictures will appear within the" +
     " environnement and you will have to approach them or avoid them" +
     " according to the category they belong to.</p>" +
@@ -355,14 +355,14 @@ var vaast_instructions_2 = {
   choices: [32]
 };
 
-var vaast_instructions_3 = {
+var vaast_instructions_3 = { 
   type: "html-keyboard-response",
   stimulus:
     "<h1 class ='custom-title'> Task 1 </h1>" +
-    "<p class='instructions'>In this task, you will have to respond using your " +
+    "<p class='instructions'>In this task, you will have to respond using arrow keys on your " +
     "keyboard. For every trial, once the picture appeared, you will " +
     "have to press the quickest as possible either on the \"approach\" key or the " +
-    "\"avoidance\" key (see below).</p>" +
+    "\"avoid\" key (see below).</p>" +
     "<p class='instructions'>Note that you will have to press twice the correct " +
     "key to pass the trial.</p>" +
     "<br>" +
@@ -1036,8 +1036,10 @@ var iat_block_3 = {
     save_iat_trial
   ],
   timeline_variables: iat_block_3_stim,
+  sample: {
   type: 'without-replacement',
-  size: 20,
+  size: 20
+},
   randomize_order: true}
 
 var iat_block_3_test = {
