@@ -1129,6 +1129,7 @@ var iat_block_3_test_1 = {
     {
       type: 'iat-html',
       stimulus: jsPsych.timelineVariable('stimulus'),
+      category: jsPsych.timelineVariable('category'),
       label_category: ['self-other', 'maths-arts'],
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
       html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
@@ -1154,6 +1155,7 @@ var iat_block_3_test_2 = {
     {
       type: 'iat-html',
       stimulus: jsPsych.timelineVariable('stimulus'),
+      category: jsPsych.timelineVariable('category'),
       label_category: ['self-other', 'maths-arts'],
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
       html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
@@ -1183,6 +1185,7 @@ var iat_block_4_1 = {
     {
       type: 'iat-html',
       stimulus: jsPsych.timelineVariable('stimulus'),
+      category: jsPsych.timelineVariable('category'),
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
       label_category: ['maths-arts'],
       html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
@@ -1208,6 +1211,7 @@ var iat_block_4_2 = {
     {
       type: 'iat-html',
       stimulus: jsPsych.timelineVariable('stimulus'),
+      category: jsPsych.timelineVariable('category'),
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
       label_category: ['maths-arts'],
       html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
@@ -1236,6 +1240,7 @@ var iat_block_5_training_1 = {
     {
       type: 'iat-html',
       stimulus: jsPsych.timelineVariable('stimulus'),
+      category: jsPsych.timelineVariable('category'),
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
       label_category: ['self-other', 'maths-arts'],
       html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
@@ -1260,6 +1265,7 @@ var iat_block_5_training_2 = {
     {
       type: 'iat-html',
       stimulus: jsPsych.timelineVariable('stimulus'),
+      category: jsPsych.timelineVariable('category'),
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
       label_category: ['self-other', 'maths-arts'],
       html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
@@ -1289,6 +1295,8 @@ var iat_block_5_test_1 = {
     {
       type: 'iat-html',
       stimulus: jsPsych.timelineVariable('stimulus'),
+      category: jsPsych.timelineVariable('category'),
+      label_category: ['self-other', 'maths-arts'],
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
       html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
       bottom_instructions: '<p>If you press the wrong key, a red X will appear. Press the other key to continue</p>',
@@ -1314,6 +1322,8 @@ var iat_block_5_test_2 = {
     {
       type: 'iat-html',
       stimulus: jsPsych.timelineVariable('stimulus'),
+      category: jsPsych.timelineVariable('category'),
+      label_category: ['self-other', 'maths-arts'],
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
       html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
       bottom_instructions: '<p>If you press the wrong key, a red X will appear. Press the other key to continue</p>',
