@@ -953,7 +953,9 @@ var iat_block_5_stim = [
   {category: "maths-arts", stimulus: "symphony",   stim_key_association: arts_side_2nd}
 ]
 
-var iat_block_1 = {
+
+// iat - block 1 ------------------------------------------------------------------------
+var iat_block_1_1 = {
   timeline: [
     {
       type: 'iat-html',
@@ -962,11 +964,34 @@ var iat_block_1 = {
       label_category: ['self-other'],
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
       html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
-      bottom_instructions: '<p>If you press the wrong key, a red cross will appear. Press the other key to continue.</p>',
       force_correct_key_press: true,
       display_feedback: true,
-      left_category_key:  'E',
-      right_category_key: 'I',
+      left_category_label:  [block_1_left_label],
+      right_category_label: [block_1_right_label],
+      response_ends_trial: true,
+      data: {
+        iat_type: 'practice', 
+        iat_block: 1
+      }
+    },
+    save_iat_trial
+  ],
+  timeline_variables: iat_block_1_stim,
+  randomize_order: true,
+  repetitions:2,
+}
+
+var iat_block_1_2 = {
+  timeline: [
+    {
+      type: 'iat-html',
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      category: jsPsych.timelineVariable('category'),
+      label_category: ['self-other'],
+      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
+      html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
+      force_correct_key_press: true,
+      display_feedback: true,
       left_category_label:  [block_1_left_label],
       right_category_label: [block_1_right_label],
       response_ends_trial: true,
@@ -979,8 +1004,13 @@ var iat_block_1 = {
   ],
   timeline_variables: iat_block_1_stim,
   randomize_order: true,
-  repetitions:3,
+  sample: {
+    size: 4,
+    type: "without-replacement"
+  }
 }
+
+// iat - block 1 ------------------------------------------------------------------------
 
 var iat_block_2 = {
   timeline: [
@@ -991,11 +1021,8 @@ var iat_block_2 = {
       label_category: ['maths-arts'],
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
       html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
-      bottom_instructions: '<p>If you press the wrong key, a red &times; will appear. Press the other key to continue</p>',
       force_correct_key_press: true,
       display_feedback: true,
-      left_category_key:  'E',
-      right_category_key: 'I',
       left_category_label:  [block_2_left_label],
       right_category_label: [block_2_right_label],
       response_ends_trial: true,
@@ -1011,7 +1038,7 @@ var iat_block_2 = {
   repetitions: 3,
 }
 
-var iat_block_3 = {
+var iat_block_3_training_1 = {
   timeline: [
     {
       type: 'iat-html',
@@ -1020,11 +1047,9 @@ var iat_block_3 = {
       label_category: ['self-other', 'maths-arts'],
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
       html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
-      bottom_instructions: '<p>If you press the wrong key, a red X will appear. Press the other key to continue</p>',
       force_correct_key_press: true,
       display_feedback: true,
       left_category_key:  'E',
-      right_category_key: 'I',
       left_category_label:  [block_3_left_label_top, block_3_left_label_bottom],
       right_category_label: [block_3_right_label_top, block_3_right_label_bottom],
       response_ends_trial: true,
@@ -1036,11 +1061,6 @@ var iat_block_3 = {
     save_iat_trial
   ],
   timeline_variables: iat_block_3_stim,
-  repetitions: 2,
-  sample: {
-  type: 'without-replacement',
-  size: 20
-},
   randomize_order: true}
 
 var iat_block_3_test = {
@@ -1149,7 +1169,7 @@ randomize_order: true}
 
 timeline.push(
   iat_instructions_1,
-  iat_instructions_block_1, iat_block_1,
+  iat_instructions_block_1, iat_block_1_1, iat_block_1_2,
   iat_instructions_block_2, iat_block_2,
   iat_instructions_block_3, iat_block_3,
   iat_instructions_block_3_test, iat_block_3_test,
