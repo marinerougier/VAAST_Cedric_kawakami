@@ -1075,7 +1075,7 @@ var iat_block_3_training_1 = {
       category: jsPsych.timelineVariable('category'),
       label_category: ['self-other', 'maths-arts'],
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
-      html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
+      html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
       force_correct_key_press: true,
       display_feedback: true,
       left_category_key:  'E',
@@ -1101,7 +1101,7 @@ var iat_block_3_training_2 = {
       category: jsPsych.timelineVariable('category'),
       label_category: ['self-other', 'maths-arts'],
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
-      html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
+      html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
       force_correct_key_press: true,
       display_feedback: true,
       left_category_key:  'E',
@@ -1123,19 +1123,16 @@ var iat_block_3_training_2 = {
   }
 }
 
-//
-var iat_block_3_test = {
+// iat - block 3 (test) -----------------------------------------------------------------
+var iat_block_3_test_1 = {
   timeline: [
     {
       type: 'iat-html',
       stimulus: jsPsych.timelineVariable('stimulus'),
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
-      html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
-      bottom_instructions: '<p>If you press the wrong key, a red X will appear. Press the other key to continue</p>',
+      html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
       force_correct_key_press: true,
       display_feedback: true,
-      left_category_key:  'E',
-      right_category_key: 'I',
       left_category_label:  [block_3_left_label_top, block_3_left_label_bottom],
       right_category_label: [block_3_right_label_top, block_3_right_label_bottom],
       response_ends_trial: true,
@@ -1146,21 +1143,48 @@ var iat_block_3_test = {
     },
     save_iat_trial
   ],
-timeline_variables: iat_block_3_stim,
-randomize_order: true}
+  timeline_variables: iat_block_3_stim,
+  repetitions: 4,
+  randomize_order: true
+}
 
-var iat_block_4 = {
+var iat_block_3_test_2 = {
   timeline: [
     {
       type: 'iat-html',
       stimulus: jsPsych.timelineVariable('stimulus'),
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
-      html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
-      bottom_instructions: '<p>If you press the wrong key, a red X will appear. Press the other key to continue</p>',
+      html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
       force_correct_key_press: true,
       display_feedback: true,
-      left_category_key:  'E',
-      right_category_key: 'I',
+      left_category_label:  [block_3_left_label_top, block_3_left_label_bottom],
+      right_category_label: [block_3_right_label_top, block_3_right_label_bottom],
+      response_ends_trial: true,
+      data: {
+        iat_type: 'test',
+        iat_block: 3
+         }
+    },
+    save_iat_trial
+  ],
+  timeline_variables: iat_block_3_stim,
+  sample: {
+    size: 10,
+    type: "without-replacement"
+  },
+  randomize_order: true
+}
+
+// iat - block 4 ------------------------------------------------------------------------
+var iat_block_4_1 = {
+  timeline: [
+    {
+      type: 'iat-html',
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
+      html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
+      force_correct_key_press: true,
+      display_feedback: true,
       left_category_label:  [block_4_left_label],
       right_category_label: [block_4_right_label],
       response_ends_trial: true,
@@ -1171,21 +1195,47 @@ var iat_block_4 = {
     },
     save_iat_trial
   ],
-timeline_variables: iat_block_4_stim,
-randomize_order: true}
+  timeline_variables: iat_block_4_stim,
+  repetitions: 2,
+  randomize_order: true
+}
 
-var iat_block_5 = {
+var iat_block_4_2 = {
   timeline: [
     {
       type: 'iat-html',
       stimulus: jsPsych.timelineVariable('stimulus'),
       stim_key_association: jsPsych.timelineVariable('stim_key_association'),
       html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
-      bottom_instructions: '<p>If you press the wrong key, a red X will appear. Press the other key to continue</p>',
       force_correct_key_press: true,
       display_feedback: true,
-      left_category_key:  'E',
-      right_category_key: 'I',
+      left_category_label:  [block_4_left_label],
+      right_category_label: [block_4_right_label],
+      response_ends_trial: true,
+      data: {
+        iat_type: 'practice',
+        iat_block: 4
+         }
+    },
+    save_iat_trial
+  ],
+  timeline_variables: iat_block_4_stim,
+  sample: {
+    size: 4,
+    type: "without-replacement"
+  },
+  randomize_order: true
+}
+// iat - block 5 (training) -------------------------------------------------------------
+var iat_block_5_training_1 = {
+  timeline: [
+    {
+      type: 'iat-html',
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
+      html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
+      force_correct_key_press: true,
+      display_feedback: true,
       left_category_label:  [block_5_left_label_top, block_5_left_label_bottom],
       right_category_label: [block_5_right_label_top, block_5_right_label_bottom],
       response_ends_trial: true,
@@ -1196,10 +1246,39 @@ var iat_block_5 = {
     },
     save_iat_trial
   ],
-timeline_variables: iat_block_5_stim,
-randomize_order: true}
+  timeline_variables: iat_block_5_stim,
+  randomize_order: true
+}
 
-var iat_block_5_test = {
+var iat_block_5_training_2 = {
+  timeline: [
+    {
+      type: 'iat-html',
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
+      html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
+      force_correct_key_press: true,
+      display_feedback: true,
+      left_category_label:  [block_5_left_label_top, block_5_left_label_bottom],
+      right_category_label: [block_5_right_label_top, block_5_right_label_bottom],
+      response_ends_trial: true,
+      data: {
+        iat_type: 'practice',
+        iat_block: 5
+         }
+    },
+    save_iat_trial
+  ],
+  timeline_variables: iat_block_5_stim,
+  sample: {
+    size: 4,
+    type: "without-replacement"
+  },
+  randomize_order: true
+}
+
+// iat - block 5 (test) -----------------------------------------------------------------
+var iat_block_5_test_1 = {
   timeline: [
     {
       type: 'iat-html',
@@ -1209,8 +1288,6 @@ var iat_block_5_test = {
       bottom_instructions: '<p>If you press the wrong key, a red X will appear. Press the other key to continue</p>',
       force_correct_key_press: true,
       display_feedback: true,
-      left_category_key:  'E',
-      right_category_key: 'I',
       left_category_label:  [block_5_left_label_top, block_5_left_label_bottom],
       right_category_label: [block_5_right_label_top, block_5_right_label_bottom],
       response_ends_trial: true,
@@ -1221,8 +1298,38 @@ var iat_block_5_test = {
     },
     save_iat_trial
   ],
-timeline_variables: iat_block_5_stim,
-randomize_order: true}
+  repetitions: 4,
+  timeline_variables: iat_block_5_stim,
+  randomize_order: true
+}
+
+var iat_block_5_test_2 = {
+  timeline: [
+    {
+      type: 'iat-html',
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
+      html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
+      bottom_instructions: '<p>If you press the wrong key, a red X will appear. Press the other key to continue</p>',
+      force_correct_key_press: true,
+      display_feedback: true,
+      left_category_label:  [block_5_left_label_top, block_5_left_label_bottom],
+      right_category_label: [block_5_right_label_top, block_5_right_label_bottom],
+      response_ends_trial: true,
+      data: {
+        iat_type: 'test',
+        iat_block: 5
+         }
+    },
+    save_iat_trial
+  ],
+  timeline_variables: iat_block_5_stim,
+  sample: {
+    size: 10,
+    type: "without-replacement"
+  },
+  randomize_order: true
+}
 
 // IAT task -----------------------------------------------------------------------------
 // Pushing every IAT block to build the task.
@@ -1233,10 +1340,10 @@ timeline.push(
   iat_instructions_block_1, iat_block_1_1, iat_block_1_2,
   iat_instructions_block_2, iat_block_2_1, iat_block_2_2,
   iat_instructions_block_3, iat_block_3_training_1, iat_block_3_training_2,
-  iat_instructions_block_3_test, iat_block_3_test,
-  iat_instructions_block_4, iat_block_4,
-  iat_instructions_block_5, iat_block_5,
-  iat_instructions_block_5_test, iat_block_5_test
+  iat_instructions_block_3_test, iat_block_3_test_1, iat_block_3_test_1,
+  iat_instructions_block_4, iat_block_4_1, iat_block_4_2,
+  iat_instructions_block_5, iat_block_5_training_1, iat_block_5_training_2,
+  iat_instructions_block_5_test, iat_block_5_test_1, iat_block_5_test_2
   );
 
 // end fullscreen -----------------------------------------------------------------------
