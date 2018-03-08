@@ -170,7 +170,7 @@ var next_position = function(){
 // get_id():
 // Get id input.
 var get_id = function() {
-  var id = jsPsych.data.getDataByTimelineNode("0.0-2.0").values()[0].responses.slice(7, -2);
+  var prolific_id = jsPsych.data.getDataByTimelineNode("0.0-2.0").values()[0].responses.slice(7, -2);
   return(id)
 }
 
@@ -181,14 +181,17 @@ var get_id = function() {
 // init ---------------------------------------------------------------------------------
 var saving_id = function(){
 
+  prolific_id = jsPsych.data.getDataByTimelineNode("0.0-2.0").values()[0].responses.slice(7, -2);
+
   KeenAsync.ready(function(){
     var client = new KeenAsync({
       projectId: stream_projectID,
       writeKey: stream_writeKey,
     });
     if(data_stream) {
-      client.recordEvent('session_id', {
+      client.recordEvent('prolific_id_stream', {
         session_id: jspsych_id,
+        prolific_id: prolific_id,
         vaast_approach_training: vaast_approach_training,
         iat_self_side: iat_self,
         iat_maths_1_side: iat_maths_1,
@@ -205,12 +208,13 @@ var saving_vaast_trial = function(){
       writeKey: stream_writeKey
     });
     if(data_stream) {
-      client.recordEvent('vaast_trial', {
+      client.recordEvent('vaast_stream', {
         session_id: jspsych_id,
+        prolific_id: prolific_id,
         vaast_approach_training: vaast_approach_training,
         iat_self_side: iat_self,
         iat_maths_1_side: iat_maths_1,
-        trial_data: jsPsych.data.get().last(3).json()
+        vaast_trial_data: jsPsych.data.get().last(3).json()
       });
     }
   });
@@ -224,12 +228,13 @@ var saving_iat_trial = function(){
       writeKey: stream_writeKey
     });
     if(data_stream) {
-      client.recordEvent('iat_trial', {
+      client.recordEvent('iat_stream', {
         session_id: jspsych_id,
+        prolific_id: prolific_id,
         vaast_approach_training: vaast_approach_training,
         iat_self_side: iat_self,
         iat_maths_1_side: iat_maths_1,
-        trial_data: jsPsych.data.get().last().json()
+        iat_trial_data: jsPsych.data.get().last().json()
       });
     }
   });
@@ -242,7 +247,7 @@ var saving_browser_events = function() {
         writeKey: stream_writeKey
       });
       if(data_stream) {
-        client.recordEvent('session_info', {
+        client.recordEvent('meta_info_stream', {
           session_id: jspsych_id,
           event_data: jsPsych.data.getInteractionData().json()
         });
@@ -286,7 +291,7 @@ timeline.push(fullscreen_trial)
 var keen_ping = {
     type: 'keen-ping',
     loader_image: 'media/loading.gif',
-    stream_name: 'connection_test',
+    stream_name: 'ping_stream',
     write_key: stream_writeKey,
     project_id: stream_projectID
   }
@@ -1389,4 +1394,5 @@ jsPsych.pluginAPI.preloadImages(vaast_bg_filename);
 // timeline initiaization ---------------------------------------------------------------
 jsPsych.init({
   timeline: timeline
-});
+},
+on_interaction_data_update = saving_browser_events());
