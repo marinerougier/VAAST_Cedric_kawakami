@@ -275,6 +275,27 @@ var save_iat_trial = {
 
 var timeline = [];
 
+// initial instructions -----------------------------------------------------------------
+var welcome = {
+  type: "html-keyboard-response",
+  stimulus: "<h1 class ='custom-title'> Welcome </h1>" +
+            "<p class='instructions'>Welcome and thank you for deciding to complete this study.<p>" +
+            "<p class='instructions'>During this experiment, you will have to complete different tasks. We " +
+            " will gather data related to how you complete these different tasks but " +
+            "no personally identifying information will be collected during this experiment.</p>" +
+            "<p class='instructions'>Because we rely on third party services to gather data, ad-blocking " +
+            "services might interfere with data collection. We recommend you to " +
+            "disable your ad-blocking services during experiment completion as we " +
+            "cannot retribute your participation to this study if we don’t have " +
+            "access to how you complete it. </p>" +
+            "<p class='instructions'>If you have any question related to this research, please send an " +
+            "e-mail at: cedric.batailler@univ-grenoble-alpes.fr.</p>" +
+            "<p class = 'continue-instructions'>Press <strong>space</strong> to start the experiment.</p>",
+  choices: [32]
+};
+
+timeline.push(welcome);
+
 // Switching to fullscreen --------------------------------------------------------------
 var fullscreen_trial = {
   type: 'fullscreen',
@@ -283,8 +304,7 @@ var fullscreen_trial = {
   fullscreen_mode: true
 }
 
-timeline.push(fullscreen_trial)
-
+timeline.push(fullscreen_trial);
 
 // ping keen.io -------------------------------------------------------------------------
 
@@ -296,8 +316,7 @@ var keen_ping = {
     project_id: stream_projectID
   }
 
-  timeline.push(keen_ping)
-
+  timeline.push(keen_ping);
 
 // Prolific identification --------------------------------------------------------------
 var prolific_pid = jsPsych.data.getURLVariable('PROLIFIC_PID');
@@ -508,7 +527,7 @@ var vaast_block_instructions = function(n)  {
 }
 
 timeline.push(
-  vaast_training_block,
+  // vaast_training_block,
   vaast_instructions_5,
   //  vaast_test_block,
   // vaast_block_instructions(2),
