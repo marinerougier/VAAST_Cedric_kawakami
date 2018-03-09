@@ -510,7 +510,7 @@ var vaast_block_instructions = function(n)  {
 timeline.push(
   vaast_training_block,
   vaast_instructions_5,
-  vaast_test_block,
+  //  vaast_test_block,
   // vaast_block_instructions(2),
   // vaast_test_block,
   // vaast_block_instructions(3),
