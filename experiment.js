@@ -312,7 +312,7 @@ var welcome_3 = {
     "<p class='instructions'>We will now proceede to test your connection to our server. " +
     " If this test fails, please check your Internet connection and make sure you have " +
     " disable your ad-blocking softwares.</p>" +
-    "<p class='instructions'>This test should last less than 5 seconds.</p>"
+    "<p class='instructions'>This test should last less than 5 seconds.</p>" +
     "<p class = 'continue-instructions'>Press <strong>space</strong> to continue.</p>",
   choices: [32]
 };
