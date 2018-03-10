@@ -167,13 +167,6 @@ var next_position = function(){
   return(position)
 }
 
-// get_id():
-// Get id input.
-var get_id = function() {
-  var prolific_id = jsPsych.data.getDataByTimelineNode("0.0-2.0").values()[0].responses.slice(7, -2);
-  return(id)
-}
-
 // Saving blocks ------------------------------------------------------------------------
 // Every function here send the data to keen.io. Because data sent is different according
 // to trial type, there are differents function definition.
@@ -181,7 +174,7 @@ var get_id = function() {
 // init ---------------------------------------------------------------------------------
 var saving_id = function(){
 
-  prolific_id = jsPsych.data.getDataByTimelineNode("0.0-3.0").values()[0].responses.slice(7, -2);
+  prolific_id = jsPsych.data.getDataByTimelineNode("0.0-5.0").values()[0].responses.slice(7, -2);
 
   KeenAsync.ready(function(){
     var client = new KeenAsync({
@@ -357,7 +350,7 @@ timeline.push(prolific_id, save_id);
 // First slide --------------------------------------------------------------------------
 var instructions = {
   type: "html-keyboard-response",
-  stimulus: 
+  stimulus:
     "<p>You are now about to start the study. In this study, you will have engage in different tasks. </p>" +
     "<p class = 'continue-instructions'>Press <strong>space</strong> to start training.</p>",
   choices: [32]
