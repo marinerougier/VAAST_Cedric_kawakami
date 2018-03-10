@@ -347,8 +347,8 @@ if(prolific_pid == null) {prolific_pid = "";}
 
 var prolific_id = {
  type: 'survey-text',
-  questions: [{prompt: "Please enter your Prolific ID:", value: prolific_pid}],
-  button_label: "Start the experiment"
+  questions: [{prompt: "You are almost ready. Please confirm your Prolific ID:", value: prolific_pid}],
+  button_label: "Start the study"
 };
 
 timeline.push(prolific_id, save_id);
@@ -357,10 +357,9 @@ timeline.push(prolific_id, save_id);
 // First slide --------------------------------------------------------------------------
 var instructions = {
   type: "html-keyboard-response",
-  stimulus: "<h1 class ='custom-title'> Welcome </h1>" +
-            "<p>Thank you for deciding to complete this study. <br>" +
-            "In this study, you will have engage in different tasks. </p>" +
-            "<p class = 'continue-instructions'>Press <strong>space</strong> to start training.</p>",
+  stimulus: 
+    "<p>You are now about to start the study. In this study, you will have engage in different tasks. </p>" +
+    "<p class = 'continue-instructions'>Press <strong>space</strong> to start training.</p>",
   choices: [32]
 };
 
