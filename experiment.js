@@ -287,7 +287,7 @@ var welcome = {
             "no personally identifying information will be collected.</p>" +
             "<p class='instructions'>Because we rely on third party services to gather data, ad-blocking " +
             "softwares might interfere with data collection. We recommend you to " +
-            "disable your ad-blocking services during experiment completion as we " +
+            "disable your ad-blocking softwares during experiment completion as we " +
             "cannot retribute your participation to this study if we don’t have " +
             "access to how you complete it. </p>" +
             "<p class='instructions'>If you have any question related to this research, please send an " +
