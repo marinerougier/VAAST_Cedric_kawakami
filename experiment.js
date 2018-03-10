@@ -305,17 +305,18 @@ var welcome_2 = {
     "<p class = 'continue-instructions'>Press <strong>space</strong> to continue.</p>",
   choices: [32]
 };
-timeline.push(welcome, welcome_2);
 
-// Switching to fullscreen --------------------------------------------------------------
-var fullscreen_trial = {
-  type: 'fullscreen',
-  message:  '<p>To take part in this study, your browser needs to be set on fullscreen.</p>',
-  button_label: 'Switch to fullscreen',
-  fullscreen_mode: true
-}
-
-timeline.push(fullscreen_trial);
+var welcome_3 = {
+  type: "html-keyboard-response",
+  stimulus:
+    "<p class='instructions'>We will now proceede to test your connection to our server. " +
+    " If this test fails, please check your Internet connection and make sure you have " +
+    " disable your ad-blocking softwares.</p>" +
+    "<p class='instructions'>This test should last less than 5 seconds.</p>"
+    "<p class = 'continue-instructions'>Press <strong>space</strong> to continue.</p>",
+  choices: [32]
+};
+timeline.push(welcome, welcome_2, welcome_3);
 
 // ping keen.io -------------------------------------------------------------------------
 
@@ -327,7 +328,17 @@ var keen_ping = {
     project_id: stream_projectID
   }
 
-  timeline.push(keen_ping);
+timeline.push(keen_ping);
+
+// Switching to fullscreen --------------------------------------------------------------
+var fullscreen_trial = {
+  type: 'fullscreen',
+  message:  '<p>To take part in this study, your browser needs to be set on fullscreen.</p>',
+  button_label: 'Switch to fullscreen',
+  fullscreen_mode: true
+}
+
+timeline.push(fullscreen_trial);
 
 // Prolific identification --------------------------------------------------------------
 var prolific_pid = jsPsych.data.getURLVariable('PROLIFIC_PID');
