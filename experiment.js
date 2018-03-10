@@ -275,16 +275,18 @@ var save_iat_trial = {
 
 var timeline = [];
 
+
+
 // initial instructions -----------------------------------------------------------------
 var welcome = {
   type: "html-keyboard-response",
   stimulus: "<h1 class ='custom-title'> Welcome </h1>" +
             "<p class='instructions'>Welcome and thank you for deciding to complete this study.<p>" +
             "<p class='instructions'>During this experiment, you will have to complete different tasks. We " +
-            " will gather data related to how you complete these different tasks but " +
-            "no personally identifying information will be collected during this experiment.</p>" +
+            " will gather data related to how you complete them but " +
+            "no personally identifying information will be collected.</p>" +
             "<p class='instructions'>Because we rely on third party services to gather data, ad-blocking " +
-            "services might interfere with data collection. We recommend you to " +
+            "softwares might interfere with data collection. We recommend you to " +
             "disable your ad-blocking services during experiment completion as we " +
             "cannot retribute your participation to this study if we don’t have " +
             "access to how you complete it. </p>" +
@@ -1377,13 +1379,13 @@ var iat_block_5_test_2 = {
 
 timeline.push(
   iat_instructions_1,
-  iat_instructions_block_1, iat_block_1_1, iat_block_1_2,
-  iat_instructions_block_2, iat_block_2_1, iat_block_2_2,
-  iat_instructions_block_3, iat_block_3_training_1, iat_block_3_training_2,
-  iat_instructions_block_3_test, iat_block_3_test_1, iat_block_3_test_1,
-  iat_instructions_block_4, iat_block_4_1, iat_block_4_2,
-  iat_instructions_block_5, iat_block_5_training_1, iat_block_5_training_2,
-  iat_instructions_block_5_test, iat_block_5_test_1, iat_block_5_test_2
+  iat_instructions_block_1, // iat_block_1_1, iat_block_1_2,
+  iat_instructions_block_2, // iat_block_2_1, iat_block_2_2,
+  iat_instructions_block_3, // iat_block_3_training_1, iat_block_3_training_2,
+  iat_instructions_block_3_test, // iat_block_3_test_1, iat_block_3_test_1,
+  iat_instructions_block_4, // iat_block_4_1, iat_block_4_2,
+  iat_instructions_block_5, // iat_block_5_training_1, iat_block_5_training_2,
+  iat_instructions_block_5_test, // iat_block_5_test_1, iat_block_5_test_2
   );
 
 // end fullscreen -----------------------------------------------------------------------
@@ -1411,7 +1413,12 @@ jsPsych.pluginAPI.preloadImages(vaast_stim_filename);
 jsPsych.pluginAPI.preloadImages(vaast_bg_filename);
 
 // timeline initiaization ---------------------------------------------------------------
+
 jsPsych.init({
-  timeline: timeline
-},
-on_interaction_data_update = saving_browser_events());
+  timeline: timeline,
+  on_finish: function() {
+      window.location.href = "https://www.prolific.ac/submissions/complete?cc=FK4UFEJR";
+      }
+  });
+
+
