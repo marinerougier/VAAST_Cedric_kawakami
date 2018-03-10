@@ -280,28 +280,37 @@ var timeline = [];
 // initial instructions -----------------------------------------------------------------
 var welcome = {
   type: "html-keyboard-response",
-  stimulus: "<h1 class ='custom-title'> Welcome </h1>" +
-            "<p class='instructions'>Welcome and thank you for deciding to complete this study.<p>" +
-            "<p class='instructions'>During this experiment, you will have to complete different tasks. We " +
-            " will gather data related to how you complete them but " +
-            "no personally identifying information will be collected.</p>" +
-            "<p class='instructions'>Because we rely on third party services to gather data, ad-blocking " +
-            "softwares might interfere with data collection. We recommend you to " +
-            "disable your ad-blocking softwares during experiment completion as we " +
-            "cannot retribute your participation to this study if we don’t have " +
-            "access to how you complete it. </p>" +
-            "<p class='instructions'>If you have any question related to this research, please send an " +
-            "e-mail at: cedric.batailler@univ-grenoble-alpes.fr.</p>" +
-            "<p class = 'continue-instructions'>Press <strong>space</strong> to start the experiment.</p>",
+  stimulus:
+    "<h1 class ='custom-title'> Welcome </h1>" +
+    "<p class='instructions'>Welcome and thank you for deciding to complete this study.<p>" +
+    "<p class='instructions'>During this study, you will have to complete different tasks. We " +
+    " will gather data related to how you complete them but " +
+    "no personally identifying information will be collected.</p>" +
+    "<p class='instructions'>Because we rely on third party services to gather data, ad-blocking " +
+    "softwares might interfere with data collection. We recommend you to " +
+    "disable your ad-blocking softwares during study completion as we " +
+    "cannot retribute your participation to this study if we don’t have " +
+    "access to how you complete it. </p>" +
+    "<p class='instructions'>If you have any question related to this research, please send an " +
+    "e-mail at: cedric.batailler@univ-grenoble-alpes.fr.</p>" +
+    "<p class = 'continue-instructions'>Press <strong>space</strong> to start the study.</p>",
   choices: [32]
 };
 
+var welcome_2 = {
+  type: "html-keyboard-response",
+  stimulus:
+    "<p class='instructions'>Before going further, please note that this study should take " +
+    "XX minutes to complete. If you don't have this time, please come back later.</p>" +
+    "<p class = 'continue-instructions'>Press <strong>space</strong> to continue.</p>",
+  choices: [32]
+};
 timeline.push(welcome);
 
 // Switching to fullscreen --------------------------------------------------------------
 var fullscreen_trial = {
   type: 'fullscreen',
-  message:  '<p>To take part in this experiment, your browser needs to be set on fullscreen.</p>',
+  message:  '<p>To take part in this study, your browser needs to be set on fullscreen.</p>',
   button_label: 'Switch to fullscreen',
   fullscreen_mode: true
 }
