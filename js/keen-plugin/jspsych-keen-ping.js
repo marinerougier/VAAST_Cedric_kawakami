@@ -85,7 +85,7 @@ jsPsych.plugins["keen-ping"] = (function() {
         }
       );
     });
-    
+
     // draw
     display_element.innerHTML = new_html;
 
