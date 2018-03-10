@@ -181,7 +181,7 @@ var get_id = function() {
 // init ---------------------------------------------------------------------------------
 var saving_id = function(){
 
-  prolific_id = jsPsych.data.getDataByTimelineNode("0.0-2.0").values()[0].responses.slice(7, -2);
+  prolific_id = jsPsych.data.getDataByTimelineNode("0.0-3.0").values()[0].responses.slice(7, -2);
 
   KeenAsync.ready(function(){
     var client = new KeenAsync({
