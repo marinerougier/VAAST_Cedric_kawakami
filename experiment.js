@@ -305,7 +305,7 @@ var welcome_2 = {
     "<p class = 'continue-instructions'>Press <strong>space</strong> to continue.</p>",
   choices: [32]
 };
-timeline.push(welcome);
+timeline.push(welcome, welcome_2);
 
 // Switching to fullscreen --------------------------------------------------------------
 var fullscreen_trial = {
