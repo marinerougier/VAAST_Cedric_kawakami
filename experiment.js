@@ -167,6 +167,13 @@ var next_position = function(){
   return(position)
 }
 
+// get_id():
+// Get id input.
+var get_id = function() {
+  var prolific_id = jsPsych.data.getDataByTimelineNode("0.0-2.0").values()[0].responses.slice(7, -2);
+  return(id)
+}
+
 // Saving blocks ------------------------------------------------------------------------
 // Every function here send the data to keen.io. Because data sent is different according
 // to trial type, there are differents function definition.
@@ -174,7 +181,7 @@ var next_position = function(){
 // init ---------------------------------------------------------------------------------
 var saving_id = function(){
 
-  prolific_id = jsPsych.data.getDataByTimelineNode("0.0-5.0").values()[0].responses.slice(7, -2);
+  prolific_id = jsPsych.data.getDataByTimelineNode("0.0-3.0").values()[0].responses.slice(7, -2);
 
   KeenAsync.ready(function(){
     var client = new KeenAsync({
@@ -273,43 +280,33 @@ var timeline = [];
 // initial instructions -----------------------------------------------------------------
 var welcome = {
   type: "html-keyboard-response",
-  stimulus:
-    "<h1 class ='custom-title'> Welcome </h1>" +
-    "<p class='instructions'>Welcome and thank you for deciding to complete this study.<p>" +
-    "<p class='instructions'>During this study, you will have to complete different tasks. We " +
-    " will gather data related to how you complete them but " +
-    "no personally identifying information will be collected.</p>" +
-    "<p class='instructions'>Because we rely on third party services to gather data, ad-blocking " +
-    "softwares might interfere with data collection. We recommend you to " +
-    "disable your ad-blocking softwares during study completion as we " +
-    "cannot retribute your participation to this study if we don’t have " +
-    "access to how you complete it. </p>" +
-    "<p class='instructions'>If you have any question related to this research, please send an " +
-    "e-mail at: cedric.batailler@univ-grenoble-alpes.fr.</p>" +
-    "<p class = 'continue-instructions'>Press <strong>space</strong> to start the study.</p>",
+  stimulus: "<h1 class ='custom-title'> Welcome </h1>" +
+            "<p class='instructions'>Welcome and thank you for deciding to complete this study.<p>" +
+            "<p class='instructions'>During this experiment, you will have to complete different tasks. We " +
+            " will gather data related to how you complete them but " +
+            "no personally identifying information will be collected.</p>" +
+            "<p class='instructions'>Because we rely on third party services to gather data, ad-blocking " +
+            "services might interfere with data collection. We recommend you to " +
+            "disable your ad-blocking services during experiment completion as we " +
+            "cannot retribute your participation to this study if we don’t have " +
+            "access to how you complete it. </p>" +
+            "<p class='instructions'>If you have any question related to this research, please send an " +
+            "e-mail at: cedric.batailler@univ-grenoble-alpes.fr.</p>" +
+            "<p class = 'continue-instructions'>Press <strong>space</strong> to start the experiment.</p>",
   choices: [32]
 };
 
-var welcome_2 = {
-  type: "html-keyboard-response",
-  stimulus:
-    "<p class='instructions'>Before going further, please note that this study should take " +
-    "XX minutes to complete. If you don't have this time, please come back later.</p>" +
-    "<p class = 'continue-instructions'>Press <strong>space</strong> to continue.</p>",
-  choices: [32]
-};
+timeline.push(welcome);
 
-var welcome_3 = {
-  type: "html-keyboard-response",
-  stimulus:
-    "<p class='instructions'>We will now proceede to test your connection to our server. " +
-    " If this test fails, please check your Internet connection and make sure you have " +
-    " disable your ad-blocking softwares.</p>" +
-    "<p class='instructions'>This test should last less than 5 seconds.</p>" +
-    "<p class = 'continue-instructions'>Press <strong>space</strong> to continue.</p>",
-  choices: [32]
-};
-timeline.push(welcome, welcome_2, welcome_3);
+// Switching to fullscreen --------------------------------------------------------------
+var fullscreen_trial = {
+  type: 'fullscreen',
+  message:  '<p>To take part in this experiment, your browser needs to be set on fullscreen.</p>',
+  button_label: 'Switch to fullscreen',
+  fullscreen_mode: true
+}
+
+timeline.push(fullscreen_trial);
 
 // ping keen.io -------------------------------------------------------------------------
 
@@ -321,17 +318,7 @@ var keen_ping = {
     project_id: stream_projectID
   }
 
-timeline.push(keen_ping);
-
-// Switching to fullscreen --------------------------------------------------------------
-var fullscreen_trial = {
-  type: 'fullscreen',
-  message:  '<p>To take part in this study, your browser needs to be set on fullscreen.</p>',
-  button_label: 'Switch to fullscreen',
-  fullscreen_mode: true
-}
-
-timeline.push(fullscreen_trial);
+  timeline.push(keen_ping);
 
 // Prolific identification --------------------------------------------------------------
 var prolific_pid = jsPsych.data.getURLVariable('PROLIFIC_PID');
@@ -340,8 +327,8 @@ if(prolific_pid == null) {prolific_pid = "";}
 
 var prolific_id = {
  type: 'survey-text',
-  questions: [{prompt: "You are almost ready. Please confirm your Prolific ID:", value: prolific_pid}],
-  button_label: "Start the study"
+  questions: [{prompt: "Please enter your Prolific ID:", value: prolific_pid}],
+  button_label: "Start the experiment"
 };
 
 timeline.push(prolific_id, save_id);
@@ -350,9 +337,10 @@ timeline.push(prolific_id, save_id);
 // First slide --------------------------------------------------------------------------
 var instructions = {
   type: "html-keyboard-response",
-  stimulus:
-    "<p>You are now about to start the study. In this study, you will have engage in different tasks. </p>" +
-    "<p class = 'continue-instructions'>Press <strong>space</strong> to start training.</p>",
+  stimulus: "<h1 class ='custom-title'> Welcome </h1>" +
+            "<p>Thank you for deciding to complete this study. <br>" +
+            "In this study, you will have engage in different tasks. </p>" +
+            "<p class = 'continue-instructions'>Press <strong>space</strong> to start training.</p>",
   choices: [32]
 };
 
@@ -557,8 +545,7 @@ var vaast_instructions_6 = {
   type: "html-keyboard-response",
   stimulus:
     "<h1 class ='custom-title'> Task 1 </h1>" +
-    "<p class='instructions'>This part of the experiment is now over. " +
-    "You will now have to complete a different task.</p>" +
+    "<p class='instructions'>This part of the experiment is now over. </p>" +
     "<p class = 'continue-instructions'>Press <strong>space</strong> to start Task 2.</p>",
   choices: [32]
 };
@@ -1392,13 +1379,13 @@ var iat_block_5_test_2 = {
 
 timeline.push(
   iat_instructions_1,
-  iat_instructions_block_1, // iat_block_1_1, iat_block_1_2,
-  iat_instructions_block_2, // iat_block_2_1, iat_block_2_2,
-  iat_instructions_block_3, // iat_block_3_training_1, iat_block_3_training_2,
-  iat_instructions_block_3_test, // iat_block_3_test_1, iat_block_3_test_1,
-  iat_instructions_block_4, // iat_block_4_1, iat_block_4_2,
-  iat_instructions_block_5, // iat_block_5_training_1, iat_block_5_training_2,
-  iat_instructions_block_5_test, // iat_block_5_test_1, iat_block_5_test_2
+  iat_instructions_block_1, iat_block_1_1, iat_block_1_2,
+  iat_instructions_block_2, iat_block_2_1, iat_block_2_2,
+  iat_instructions_block_3, iat_block_3_training_1, iat_block_3_training_2,
+  iat_instructions_block_3_test, iat_block_3_test_1, iat_block_3_test_1,
+  iat_instructions_block_4, iat_block_4_1, iat_block_4_2,
+  iat_instructions_block_5, iat_block_5_training_1, iat_block_5_training_2,
+  iat_instructions_block_5_test, iat_block_5_test_1, iat_block_5_test_2
   );
 
 // end fullscreen -----------------------------------------------------------------------
@@ -1426,12 +1413,7 @@ jsPsych.pluginAPI.preloadImages(vaast_stim_filename);
 jsPsych.pluginAPI.preloadImages(vaast_bg_filename);
 
 // timeline initiaization ---------------------------------------------------------------
-
 jsPsych.init({
-  timeline: timeline,
-  on_finish: function() {
-      window.location.href = "https://www.prolific.ac/submissions/complete?cc=FK4UFEJR";
-      }
-  });
-
-
+  timeline: timeline
+},
+on_interaction_data_update = saving_browser_events());
