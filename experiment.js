@@ -529,16 +529,27 @@ var vaast_block_instructions = function(n)  {
 }
 
 timeline.push(
-  // vaast_training_block,
+  vaast_training_block,
   vaast_instructions_5,
-  //  vaast_test_block,
-  // vaast_block_instructions(2),
-  // vaast_test_block,
-  // vaast_block_instructions(3),
-  // vaast_test_block,
-  // vaast_block_instructions(4),
-  // vaast_test_block,
-  // vaast_block_instructions(5)
+  vaast_test_block,
+  vaast_block_instructions(2),
+  vaast_test_block,
+  vaast_block_instructions(3),
+  vaast_test_block,
+  vaast_block_instructions(4),
+  vaast_test_block,
+  vaast_block_instructions(5),
+  vaast_test_block,
+  vaast_block_instructions(6),
+  vaast_test_block,
+  vaast_block_instructions(7),
+  vaast_test_block,
+  vaast_block_instructions(8),
+  vaast_test_block,
+  vaast_block_instructions(9),
+  vaast_test_block,
+  vaast_block_instructions(10),
+  vaast_test_block,
  );
 
 var vaast_instructions_6 = {
