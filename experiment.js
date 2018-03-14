@@ -758,7 +758,7 @@ var iat_instructions_block_2 = {
   "<div class='iat-instructions' style='position: relative; top: 42%, width:80%;'> " +
     "<p class='instructions'>" +
       "See above, the categories have changed. The items for sorting have changed as well. " +
-      "The rules, howerver, are the same." +
+      "The rules, however, are the same." +
     "</p>" +
     "<p class='instructions'>" +
       "When the items belong to a category to the left, press the <span class='key'>E</span> key; " +
