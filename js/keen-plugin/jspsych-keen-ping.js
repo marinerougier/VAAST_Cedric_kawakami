@@ -30,6 +30,12 @@ jsPsych.plugins["keen-ping"] = (function() {
         default: undefined,
         description: ''
       },
+      session_id: {
+        type: jsPsych.plugins.parameterType.STRING,
+        pretty_name: 'session id',
+        default: undefined,
+        description: ''
+      },
       choices: {
         type: jsPsych.plugins.parameterType.KEYCODE,
         array: true,
@@ -53,7 +59,8 @@ jsPsych.plugins["keen-ping"] = (function() {
       client.recordEvent(
         trial.stream_name,
         {
-            connection: true
+            connection: true,
+            session_id: trial.session_id
         },
         function(err, res){
           if (err) {
@@ -67,7 +74,7 @@ jsPsych.plugins["keen-ping"] = (function() {
           else {
             new_html =
             '<div id="jspsych-html-keyboard-response-stimulus">' +
-            '<p><i class="fas fa-check"></i> Connection established to our servers.</p>' +
+            '<p><i class="fas fa-check"></i> Connection established.</p>' +
             '<p class="continue-instructions">Press any key to continue. </p>' +
             '</div>';
             display_element.innerHTML = new_html;

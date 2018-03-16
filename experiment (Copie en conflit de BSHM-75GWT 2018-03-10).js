@@ -59,15 +59,15 @@ switch(vaast_approach_training) {
   case "maths":
     arts_movement  = "avoidance";
     maths_movement = "approach";
-    approach_cat   = "math";
-    avoidance_cat  = "art";
+    approach_cat   = "maths";
+    avoidance_cat  = "arts";
     break;
 
   case "arts":
     arts_movement = "approach";
     maths_movement = "avoidance";
-    approach_cat   = "art";
-    avoidance_cat  = "math";
+    approach_cat   = "arts";
+    avoidance_cat  = "maths";
     break;
 }
 
@@ -275,17 +275,17 @@ var welcome = {
   type: "html-keyboard-response",
   stimulus:
     "<h1 class ='custom-title'> Welcome </h1>" +
-    "<p class='instructions'>Thank you for participating in this study.<p>" +
+    "<p class='instructions'>Welcome and thank you for deciding to complete this study.<p>" +
     "<p class='instructions'>During this study, you will have to complete different tasks. We " +
     " will gather data related to how you complete them but " +
     "no personally identifying information will be collected.</p>" +
     "<p class='instructions'>Because we rely on third party services to gather data, ad-blocking " +
-    "software might interfere with data collection. Therefore, please  " +
-    "disable your ad-blocking software during this study. " +
-    "<b>If we cannot access your data, we will not be able to reward you for " +
-    "your participation in this study</b>. </p>" +
-    "<p class='instructions'>If you have any question related to this research, please " +
-    "e-mail cedric.batailler@univ-grenoble-alpes.fr.</p>" +
+    "softwares might interfere with data collection. We recommend you to " +
+    "disable your ad-blocking softwares during study completion as we " +
+    "cannot retribute your participation to this study if we don’t have " +
+    "access to how you complete it. </p>" +
+    "<p class='instructions'>If you have any question related to this research, please send an " +
+    "e-mail at: cedric.batailler@univ-grenoble-alpes.fr.</p>" +
     "<p class = 'continue-instructions'>Press <strong>space</strong> to start the study.</p>",
   choices: [32]
 };
@@ -294,7 +294,7 @@ var welcome_2 = {
   type: "html-keyboard-response",
   stimulus:
     "<p class='instructions'>Before going further, please note that this study should take " +
-    "XX minutes to complete. If you don't have enough time, please come back later.</p>" +
+    "XX minutes to complete. If you don't have this time, please come back later.</p>" +
     "<p class = 'continue-instructions'>Press <strong>space</strong> to continue.</p>",
   choices: [32]
 };
@@ -304,7 +304,7 @@ var welcome_3 = {
   stimulus:
     "<p class='instructions'>We will now proceede to test your connection to our server. " +
     " If this test fails, please check your Internet connection and make sure you have " +
-    " disable your ad-blocking software.</p>" +
+    " disable your ad-blocking softwares.</p>" +
     "<p class='instructions'>This test should last less than 5 seconds.</p>" +
     "<p class = 'continue-instructions'>Press <strong>space</strong> to continue.</p>",
   choices: [32]
@@ -318,8 +318,7 @@ var keen_ping = {
     loader_image: 'media/loading.gif',
     stream_name: 'ping_stream',
     write_key: stream_writeKey,
-    project_id: stream_projectID,
-    session_id: jspsych_id
+    project_id: stream_projectID
   }
 
 timeline.push(keen_ping);
@@ -327,7 +326,7 @@ timeline.push(keen_ping);
 // Switching to fullscreen --------------------------------------------------------------
 var fullscreen_trial = {
   type: 'fullscreen',
-  message:  '<p>To take part in this study, your browser needs to be set to fullscreen.</p>',
+  message:  '<p>To take part in this study, your browser needs to be set on fullscreen.</p>',
   button_label: 'Switch to fullscreen',
   fullscreen_mode: true
 }
@@ -352,8 +351,8 @@ timeline.push(prolific_id, save_id);
 var instructions = {
   type: "html-keyboard-response",
   stimulus:
-    "<p>You are now about to start the study. In this study, you will engage in different tasks. </p>" +
-    "<p class = 'continue-instructions'>Press <strong>space</strong> to start Task 1.</p>",
+    "<p>You are now about to start the study. In this study, you will have engage in different tasks. </p>" +
+    "<p class = 'continue-instructions'>Press <strong>space</strong> to start training.</p>",
   choices: [32]
 };
 
@@ -365,11 +364,11 @@ var vaast_instructions_1 = {
   stimulus:
     "<h1 class ='custom-title'> Task 1 </h1>" +
     "<p class='instructions'>In the first task, just like in a videogame, you" +
-    " will act within the environment presented below.</p>" +
+    " will act within the environnement presented below.</p>" +
     "<p class='instructions'> You will be able to move forward and backward" +
-    " using the arrow keys on your keyboard.</p>" +
+    " using your arrow keys on your keyboard.</p>" +
     "<p class='instructions'>Some pictures will appear within the" +
-    " environment and you will have to approach them or avoid them" +
+    " environnement and you will have to approach them or avoid them" +
     " according to the category they belong to.</p>" +
     "<br>" +
     "<img src = 'media/vaast-background.png'>" +
@@ -383,16 +382,14 @@ var vaast_instructions_2 = {
   type: "html-keyboard-response",
   stimulus:
     "<h1 class ='custom-title'> Task 1 </h1>" +
-    "<p class='instructions'>In this task, you will have to respond using arrow keys on your " +
-    "keyboard. For every trial, a picture will appear and you will " +
-    "have to press as quickly as possible either the \"approach\" key or the " +
-    "\"avoid\" key (see below).</p>" +
-    "<p class='instructions'>Note: you will have to press the correct key twice " +
-    "to pass the trial.</p>" +
+    "<p class='instructions'>Some pictures will appear within the" +
+    " environnement and you will have to approach them or avoid them" +
+    " according to the category they belong to.</p>" +
     "<br>" +
-    "<img src = 'media/keyboard-vaastt.png'>" +
+    "<img src = 'media/vaast-background.png'>" +
     "<br>" +
-    "<p class = 'continue-instructions'>Press <strong>space</strong> to continue.</p>",
+    "<p class = 'continue-instructions'>Press <strong>space</strong> to" +
+    " continue.</p>",
   choices: [32]
 };
 
@@ -400,11 +397,28 @@ var vaast_instructions_3 = {
   type: "html-keyboard-response",
   stimulus:
     "<h1 class ='custom-title'> Task 1 </h1>" +
+    "<p class='instructions'>In this task, you will have to respond using arrow keys on your " +
+    "keyboard. For every trial, once the picture appeared, you will " +
+    "have to press the quickest as possible either on the \"approach\" key or the " +
+    "\"avoid\" key (see below).</p>" +
+    "<p class='instructions'>Note that you will have to press twice the correct " +
+    "key to pass the trial.</p>" +
+    "<br>" +
+    "<img src = 'media/keyboard-vaastt.png'>" +
+    "<br>" +
+    "<p class = 'continue-instructions'>Press <strong>space</strong> to continue.</p>",
+  choices: [32]
+};
+
+var vaast_instructions_4 = {
+  type: "html-keyboard-response",
+  stimulus:
+    "<h1 class ='custom-title'> Task 1 </h1>" +
     "<p class='instructions'>Your instructions are to <span class='vaast-movement-instructions'>approach " +
      approach_cat + "-related pictures</span> and to <span class='vaast-movement-instructions'>avoid " +
      avoidance_cat + "-related pictures</span>. </p>" +
     "<p class='instructions'>It is very important to remember which action you will" +
-    " have to perform for each category. You need this information to complete the " +
+    " have to perform with each category. You need this information to complete the " +
     "task successfully. Please make sure that you will remember these instructions before "+
     "you start the training block of this task.</p>" +
      "<table align='center' class='vaast-table-instruction'>" +
@@ -424,8 +438,9 @@ var vaast_instructions_3 = {
 
 timeline.push(
   vaast_instructions_1,
-  vaast_instructions_2,
-  vaast_instructions_3
+  // vaast_instructions_2,
+  vaast_instructions_3,
+  vaast_instructions_4
   );
 // Creating a trial ---------------------------------------------------------------------
 
@@ -501,11 +516,11 @@ var vaast_instructions_5 = {
   type: "html-keyboard-response",
   stimulus:
     "<h1 class ='custom-title'> Task 1 </h1>" +
-    "<p class='instructions'>The training block is now over. </p>" +
+    "<p class='instructions'>Training block is now over. </p>" +
     "<p class='instructions'>You will now have to repeat this task for 10 new blocks." +
-    " The instructions are the same as in the block you just completed." +
+    " Instructions are the same as in the training block of this task." +
     "</p>" +
-    "<p class = 'continue-instructions'>Press <strong>space</strong> to start block n°1.</p>",
+    "<p class = 'continue-instructions'>Press <strong>space</strong> to start blocks n°1.</p>",
   choices: [32]
 };
 
@@ -515,10 +530,10 @@ var vaast_block_instructions = function(n)  {
     stimulus:
       "<h1 class ='custom-title'> Task 1 </h1>" +
       "<p class='instructions'>Training block is now over. </p>" +
-      "<p class='instructions'>You will now start block n°" + n +". " +
-      " The instructions stay the same." +
+      "<p class='instructions'>You will now have to repeat this task for 10 new blocks." +
+      " Instructions are the same as in the training block of this task." +
       "</p>" +
-      "<p class = 'continue-instructions'>Press <strong>space</strong> to start block n°"+ n +".</p>",
+      "<p class = 'continue-instructions'>Press <strong>space</strong> to start blocks n°"+ n +".</p>",
     choices: [32]
   };
 
@@ -526,27 +541,16 @@ var vaast_block_instructions = function(n)  {
 }
 
 timeline.push(
-  //vaast_training_block,
+  // vaast_training_block,
   vaast_instructions_5,
-  //vaast_test_block,
-  vaast_block_instructions(2),
-  //vaast_test_block,
-  vaast_block_instructions(3),
- // vaast_test_block,
-  vaast_block_instructions(4),
-  //vaast_test_block,
-  vaast_block_instructions(5),
-  //vaast_test_block,
-  vaast_block_instructions(6),
- // vaast_test_block,
-  vaast_block_instructions(7),
-  //vaast_test_block,
-  vaast_block_instructions(8),
-  //vaast_test_block,
-  vaast_block_instructions(9),
-  //vaast_test_block,
-  vaast_block_instructions(10),
-  //vaast_test_block,
+  //  vaast_test_block,
+  // vaast_block_instructions(2),
+  // vaast_test_block,
+  // vaast_block_instructions(3),
+  // vaast_test_block,
+  // vaast_block_instructions(4),
+  // vaast_test_block,
+  // vaast_block_instructions(5)
  );
 
 var vaast_instructions_6 = {
@@ -621,14 +625,14 @@ switch(iat_maths_1) {
       maths_side_2nd = "right";
       arts_side_2nd  = "left";
 
-    block_2_left_label          = "MATH";
-    block_2_right_label         = "ART";
-    block_3_left_label_bottom   = "MATH";
-    block_3_right_label_bottom  = "ART";
-    block_4_left_label          = "ART";
-    block_4_right_label         = "MATH";
-    block_5_left_label_bottom   = "ART";
-    block_5_right_label_bottom  = "MATH";
+    block_2_left_label          = "MATHS";
+    block_2_right_label         = "ARTS";
+    block_3_left_label_bottom   = "MATHS";
+    block_3_right_label_bottom  = "ARTS";
+    block_4_left_label          = "ARTS";
+    block_4_right_label         = "MATHS";
+    block_5_left_label_bottom   = "ARTS";
+    block_5_right_label_bottom  = "MATHS";
 
     break;
 
@@ -638,14 +642,14 @@ switch(iat_maths_1) {
         maths_side_2nd = "left";
         arts_side_2nd  = "right";
 
-    block_2_left_label          = "ART";
-    block_2_right_label         = "MATH";
-    block_3_left_label_bottom   = "ART";
-    block_3_right_label_bottom  = "MATH";
-    block_4_left_label          = "MATH";
-    block_4_right_label         = "ART";
-    block_5_left_label_bottom   = "MATH";
-    block_5_right_label_bottom  = "ART";
+    block_2_left_label          = "ARTS";
+    block_2_right_label         = "MATHS";
+    block_3_left_label_bottom   = "ARTS";
+    block_3_right_label_bottom  = "MATHS";
+    block_4_left_label          = "MATHS";
+    block_4_right_label         = "ARTS";
+    block_5_left_label_bottom   = "MATHS";
+    block_5_right_label_bottom  = "ARTS";
 
     break;
 }
@@ -658,7 +662,7 @@ var iat_instructions_1 = {
     "<h1 class ='custom-title'> Task 2 </h1>" +
     "<p class='instructions'>In this part, you will be asked to sort words" +
     " into groups as fast as you can using the keyboard. The following is a" +
-    " list of category labels and the items that belong to each of these categories." +
+    " list of category labels and the items that belong to each of those categories." +
     "</p>" +
     "<table>" +
       "<tr>" +
@@ -674,17 +678,17 @@ var iat_instructions_1 = {
         "<td align='left'>they, theirs, them, themselves</td>" +
       "</tr>" +
       "<tr>" +
-        "<td>ART</td>" +
+        "<td>ARTS</td>" +
         "<td align='left'>poetry, literature, theater, symphony</td>" +
       "</tr>" +
       "<tr>" +
-        "<td>MATH</td>" +
+        "<td>MATHS</td>" +
         "<td align='left'>calculus, equation, geometry, statistics</td>" +
       "</tr>" +
     "</table>" +
     "<h3 class='instructions'>Instructions</h3>" +
     "<ul class='instructions'>" +
-      "<li>Keep fingers on the <span class='key'>E</span> and <span class='key'>I</span> keys to enable rapid response.</li>" +
+      "<li>Keep fingers on the 'e' and 'i' keys to enable rapid response.</li>" +
       "<li>Labels at the top will tell you which items go with each key.</li>" +
       "<li>Go as fast as you can.</li>" +
     "</ul>" +
@@ -715,7 +719,7 @@ var iat_instructions_block_1 = {
       "and <span class='key'>I</span> keys of your keyboard. Words representing the categories at the top " +
       "will appear one-by-one in the middle of the screen. " +
       "When the item belongs to a category on the left, press the <span class='key'>E</span> key; when the item " +
-      "belongs to a category on the right, press the <span class='key'>I</span> key. Items belong to only one category. " +
+      "belongs to a category on he right, press the <span class='key'>I</span> key. Items belong to only one category. " +
       "If you make an error, an X will appear - fix the error by hitting the other key." +
     "</p>" +
     "<p class='instructions'>" +
@@ -743,13 +747,13 @@ var iat_instructions_block_2 = {
   "<div class='iat-instructions' style='position: relative; top: 42%, width:80%;'> " +
     "<p class='instructions'>" +
       "See above, the categories have changed. The items for sorting have changed as well. " +
-      "The rules, however, are the same." +
+      "The rules, howerver, are the same." +
     "</p>" +
     "<p class='instructions'>" +
       "When the items belong to a category to the left, press the <span class='key'>E</span> key; " +
       "when the item belongs to a category on the right, press the <span class='key'>I</span> key. " +
       "Items belong to only one category. " +
-      "An X will appear after an error - fix the error by hitting the other key. " +
+      "An X will appears after an error - fix the error by hitting the other key. " +
       "GO AS FAST AS YOU CAN. " +
     "</p>" +
   "</div> " +
@@ -1388,13 +1392,13 @@ var iat_block_5_test_2 = {
 
 timeline.push(
   iat_instructions_1,
-  iat_instructions_block_1, iat_block_1_1, iat_block_1_2,
-  iat_instructions_block_2, iat_block_2_1, iat_block_2_2,
-  iat_instructions_block_3, iat_block_3_training_1, iat_block_3_training_2,
-  iat_instructions_block_3_test, iat_block_3_test_1, iat_block_3_test_1,
-  iat_instructions_block_4, iat_block_4_1, iat_block_4_2,
-  iat_instructions_block_5, iat_block_5_training_1, iat_block_5_training_2,
-  iat_instructions_block_5_test, iat_block_5_test_1, iat_block_5_test_2
+  iat_instructions_block_1, // iat_block_1_1, iat_block_1_2,
+  iat_instructions_block_2, // iat_block_2_1, iat_block_2_2,
+  iat_instructions_block_3, // iat_block_3_training_1, iat_block_3_training_2,
+  iat_instructions_block_3_test, // iat_block_3_test_1, iat_block_3_test_1,
+  iat_instructions_block_4, // iat_block_4_1, iat_block_4_2,
+  iat_instructions_block_5, // iat_block_5_training_1, iat_block_5_training_2,
+  iat_instructions_block_5_test, // iat_block_5_test_1, iat_block_5_test_2
   );
 
 // end fullscreen -----------------------------------------------------------------------
