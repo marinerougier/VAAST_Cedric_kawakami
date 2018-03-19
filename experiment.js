@@ -233,7 +233,7 @@ var saving_iat_trial = function(){
   });
 }
 
-var saving_browser_events = function() {
+var saving_browser_events = function(completion) {
   KeenAsync.ready(function(){
     var client = new KeenAsync({
         projectId: stream_projectID,
@@ -242,7 +242,8 @@ var saving_browser_events = function() {
       if(data_stream) {
         client.recordEvent('meta_info_stream', {
           session_id: jspsych_id,
-          event_data: jsPsych.data.getInteractionData().json()
+          event_data: jsPsych.data.getInteractionData().json(),
+          completion: completion
         });
       }
   });
@@ -1426,10 +1427,10 @@ jsPsych.pluginAPI.preloadImages(vaast_bg_filename);
 jsPsych.init({
   timeline: timeline,
   on_interaction_data_update: function() {
-    saving_browser_events();
+    saving_browser_events(completion = false);
     },
   on_finish: function() {
-    saving_browser_events();
+    saving_browser_events(completion = true);
     window.location.href = atob("aHR0cHM6Ly93d3cucHJvbGlmaWMuYWMvc3VibWlzc2lvbnMvY29tcGxldGU/Y2M9Rks0VUZFSlI=");
     }
   });
