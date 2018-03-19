@@ -1425,9 +1425,13 @@ jsPsych.pluginAPI.preloadImages(vaast_bg_filename);
 
 jsPsych.init({
   timeline: timeline,
+  on_interaction_data_update: function() {
+    saving_browser_events();
+    },
   on_finish: function() {
-      window.location.href = atob("aHR0cHM6Ly93d3cucHJvbGlmaWMuYWMvc3VibWlzc2lvbnMvY29tcGxldGU/Y2M9Rks0VUZFSlI=");
-      }
+    saving_browser_events();
+    window.location.href = atob("aHR0cHM6Ly93d3cucHJvbGlmaWMuYWMvc3VibWlzc2lvbnMvY29tcGxldGU/Y2M9Rks0VUZFSlI=");
+    }
   });
 
 
