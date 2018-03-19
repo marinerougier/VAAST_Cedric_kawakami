@@ -1402,7 +1402,7 @@ timeline.push(
   iat_instructions_block_1, iat_block_1_1, iat_block_1_2,
   iat_instructions_block_2, iat_block_2_1, iat_block_2_2,
   iat_instructions_block_3, iat_block_3_training_1, iat_block_3_training_2,
-  iat_instructions_block_3_test, iat_block_3_test_1, iat_block_3_test_1,
+  iat_instructions_block_3_test, iat_block_3_test_1, iat_block_3_test_2,
   iat_instructions_block_4, iat_block_4_1, iat_block_4_2,
   iat_instructions_block_5, iat_block_5_training_1, iat_block_5_training_2,
   iat_instructions_block_5_test, iat_block_5_test_1, iat_block_5_test_2
