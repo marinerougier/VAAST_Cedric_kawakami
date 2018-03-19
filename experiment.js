@@ -188,6 +188,16 @@ var saving_id = function(){
         vaast_approach_training: vaast_approach_training,
         iat_self_side: iat_self,
         iat_maths_1_side: iat_maths_1,
+        "user_agent": "${keen.user_agent}",
+        "keen": {
+          "addons": [{
+            "name": "keen:ua_parser",
+            "input": {
+              "ua_string": "user_agent"
+            },
+            "output": "parsed_user_agent"
+          }]
+        }
       });
     }
   });
