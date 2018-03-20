@@ -284,9 +284,7 @@ var sample_n_iat = function(list, n) {
 }
 
 // EXPERIMENT ---------------------------------------------------------------------------
-// Initialize timeline ------------------------------------------------------------------
 
-var timeline = [];
 
 
 
@@ -329,7 +327,6 @@ var welcome_3 = {
     "<p class = 'continue-instructions'>Press <strong>space</strong> to continue.</p>",
   choices: [32]
 };
-timeline.push(welcome, welcome_2, welcome_3);
 
 // ping keen.io -------------------------------------------------------------------------
 
@@ -342,7 +339,6 @@ var keen_ping = {
     session_id: jspsych_id
   }
 
-timeline.push(keen_ping);
 
 // Switching to fullscreen --------------------------------------------------------------
 var fullscreen_trial = {
@@ -352,7 +348,6 @@ var fullscreen_trial = {
   fullscreen_mode: true
 }
 
-timeline.push(fullscreen_trial);
 
 // Prolific identification --------------------------------------------------------------
 var prolific_pid = jsPsych.data.getURLVariable('PROLIFIC_PID');
@@ -365,8 +360,6 @@ var prolific_id = {
   button_label: "Start the study"
 };
 
-timeline.push(prolific_id, save_id);
-
 // Initial instructions -----------------------------------------------------------------
 // First slide --------------------------------------------------------------------------
 var instructions = {
@@ -377,7 +370,6 @@ var instructions = {
   choices: [32]
 };
 
-timeline.push(instructions);
 
 // VAAST --------------------------------------------------------------------------------
 var vaast_instructions_1 = {
@@ -442,11 +434,7 @@ var vaast_instructions_3 = {
 };
 
 
-timeline.push(
-  vaast_instructions_1,
-  vaast_instructions_2,
-  vaast_instructions_3
-  );
+
 // Creating a trial ---------------------------------------------------------------------
 
 var vaast_fixation = {
@@ -1210,27 +1198,77 @@ var fullscreen_trial_exit = {
 
 
 // procedure ----------------------------------------------------------------------------
+// Initialize timeline ------------------------------------------------------------------
+var timeline = [];
+
 // welcome
+timeline.push(welcome,
+              welcome_2,
+              welcome_3);
+
+// keen.io connexion test
+timeline.push(keen_ping);
+
+// fullscreen
+timeline.push(fullscreen_trial);
+
+// prolific verification
+timeline.push(prolific_id,
+              save_id);
+
+// initial instructions
+timeline.push(instructions);
+
 // vaast - instructions
+timeline.push(vaast_instructions_1,
+              vaast_instructions_2,
+              vaast_instructions_3);
 
 // vaast - blocks
+timeline.push(//vaast_training_block,
+              vaast_instructions_5,
+              //vaast_test_block,
+              vaast_block_instructions(2),
+              //vaast_test_block,
+              vaast_block_instructions(3),
+              // vaast_test_block,
+              vaast_block_instructions(4),
+              //vaast_test_block,
+              vaast_block_instructions(5),
+              //vaast_test_block,
+              vaast_block_instructions(6),
+              // vaast_test_block,
+              vaast_block_instructions(7),
+              //vaast_test_block,
+              vaast_block_instructions(8),
+              //vaast_test_block,
+              vaast_block_instructions(9),
+              //vaast_test_block,
+              vaast_block_instructions(10),
+              //vaast_test_block,
+              );
+
 // vaast - end
 timeline.push(vaast_instructions_6);
 
-// iat
-timeline.push(
-  iat_instructions_1,
-  iat_instructions_block_1, iat_block_1,
-  iat_instructions_block_2, iat_block_2,
-  iat_instructions_block_3, iat_block_3_training,
-  iat_instructions_block_3_test, iat_block_3_test,
-  iat_instructions_block_4, iat_block_4,
-  iat_instructions_block_5, iat_block_5_training,
-  iat_instructions_block_5_test, iat_block_5_test,
-  );
+// iat - initial instructions
+timeline.push(iat_instructions_1)
+
+timeline.push(iat_instructions_block_1, iat_block_1,
+              iat_instructions_block_2, iat_block_2,
+              iat_instructions_block_3, iat_block_3_training,
+              iat_instructions_block_3_test, iat_block_3_test,
+              iat_instructions_block_4, iat_block_4,
+              iat_instructions_block_5, iat_block_5_training,
+              iat_instructions_block_5_test, iat_block_5_test);
+
+// iat - ending
+timeline.push(iat_instructions_2);
 
 // ending
 timeline.push(fullscreen_trial_exit);
+timeline.push(ending,
+              ending_2);
 
 // Launch experiment --------------------------------------------------------------------
 // preloading ---------------------------------------------------------------------------
