@@ -1196,7 +1196,38 @@ var fullscreen_trial_exit = {
 
 // end insctruction ---------------------------------------------------------------------
 
+var ending = {
+  type: "html-keyboard-response",
+  stimulus:
+    "<p class='instructions'>This study is now over.<p>" +
+    "<p class='instructions'>In this study, we were interested in the effect of math " +
+    "approach or avoidance training. Literature in psychology shows that this kind of " +
+    "training can be used to create new attitudes toward a specific object. Approaching " +
+    "something make us see it more positively. </p>" +
+    "<p class='instructions'>Implicit self-association toward mathematic refers to " +
+    "one’s ability to be quicker in a timed sorting task when “self” and “math” are " +
+    "associated to a same response key instead of different ones. This implicit " +
+    "self-association can be used to predict behavior such as mathematic engagement and " +
+    "literature that it is lower among women. Here, we wanted to see if we could change " +
+    "the implicit self-association toward math using an approach training. </p>" +
+    "<p class='instructions'>For more information to this topic, please refer to " +
+    "Kawakami, Cifa, Steele, Phils, and Dovidio (2008)’s scientific paper, and if " +
+    "you still have any inquiries, please mail cedric.batailler@univ-grenoble-alpes.fr</p>" +
+    "<p class = 'continue-instructions'>Press <strong>space</strong> to start the study.</p>",
+  choices: [32]
+};
 
+var ending_2 = {
+  type: "html-keyboard-response",
+  trial_duration: 2000,
+  stimulus:
+    "<p class='instructions'>You will now be redirected to Prolific Academic's website " +
+    "within seconds.<p>" +
+    "<p class='instructions'>If you are not redirected, please click <a href='" +
+    atob("aHR0cHM6Ly93d3cucHJvbGlmaWMuYWMvc3VibWlzc2lvbnMvY29tcGxldGU/Y2M9Rks0VUZFSlI=") +
+    "'>here</a>.<p>",
+  choices: jsPsych.NO_KEYS
+};
 // procedure ----------------------------------------------------------------------------
 // Initialize timeline ------------------------------------------------------------------
 var timeline = [];
