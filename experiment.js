@@ -570,7 +570,6 @@ var vaast_instructions_6 = {
   choices: [32]
 };
 
-timeline.push(vaast_instructions_6);
 // IAT ----------------------------------------------------------------------------------
 // IAT variable initialization ----------------------------------------------------------
 // Correct responses -----------------------
@@ -1393,10 +1392,27 @@ var iat_block_5_test_2 = {
   randomize_order: true
 }
 
-// IAT task -----------------------------------------------------------------------------
-// Pushing every IAT block to build the task.
-// timeline.push(iat_instructions_1, iat_instructions_2, iat_instructions_3)
 
+
+// end fullscreen -----------------------------------------------------------------------
+
+var fullscreen_trial_exit = {
+  type: 'fullscreen',
+  fullscreen_mode: false
+}
+
+// end insctruction ---------------------------------------------------------------------
+
+
+// procedure ----------------------------------------------------------------------------
+// welcome
+// vaast - instructions
+
+// vaast - blocks
+// vaast - end
+timeline.push(vaast_instructions_6);
+
+// iat
 timeline.push(
   iat_instructions_1,
   iat_instructions_block_1, iat_block_1_1, iat_block_1_2,
@@ -1405,15 +1421,8 @@ timeline.push(
   iat_instructions_block_3_test, iat_block_3_test_1, iat_block_3_test_2,
   iat_instructions_block_4, iat_block_4_1, iat_block_4_2,
   iat_instructions_block_5, iat_block_5_training_1, iat_block_5_training_2,
-  iat_instructions_block_5_test, iat_block_5_test_1, iat_block_5_test_2
+  iat_instructions_block_5_test, iat_block_5_test_1, iat_block_5_test_2,
   );
-
-// end fullscreen -----------------------------------------------------------------------
-
-var fullscreen_trial_exit = {
-  type: 'fullscreen',
-  fullscreen_mode: false
-}
 
 timeline.push(fullscreen_trial_exit);
 
