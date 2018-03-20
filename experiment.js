@@ -274,6 +274,15 @@ var save_iat_trial = {
     func: saving_iat_trial
 }
 
+
+// iat sampling function ----------------------------------------------------------------
+var sample_n_iat = function(list, n) {
+  list = jsPsych.randomization.sampleWithReplacement(list, n);
+  list = jsPsych.randomization.shuffleNoRepeats(list);
+
+  return(list);
+}
+
 // EXPERIMENT ---------------------------------------------------------------------------
 // Initialize timeline ------------------------------------------------------------------
 
@@ -1000,7 +1009,7 @@ var iat_block_5_stim = [
 
 
 // iat - block 1 ------------------------------------------------------------------------
-var iat_block_1_1 = {
+var iat_block_1 = {
   timeline: [
     {
       type: 'iat-html',
@@ -1021,38 +1030,7 @@ var iat_block_1_1 = {
     },
     save_iat_trial
   ],
-  timeline_variables: iat_block_1_stim,
-  randomize_order: true,
-  repetitions:2,
-}
-
-var iat_block_1_2 = {
-  timeline: [
-    {
-      type: 'iat-html',
-      stimulus: jsPsych.timelineVariable('stimulus'),
-      category: jsPsych.timelineVariable('category'),
-      label_category: ['self-other'],
-      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
-      html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
-      force_correct_key_press: true,
-      display_feedback: true,
-      left_category_label:  [block_1_left_label],
-      right_category_label: [block_1_right_label],
-      response_ends_trial: true,
-      data: {
-        iat_type: 'practice',
-        iat_block: 1
-      }
-    },
-    save_iat_trial
-  ],
-  timeline_variables: iat_block_1_stim,
-  randomize_order: true,
-  sample: {
-    size: 4,
-    type: "without-replacement"
-  }
+  timeline_variables: sample_n_iat(iat_block_1_stim,20)
 }
 
 // iat - block 2 ------------------------------------------------------------------------
@@ -1077,42 +1055,11 @@ var iat_block_2_1 = {
     },
     save_iat_trial
   ],
-  timeline_variables: iat_block_2_stim,
-  randomize_order: true,
-  repetitions: 2,
-}
-
-var iat_block_2_2 = {
-  timeline: [
-    {
-      type: 'iat-html',
-      stimulus: jsPsych.timelineVariable('stimulus'),
-      category: jsPsych.timelineVariable('category'),
-      label_category: ['maths-arts'],
-      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
-      html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
-      force_correct_key_press: true,
-      display_feedback: true,
-      left_category_label:  [block_2_left_label],
-      right_category_label: [block_2_right_label],
-      response_ends_trial: true,
-      data: {
-        iat_type: 'practice',
-        iat_block: 2
-         }
-    },
-    save_iat_trial
-  ],
-  timeline_variables: iat_block_2_stim,
-  randomize_order: true,
-  sample: {
-    size: 4,
-    type: "without-replacement"
-  }
+  timeline_variables: sample_n_iat(iat_block_2_stim, 20)
 }
 
 // iat - block 3 (training) -------------------------------------------------------------
-var iat_block_3_training_1 = {
+var iat_block_3_training = {
   timeline: [
     {
       type: 'iat-html',
@@ -1134,38 +1081,7 @@ var iat_block_3_training_1 = {
     },
     save_iat_trial
   ],
-  timeline_variables: iat_block_3_stim,
-  randomize_order: true
-}
-
-var iat_block_3_training_2 = {
-  timeline: [
-    {
-      type: 'iat-html',
-      stimulus: jsPsych.timelineVariable('stimulus'),
-      category: jsPsych.timelineVariable('category'),
-      label_category: ['self-other', 'maths-arts'],
-      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
-      html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
-      force_correct_key_press: true,
-      display_feedback: true,
-      left_category_key:  'E',
-      left_category_label:  [block_3_left_label_top, block_3_left_label_bottom],
-      right_category_label: [block_3_right_label_top, block_3_right_label_bottom],
-      response_ends_trial: true,
-      data: {
-        iat_type: 'practice',
-        iat_block: 3
-         }
-    },
-    save_iat_trial
-  ],
-  timeline_variables: iat_block_3_stim,
-  randomize_order: true,
-  sample: {
-    size: 4,
-    type: "without-replacement"
-  }
+  timeline_variables: sample_n_iat(iat_block_3_stim, 20)
 }
 
 // iat - block 3 (test) -----------------------------------------------------------------
@@ -1190,38 +1106,7 @@ var iat_block_3_test_1 = {
     },
     save_iat_trial
   ],
-  timeline_variables: iat_block_3_stim,
-  repetitions: 4,
-  randomize_order: true
-}
-
-var iat_block_3_test_2 = {
-  timeline: [
-    {
-      type: 'iat-html',
-      stimulus: jsPsych.timelineVariable('stimulus'),
-      category: jsPsych.timelineVariable('category'),
-      label_category: ['self-other', 'maths-arts'],
-      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
-      html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
-      force_correct_key_press: true,
-      display_feedback: true,
-      left_category_label:  [block_3_left_label_top, block_3_left_label_bottom],
-      right_category_label: [block_3_right_label_top, block_3_right_label_bottom],
-      response_ends_trial: true,
-      data: {
-        iat_type: 'test',
-        iat_block: 3
-         }
-    },
-    save_iat_trial
-  ],
-  timeline_variables: iat_block_3_stim,
-  sample: {
-    size: 10,
-    type: "without-replacement"
-  },
-  randomize_order: true
+  timeline_variables: sample_n_iat(iat_block_3_stim, 74)
 }
 
 // iat - block 4 ------------------------------------------------------------------------
@@ -1246,41 +1131,11 @@ var iat_block_4_1 = {
     },
     save_iat_trial
   ],
-  timeline_variables: iat_block_4_stim,
-  repetitions: 2,
-  randomize_order: true
+  timeline_variables: sample_n_iat(iat_block_4_stim, 20)
 }
 
-var iat_block_4_2 = {
-  timeline: [
-    {
-      type: 'iat-html',
-      stimulus: jsPsych.timelineVariable('stimulus'),
-      category: jsPsych.timelineVariable('category'),
-      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
-      label_category: ['maths-arts'],
-      html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
-      force_correct_key_press: true,
-      display_feedback: true,
-      left_category_label:  [block_4_left_label],
-      right_category_label: [block_4_right_label],
-      response_ends_trial: true,
-      data: {
-        iat_type: 'practice',
-        iat_block: 4
-         }
-    },
-    save_iat_trial
-  ],
-  timeline_variables: iat_block_4_stim,
-  sample: {
-    size: 4,
-    type: "without-replacement"
-  },
-  randomize_order: true
-}
 // iat - block 5 (training) -------------------------------------------------------------
-var iat_block_5_training_1 = {
+var iat_block_5_training = {
   timeline: [
     {
       type: 'iat-html',
@@ -1301,41 +1156,11 @@ var iat_block_5_training_1 = {
     },
     save_iat_trial
   ],
-  timeline_variables: iat_block_5_stim,
-  randomize_order: true
-}
-
-var iat_block_5_training_2 = {
-  timeline: [
-    {
-      type: 'iat-html',
-      stimulus: jsPsych.timelineVariable('stimulus'),
-      category: jsPsych.timelineVariable('category'),
-      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
-      label_category: ['self-other', 'maths-arts'],
-      html_when_wrong: '<span style="color: red; font-size: 80px">&times;</span>',
-      force_correct_key_press: true,
-      display_feedback: true,
-      left_category_label:  [block_5_left_label_top, block_5_left_label_bottom],
-      right_category_label: [block_5_right_label_top, block_5_right_label_bottom],
-      response_ends_trial: true,
-      data: {
-        iat_type: 'practice',
-        iat_block: 5
-         }
-    },
-    save_iat_trial
-  ],
-  timeline_variables: iat_block_5_stim,
-  sample: {
-    size: 4,
-    type: "without-replacement"
-  },
-  randomize_order: true
+  timeline_variables: sample_n_iat(iat_block_5_stim, 20)
 }
 
 // iat - block 5 (test) -----------------------------------------------------------------
-var iat_block_5_test_1 = {
+var iat_block_5_test = {
   timeline: [
     {
       type: 'iat-html',
@@ -1357,42 +1182,8 @@ var iat_block_5_test_1 = {
     },
     save_iat_trial
   ],
-  repetitions: 4,
-  timeline_variables: iat_block_5_stim,
-  randomize_order: true
+  timeline_variables: sample_n_iat(iat_block_5_stim, 74)
 }
-
-var iat_block_5_test_2 = {
-  timeline: [
-    {
-      type: 'iat-html',
-      stimulus: jsPsych.timelineVariable('stimulus'),
-      category: jsPsych.timelineVariable('category'),
-      label_category: ['self-other', 'maths-arts'],
-      stim_key_association: jsPsych.timelineVariable('stim_key_association'),
-      html_when_wrong: '<span style="color: red; font-size: 80px">X</span>',
-      bottom_instructions: '<p>If you press the wrong key, a red X will appear. Press the other key to continue</p>',
-      force_correct_key_press: true,
-      display_feedback: true,
-      left_category_label:  [block_5_left_label_top, block_5_left_label_bottom],
-      right_category_label: [block_5_right_label_top, block_5_right_label_bottom],
-      response_ends_trial: true,
-      data: {
-        iat_type: 'test',
-        iat_block: 5
-         }
-    },
-    save_iat_trial
-  ],
-  timeline_variables: iat_block_5_stim,
-  sample: {
-    size: 10,
-    type: "without-replacement"
-  },
-  randomize_order: true
-}
-
-
 
 // end fullscreen -----------------------------------------------------------------------
 
@@ -1415,13 +1206,13 @@ timeline.push(vaast_instructions_6);
 // iat
 timeline.push(
   iat_instructions_1,
-  iat_instructions_block_1, iat_block_1_1, iat_block_1_2,
-  iat_instructions_block_2, iat_block_2_1, iat_block_2_2,
-  iat_instructions_block_3, iat_block_3_training_1, iat_block_3_training_2,
-  iat_instructions_block_3_test, iat_block_3_test_1, iat_block_3_test_2,
-  iat_instructions_block_4, iat_block_4_1, iat_block_4_2,
-  iat_instructions_block_5, iat_block_5_training_1, iat_block_5_training_2,
-  iat_instructions_block_5_test, iat_block_5_test_1, iat_block_5_test_2,
+  iat_instructions_block_1, iat_block_1,
+  iat_instructions_block_2, iat_block_2,
+  iat_instructions_block_3, iat_block_3_training,
+  iat_instructions_block_3_test, iat_block_3_test,
+  iat_instructions_block_4, iat_block_4_1, iat_block_4,
+  iat_instructions_block_5, iat_block_5_training,
+  iat_instructions_block_5_test, iat_block_5_test,
   );
 
 timeline.push(fullscreen_trial_exit);
