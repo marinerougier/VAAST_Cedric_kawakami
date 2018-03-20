@@ -1240,9 +1240,9 @@ timeline.push(vaast_instructions_1,
               vaast_instructions_3);
 
 // vaast - blocks
-timeline.push(//vaast_training_block,
+timeline.push(vaast_training_block,
               vaast_instructions_5,
-              //vaast_test_block,
+              vaast_test_block,
               vaast_block_instructions(2),
               //vaast_test_block,
               vaast_block_instructions(3),
@@ -1312,5 +1312,3 @@ jsPsych.init({
     window.location.href = atob("aHR0cHM6Ly93d3cucHJvbGlmaWMuYWMvc3VibWlzc2lvbnMvY29tcGxldGU/Y2M9Rks0VUZFSlI=");
     }
   });
-
-
