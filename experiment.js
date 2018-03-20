@@ -1024,8 +1024,10 @@ var iat_block_1 = {
       right_category_label: [block_1_right_label],
       response_ends_trial: true,
       data: {
+        iat_block: 1,
         iat_type: 'practice',
-        iat_block: 1
+        iat_label_left:  block_1_left_label,
+        iat_label_right: block_1_right_label
       }
     },
     save_iat_trial
@@ -1034,7 +1036,7 @@ var iat_block_1 = {
 }
 
 // iat - block 2 ------------------------------------------------------------------------
-var iat_block_2_1 = {
+var iat_block_2 = {
   timeline: [
     {
       type: 'iat-html',
@@ -1049,8 +1051,10 @@ var iat_block_2_1 = {
       right_category_label: [block_2_right_label],
       response_ends_trial: true,
       data: {
+        iat_block: 2,
         iat_type: 'practice',
-        iat_block: 2
+        iat_label_left:  block_2_left_label,
+        iat_label_right: block_2_right_label
          }
     },
     save_iat_trial
@@ -1075,8 +1079,10 @@ var iat_block_3_training = {
       right_category_label: [block_3_right_label_top, block_3_right_label_bottom],
       response_ends_trial: true,
       data: {
+        iat_block: 3,
         iat_type: 'practice',
-        iat_block: 3
+        iat_label_left:  block_3_left_label_top  + "-" + block_3_left_label_bottom,
+        iat_label_right: block_3_right_label_top + "-" + block_3_right_label_bottom
          }
     },
     save_iat_trial
@@ -1085,7 +1091,7 @@ var iat_block_3_training = {
 }
 
 // iat - block 3 (test) -----------------------------------------------------------------
-var iat_block_3_test_1 = {
+var iat_block_3_test = {
   timeline: [
     {
       type: 'iat-html',
@@ -1101,7 +1107,9 @@ var iat_block_3_test_1 = {
       response_ends_trial: true,
       data: {
         iat_type: 'test',
-        iat_block: 3
+        iat_block: 3,
+        iat_label_left:  block_3_left_label_top  + "-" + block_3_left_label_bottom,
+        iat_label_right: block_3_right_label_top + "-" + block_3_right_label_bottom
          }
     },
     save_iat_trial
@@ -1110,7 +1118,7 @@ var iat_block_3_test_1 = {
 }
 
 // iat - block 4 ------------------------------------------------------------------------
-var iat_block_4_1 = {
+var iat_block_4 = {
   timeline: [
     {
       type: 'iat-html',
@@ -1125,8 +1133,10 @@ var iat_block_4_1 = {
       right_category_label: [block_4_right_label],
       response_ends_trial: true,
       data: {
+        iat_block: 4,
         iat_type: 'practice',
-        iat_block: 4
+        iat_label_left:  block_4_left_label,
+        iat_label_right: block_4_right_label
          }
     },
     save_iat_trial
@@ -1150,8 +1160,10 @@ var iat_block_5_training = {
       right_category_label: [block_5_right_label_top, block_5_right_label_bottom],
       response_ends_trial: true,
       data: {
-        iat_type: 'practice',
         iat_block: 5
+        iat_type: 'practice',
+        iat_label_left:  block_5_left_label_top  + "-" + block_5_left_label_bottom,
+        iat_label_right: block_5_right_label_top + "-" + block_5_right_label_bottom
          }
     },
     save_iat_trial
@@ -1176,8 +1188,10 @@ var iat_block_5_test = {
       right_category_label: [block_5_right_label_top, block_5_right_label_bottom],
       response_ends_trial: true,
       data: {
+        iat_block: 5,
         iat_type: 'test',
-        iat_block: 5
+        iat_label_left:  block_5_left_label_top  + "-" + block_5_left_label_bottom,
+        iat_label_right: block_5_right_label_top + "-" + block_5_right_label_bottom
          }
     },
     save_iat_trial
@@ -1210,11 +1224,12 @@ timeline.push(
   iat_instructions_block_2, iat_block_2,
   iat_instructions_block_3, iat_block_3_training,
   iat_instructions_block_3_test, iat_block_3_test,
-  iat_instructions_block_4, iat_block_4_1, iat_block_4,
+  iat_instructions_block_4, iat_block_4,
   iat_instructions_block_5, iat_block_5_training,
   iat_instructions_block_5_test, iat_block_5_test,
   );
 
+// ending
 timeline.push(fullscreen_trial_exit);
 
 // Launch experiment --------------------------------------------------------------------
