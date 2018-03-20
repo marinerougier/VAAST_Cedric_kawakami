@@ -1161,6 +1161,16 @@ var iat_block_5_test = {
   timeline_variables: sample_n_iat(iat_block_5_stim, 74)
 }
 
+// 
+var iat_instructions_2 = {
+  type: "html-keyboard-response",
+  stimulus:
+    "<h1 class ='custom-title'> Task 2 </h1>" +
+    "<p class='instructions'>This part of the experiment is now over. " +
+    "<p class = 'continue-instructions'>Press <strong>space</strong> to continue.</p>",
+  choices: [32]
+};
+
 // end fullscreen -----------------------------------------------------------------------
 
 var fullscreen_trial_exit = {
