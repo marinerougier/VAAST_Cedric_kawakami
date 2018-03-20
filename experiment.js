@@ -1122,7 +1122,7 @@ var iat_block_5_training = {
       right_category_label: [block_5_right_label_top, block_5_right_label_bottom],
       response_ends_trial: true,
       data: {
-        iat_block: 5
+        iat_block: 5,
         iat_type: 'practice',
         iat_label_left:  block_5_left_label_top  + "-" + block_5_left_label_bottom,
         iat_label_right: block_5_right_label_top + "-" + block_5_right_label_bottom
