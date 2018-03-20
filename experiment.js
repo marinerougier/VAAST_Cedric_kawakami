@@ -518,14 +518,12 @@ var vaast_instructions_5 = {
 };
 
 var vaast_block_instructions = function(n)  {
+  var n_prev = n - 1;
+
   var block_instructions = {
     type: "html-keyboard-response",
     stimulus:
-      "<h1 class ='custom-title'> Task 1 </h1>" +
-      "<p class='instructions'>Training block is now over. </p>" +
-      "<p class='instructions'>You will now start block n°" + n +". " +
-      " The instructions stay the same." +
-      "</p>" +
+      "<p>The block n°" + n_prev +" is over. " +
       "<p class = 'continue-instructions'>Press <strong>space</strong> to start block n°"+ n +".</p>",
     choices: [32]
   };
