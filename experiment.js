@@ -21,6 +21,32 @@
 //
 // OVERVIEW -----------------------------------------------------------------------------
 //
+
+
+
+// safari exclusion ---------------------------------------------------------------------
+var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+is_safari = false;
+
+if(is_safari) {
+
+    var safari_exclusion = {
+        type: "html-keyboard-response",
+        stimulus:
+        "<p>Unfortunately, this study is not compatible with Safari " +
+        "browser.</p>" +
+        "<p>Please reopen the experiment from another browser (like " +
+        "Chrome or Firefox).</p>",
+        choices: jsPsych.NO_KEYS
+    };
+
+    var timeline_safari = [];
+
+    timeline_safari.push(safari_exclusion);
+    jsPsych.init({timeline: timeline_safari});
+
+}
 // keen.io initialization ---------------------------------------------------------------
 // This part will work only if stream_projectID & stream_writeKey have been defined.
 // nb: the bang (!) is for self-invoking function.
@@ -1302,7 +1328,8 @@ jsPsych.pluginAPI.preloadImages(vaast_bg_filename);
 
 // timeline initiaization ---------------------------------------------------------------
 
-jsPsych.init({
+if(!is_safari) {
+    jsPsych.init({
   timeline: timeline,
   on_interaction_data_update: function() {
     saving_browser_events(completion = false);
@@ -1312,3 +1339,4 @@ jsPsych.init({
     window.location.href = atob("aHR0cHM6Ly93d3cucHJvbGlmaWMuYWMvc3VibWlzc2lvbnMvY29tcGxldGU/Y2M9Rks0VUZFSlI=");
     }
   });
+}
