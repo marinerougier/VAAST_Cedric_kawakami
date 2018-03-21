@@ -1318,8 +1318,8 @@ timeline.push(ending,
 // In principle, it should have ended when participants starts VAAST procedure (which)
 // contains most of the image that have to be pre-loaded.
 var loading_gif               = ["media/loading.gif"]
-var vaast_stim_filename       = vaast_stim.map(a => a.stimulus);
 var vaast_instructions_images = ["media/vaast-background.png", "media/keyboard-vaastt.png", "media/art_exemple.bmp", "media/math_exemple.bmp"];
+var vaast_stim_filename       = vaast_stim.map(function(a){return(a.stimulus)});
 var vaast_bg_filename         = background;
 
 jsPsych.pluginAPI.preloadImages(loading_gif);
