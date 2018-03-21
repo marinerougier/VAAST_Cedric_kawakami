@@ -322,7 +322,7 @@ var welcome = {
     "<h1 class ='custom-title'> Welcome </h1>" +
     "<p class='instructions'>Thank you for participating in this study.<p>" +
     "<p class='instructions'>During this study, you will have to complete different tasks. We " +
-    " will gather data related to how you complete them but " +
+    " will gather data related to how you complete them but, " +
     "no personally identifying information will be collected.</p>" +
     "<p class='instructions'>Because we rely on third party services to gather data, ad-blocking " +
     "software might interfere with data collection. Therefore, please  " +
