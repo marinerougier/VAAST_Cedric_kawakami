@@ -25,19 +25,18 @@
 
 
 // safari exclusion ---------------------------------------------------------------------
-var is_safari = /^((?!chrome|android).)*safari+ie/i.test(navigator.userAgent);
-var is_ie = /*@cc_on!@*/false || !!document.documentMode;
+var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-var is_compatible = !(is_safari || is_ie);
+is_safari = false;
 
-if(!is_compatible) {
+if(is_safari) {
 
     var safari_exclusion = {
         type: "html-keyboard-response",
         stimulus:
-        "<p>Unfortunately, this study is not compatible with your " +
+        "<p>Unfortunately, this study is not compatible with Safari " +
         "browser.</p>" +
-        "<p>Please reopen this experiment from a supported browser (like " +
+        "<p>Please reopen the experiment from another browser (like " +
         "Chrome or Firefox).</p>",
         choices: jsPsych.NO_KEYS
     };
@@ -322,7 +321,7 @@ var welcome = {
     "<h1 class ='custom-title'> Welcome </h1>" +
     "<p class='instructions'>Thank you for participating in this study.<p>" +
     "<p class='instructions'>During this study, you will have to complete different tasks. We " +
-    " will gather data related to how you complete them but, " +
+    " will gather data related to how you complete them but " +
     "no personally identifying information will be collected.</p>" +
     "<p class='instructions'>Because we rely on third party services to gather data, ad-blocking " +
     "software might interfere with data collection. Therefore, please  " +
@@ -1188,7 +1187,7 @@ var iat_block_5_test = {
   timeline_variables: sample_n_iat(iat_block_5_stim, 74)
 }
 
-//
+// 
 var iat_instructions_2 = {
   type: "html-keyboard-response",
   stimulus:
@@ -1267,28 +1266,28 @@ timeline.push(vaast_instructions_1,
               vaast_instructions_3);
 
 // vaast - blocks
-// timeline.push(vaast_training_block,
-//               vaast_instructions_5,
-//               vaast_test_block,
-//               vaast_block_instructions(2),
-//               //vaast_test_block,
-//               vaast_block_instructions(3),
-//               // vaast_test_block,
-//               vaast_block_instructions(4),
-//               //vaast_test_block,
-//               vaast_block_instructions(5),
-//               //vaast_test_block,
-//               vaast_block_instructions(6),
-//               // vaast_test_block,
-//               vaast_block_instructions(7),
-//               //vaast_test_block,
-//               vaast_block_instructions(8),
-//               //vaast_test_block,
-//               vaast_block_instructions(9),
-//               //vaast_test_block,
-//               vaast_block_instructions(10)
-//               //vaast_test_block,
-//               );
+timeline.push(vaast_training_block,
+              vaast_instructions_5,
+              vaast_test_block,
+              vaast_block_instructions(2),
+              //vaast_test_block,
+              vaast_block_instructions(3),
+              // vaast_test_block,
+              vaast_block_instructions(4),
+              //vaast_test_block,
+              vaast_block_instructions(5),
+              //vaast_test_block,
+              vaast_block_instructions(6),
+              // vaast_test_block,
+              vaast_block_instructions(7),
+              //vaast_test_block,
+              vaast_block_instructions(8),
+              //vaast_test_block,
+              vaast_block_instructions(9),
+              //vaast_test_block,
+              vaast_block_instructions(10),
+              //vaast_test_block,
+              );
 
 // vaast - end
 timeline.push(vaast_instructions_6);
@@ -1318,8 +1317,8 @@ timeline.push(ending,
 // In principle, it should have ended when participants starts VAAST procedure (which)
 // contains most of the image that have to be pre-loaded.
 var loading_gif               = ["media/loading.gif"]
-var vaast_instructions_images = ["media/vaast-background.png", "media/keyboard-vaastt.png", "media/art_exemple.bmp", "media/math_exemple.bmp"];
-var vaast_stim_filename       = vaast_stim.map(function(a){return(a.stimulus)});
+var vaast_instructions_images = ["media/vaast-background.png", "media/keyboard-vaastt.png", "media/arts_exemple.bmp", "media/maths_exemple.bmp"];
+var vaast_stim_filename       = vaast_stim.map(a => a.stimulus);
 var vaast_bg_filename         = background;
 
 jsPsych.pluginAPI.preloadImages(loading_gif);
@@ -1329,15 +1328,15 @@ jsPsych.pluginAPI.preloadImages(vaast_bg_filename);
 
 // timeline initiaization ---------------------------------------------------------------
 
-if(is_compatible) {
-  jsPsych.init({
-      timeline: timeline,
-      on_interaction_data_update: function() {
-        saving_browser_events(completion = false);
-      },
-    on_finish: function() {
-        saving_browser_events(completion = true);
-        window.location.href = atob("aHR0cHM6Ly93d3cucHJvbGlmaWMuYWMvc3VibWlzc2lvbnMvY29tcGxldGU/Y2M9Rks0VUZFSlI=");
+if(!is_safari) {
+    jsPsych.init({
+  timeline: timeline,
+  on_interaction_data_update: function() {
+    saving_browser_events(completion = false);
+    },
+  on_finish: function() {
+    saving_browser_events(completion = true);
+    window.location.href = atob("aHR0cHM6Ly93d3cucHJvbGlmaWMuYWMvc3VibWlzc2lvbnMvY29tcGxldGU/Y2M9Rks0VUZFSlI=");
     }
   });
 }
