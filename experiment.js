@@ -25,18 +25,19 @@
 
 
 // safari exclusion ---------------------------------------------------------------------
-var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+var is_safari = /^((?!chrome|android).)*safari+ie/i.test(navigator.userAgent);
+var is_ie = /*@cc_on!@*/false || !!document.documentMode;
 
-is_safari = false;
+var is_compatible = !(is_safari || is_ie);
 
-if(is_safari) {
+if(!is_compatible) {
 
     var safari_exclusion = {
         type: "html-keyboard-response",
         stimulus:
-        "<p>Unfortunately, this study is not compatible with Safari " +
+        "<p>Unfortunately, this study is not compatible with your " +
         "browser.</p>" +
-        "<p>Please reopen the experiment from another browser (like " +
+        "<p>Please reopen this experiment from a supported browser (like " +
         "Chrome or Firefox).</p>",
         choices: jsPsych.NO_KEYS
     };
@@ -1187,7 +1188,7 @@ var iat_block_5_test = {
   timeline_variables: sample_n_iat(iat_block_5_stim, 74)
 }
 
-// 
+//
 var iat_instructions_2 = {
   type: "html-keyboard-response",
   stimulus:
@@ -1328,15 +1329,15 @@ jsPsych.pluginAPI.preloadImages(vaast_bg_filename);
 
 // timeline initiaization ---------------------------------------------------------------
 
-if(!is_safari) {
-    jsPsych.init({
-  timeline: timeline,
-  on_interaction_data_update: function() {
-    saving_browser_events(completion = false);
-    },
-  on_finish: function() {
-    saving_browser_events(completion = true);
-    window.location.href = atob("aHR0cHM6Ly93d3cucHJvbGlmaWMuYWMvc3VibWlzc2lvbnMvY29tcGxldGU/Y2M9Rks0VUZFSlI=");
+if(is_compatible) {
+  jsPsych.init({
+      timeline: timeline,
+      on_interaction_data_update: function() {
+        saving_browser_events(completion = false);
+      },
+    on_finish: function() {
+        saving_browser_events(completion = true);
+        window.location.href = atob("aHR0cHM6Ly93d3cucHJvbGlmaWMuYWMvc3VibWlzc2lvbnMvY29tcGxldGU/Y2M9Rks0VUZFSlI=");
     }
   });
 }
