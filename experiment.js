@@ -324,7 +324,7 @@ var welcome = {
     "<h1 class ='custom-title'> Welcome </h1>" +
     "<p class='instructions'>Thank you for participating in this study.<p>" +
     "<p class='instructions'>During this study, you will have to complete different tasks. We " +
-    " will gather data related to how you complete them but, " +
+    " will gather data related to how you complete them, but " +
     "no personally identifying information will be collected.</p>" +
     "<p class='instructions'>Because we rely on third party services to gather data, ad-blocking " +
     "software might interfere with data collection. Therefore, please  " +
@@ -1298,14 +1298,14 @@ timeline.push(vaast_instructions_6);
 // iat - initial instructions
 timeline.push(iat_instructions_1)
 
-timeline.push(iat_instructions_block_1, iat_block_1,
-              iat_instructions_block_2, iat_block_2,
-              iat_instructions_block_3, iat_block_3_training,
-              iat_instructions_block_3_test, iat_block_3_test,
-              iat_instructions_block_4, iat_block_4,
-              iat_instructions_block_5, iat_block_5_training,
-              iat_instructions_block_5_test, iat_block_5_test);
-
+timeline.push(iat_instructions_block_1, //iat_block_1,
+              iat_instructions_block_2, //iat_block_2,
+              iat_instructions_block_3, //iat_block_3_training,
+              iat_instructions_block_3_test, //iat_block_3_test,
+              iat_instructions_block_4, //iat_block_4,
+              iat_instructions_block_5, //iat_block_5_training,
+              iat_instructions_block_5_test, //iat_block_5_test);
+);
 // iat - ending
 timeline.push(iat_instructions_2);
 
