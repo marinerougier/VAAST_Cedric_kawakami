@@ -323,14 +323,14 @@ var welcome = {
   stimulus:
     "<h1 class ='custom-title'> Welcome </h1>" +
     "<p class='instructions'>Thank you for participating in this study.<p>" +
-    "<p class='instructions'>During this study, you will have to complete different tasks. We " +
+    "<p class='instructions'>During this study, you will have to complete two different tasks. We " +
     " will gather data related to how you complete them, but " +
     "no personally identifying information will be collected.</p>" +
     "<p class='instructions'>Because we rely on third party services to gather data, ad-blocking " +
     "software might interfere with data collection. Therefore, please  " +
     "disable your ad-blocking software during this study. " +
-    "<b>If we cannot access your data, we will not be able to reward you for " +
-    "your participation in this study</b>. </p>" +
+    "<b>If we cannot collect your data, we will not be able to reward you for " +
+    "your participation</b>. </p>" +
     "<p class='instructions'>If you have any question related to this research, please " +
     "e-mail cedric.batailler@univ-grenoble-alpes.fr.</p>" +
     "<p class = 'continue-instructions'>Press <strong>space</strong> to start the study.</p>",
@@ -349,9 +349,9 @@ var welcome_2 = {
 var welcome_3 = {
   type: "html-keyboard-response",
   stimulus:
-    "<p class='instructions'>We will now proceede to test your connection to our server. " +
+    "<p class='instructions'>We will now proceede to a test of your connection to our server. " +
     " If this test fails, please check your Internet connection and make sure you have " +
-    " disable your ad-blocking software.</p>" +
+    " actually disabled your ad-blocking software.</p>" +
     "<p class='instructions'>This test should last less than 5 seconds.</p>" +
     "<p class = 'continue-instructions'>Press <strong>space</strong> to continue.</p>",
   choices: [32]
@@ -666,7 +666,7 @@ var iat_instructions_1 = {
   type: "html-keyboard-response",
   stimulus:
     "<h1 class ='custom-title'> Task 2 </h1>" +
-    "<p class='instructions'>In this part, you will be asked to sort words" +
+    "<p class='instructions'>In this task, you will be asked to sort words" +
     " into groups as fast as you can using the keyboard. The following is a" +
     " list of category labels and the items that belong to each of these categories." +
     "</p>" +
@@ -1226,7 +1226,7 @@ var ending = {
     "<p class='instructions'>For more information to this topic, please refer to " +
     "Kawakami, Cifa, Steele, Phils, and Dovidio (2008)’s scientific paper, and if " +
     "you still have any inquiries, please mail cedric.batailler@univ-grenoble-alpes.fr</p>" +
-    "<p class = 'continue-instructions'>Press <strong>space</strong> to start the study.</p>",
+    "<p class = 'continue-instructions'>Press <strong>space</strong> to continue.</p>",
   choices: [32]
 };
 
