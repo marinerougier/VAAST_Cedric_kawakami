@@ -753,7 +753,7 @@ var iat_instructions_block_1 = {
       "will appear one-by-one in the middle of the screen. " +
       "When the item belongs to a category on the left, press the <span class='key'>E</span> key; when the item " +
       "belongs to a category on the right, press the <span class='key'>I</span> key. Items belong to only one category. " +
-      "If you make an error, an X will appear - fix the error by hitting the other key." +
+      "If you make an error, an X will appear – fix the error by hitting the other key." +
     "</p>" +
     "<p class='instructions'>" +
       "This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. " +
@@ -786,7 +786,7 @@ var iat_instructions_block_2 = {
       "When the items belong to a category to the left, press the <span class='key'>E</span> key; " +
       "when the item belongs to a category on the right, press the <span class='key'>I</span> key. " +
       "Items belong to only one category. " +
-      "An X will appear after an error - fix the error by hitting the other key. " +
+      "An X will appear after an error – fix the error by hitting the other key. " +
       "GO AS FAST AS YOU CAN. " +
     "</p>" +
   "</div> " +
