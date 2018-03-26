@@ -338,13 +338,40 @@ var welcome = {
 };
 
 var welcome_2 = {
-  type: "html-keyboard-response",
+  type: "html-button-response",
   stimulus:
     "<p class='instructions'>Before going further, please note that this study should take " +
-    "XX minutes to complete. If you don't have enough time, please come back later.</p>" +
-    "<p class = 'continue-instructions'>Press <strong>space</strong> to continue.</p>",
-  choices: [32]
+    "XX minutes to complete.</p>",
+  choices: ['I have enough time', 'I do not have enough time'],
 };
+
+var not_enough_time_to_complete = {
+    type: 'html-button-response',
+    stimulus: '<p>Please come back later to take part in this experiment.</p>',
+    choices: ['Go back to Prolific Academic'],
+};
+
+var redirect_to_prolific = {
+    type: 'call-function',
+    func: function() {
+        window.location.href = "https://www.prolific.ac/";
+        jsPsych.pauseExperiment();
+    }
+}
+
+var if_not_enough_time = {
+    timeline: [not_enough_time_to_complete, redirect_to_prolific],
+    conditional_function: function(){
+        // get the data from the previous trial,
+        // and check which key was pressed
+        var data = jsPsych.data.getLastTrialData().values()[0].button_pressed;
+        if(data == 1){
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
 
 var welcome_3 = {
   type: "html-keyboard-response",
@@ -1248,6 +1275,7 @@ var timeline = [];
 // welcome
 timeline.push(welcome,
               welcome_2,
+              if_not_enough_time,
               welcome_3);
 
 // keen.io connexion test
