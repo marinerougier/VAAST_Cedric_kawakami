@@ -75,7 +75,7 @@ jsPsych.plugins["keen-ping"] = (function() {
             new_html =
             '<div id="jspsych-html-keyboard-response-stimulus">' +
             '<p><i class="fas fa-check"></i> Connection established.</p>' +
-            "<p class="continue-instructions">Press <span class='key'>space</span> to continue. </p>" +
+            "<p class='continue-instructions'>Press <span class='key'>space</span> to continue. </p>" +
             '</div>';
             display_element.innerHTML = new_html;
 
