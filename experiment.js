@@ -31,7 +31,6 @@ var is_ie = /*@cc_on!@*/false || !!document.documentMode;
 var is_compatible = !(is_safari || is_ie);
 
 
-is_compatible = true; // debug
 if(!is_compatible) {
 
     var safari_exclusion = {
