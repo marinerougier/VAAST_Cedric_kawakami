@@ -392,7 +392,8 @@ var keen_ping = {
     stream_name: 'ping_stream',
     write_key: stream_writeKey,
     project_id: stream_projectID,
-    session_id: jspsych_id
+    session_id: jspsych_id,
+    choices: [32]
   }
 
 
