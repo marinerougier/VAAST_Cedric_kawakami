@@ -202,7 +202,7 @@ var next_position = function(){
 // init ---------------------------------------------------------------------------------
 var saving_id = function(){
 
-  prolific_id = jsPsych.data.getDataByTimelineNode("0.0-5.0").values()[0].responses.slice(7, -2);
+  prolific_id = jsPsych.data.getDataByTimelineNode("0.0-6.0").values()[0].responses.slice(7, -2);
 
   KeenAsync.ready(function(){
     var client = new KeenAsync({
@@ -470,7 +470,7 @@ var vaast_instructions_3 = {
     "<h1 class ='custom-title'> Task 1 </h1>" +
     "<p class='instructions'>Your instructions are to <span class='vaast-movement-instructions'>approach " +
      approach_cat + "-related pictures</span> and to <span class='vaast-movement-instructions'>avoid " +
-     avoidance_cat + "-related pictures</span>. </p>" +
+     avoidance_cat + "-related pictures</span>. You can see examples of stimuli below.</p>" +
     "<p class='instructions'>It is very important to remember which action you will" +
     " have to perform for each category. You need this information to complete the " +
     "task successfully. Please make sure that you will remember these instructions before "+
