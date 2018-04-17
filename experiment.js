@@ -21,9 +21,9 @@
 //
 // OVERVIEW -----------------------------------------------------------------------------
 //
-
-
-
+// TODO:
+// -> Any key à remplacer dans l'iat et dans le check de connection
+//
 // safari exclusion ---------------------------------------------------------------------
 var is_safari = /^((?!chrome|android).)*safari+ie/i.test(navigator.userAgent);
 var is_ie = /*@cc_on!@*/false || !!document.documentMode;
@@ -1297,28 +1297,28 @@ timeline.push(vaast_instructions_1,
               vaast_instructions_3);
 
 // vaast - blocks
-timeline.push(vaast_training_block,
-              vaast_instructions_5,
-              vaast_test_block,
-              vaast_block_instructions(2),
-              //vaast_test_block,
-              vaast_block_instructions(3),
-              // vaast_test_block,
-              vaast_block_instructions(4),
-              //vaast_test_block,
-              vaast_block_instructions(5),
-              //vaast_test_block,
-              vaast_block_instructions(6),
-              // vaast_test_block,
-              vaast_block_instructions(7),
-              //vaast_test_block,
-              vaast_block_instructions(8),
-              //vaast_test_block,
-              vaast_block_instructions(9),
-              //vaast_test_block,
-              vaast_block_instructions(10),
-              //vaast_test_block,
-              );
+// timeline.push(vaast_training_block,
+//               vaast_instructions_5,
+//               vaast_test_block,
+//               vaast_block_instructions(2),
+//               //vaast_test_block,
+//               vaast_block_instructions(3),
+//               // vaast_test_block,
+//               vaast_block_instructions(4),
+//               //vaast_test_block,
+//               vaast_block_instructions(5),
+//               //vaast_test_block,
+//               vaast_block_instructions(6),
+//               // vaast_test_block,
+//               vaast_block_instructions(7),
+//               //vaast_test_block,
+//               vaast_block_instructions(8),
+//               //vaast_test_block,
+//               vaast_block_instructions(9),
+//               //vaast_test_block,
+//               vaast_block_instructions(10),
+//               //vaast_test_block,
+//               );
 
 // vaast - end
 timeline.push(vaast_instructions_6);
