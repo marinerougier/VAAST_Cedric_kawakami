@@ -340,7 +340,7 @@ var welcome_2 = {
   type: "html-button-response",
   stimulus:
     "<p class='instructions'>Before going further, please note that this study should take " +
-    "XX minutes to complete.</p>",
+    "40 minutes to complete.</p>",
   choices: ['I have enough time', 'I do not have enough time'],
 };
 
@@ -1297,28 +1297,28 @@ timeline.push(vaast_instructions_1,
               vaast_instructions_3);
 
 // vaast - blocks
-// timeline.push(vaast_training_block,
-//               vaast_instructions_5,
-//               vaast_test_block,
-//               vaast_block_instructions(2),
-//               //vaast_test_block,
-//               vaast_block_instructions(3),
-//               // vaast_test_block,
-//               vaast_block_instructions(4),
-//               //vaast_test_block,
-//               vaast_block_instructions(5),
-//               //vaast_test_block,
-//               vaast_block_instructions(6),
-//               // vaast_test_block,
-//               vaast_block_instructions(7),
-//               //vaast_test_block,
-//               vaast_block_instructions(8),
-//               //vaast_test_block,
-//               vaast_block_instructions(9),
-//               //vaast_test_block,
-//               vaast_block_instructions(10),
-//               //vaast_test_block,
-//               );
+timeline.push(vaast_training_block,
+              vaast_instructions_5,
+              vaast_test_block,
+              vaast_block_instructions(2),
+              vaast_test_block,
+              vaast_block_instructions(3),
+              vaast_test_block,
+              vaast_block_instructions(4),
+              vaast_test_block,
+              vaast_block_instructions(5),
+              vaast_test_block,
+              vaast_block_instructions(6),
+              vaast_test_block,
+              vaast_block_instructions(7),
+              vaast_test_block,
+              vaast_block_instructions(8),
+              vaast_test_block,
+              vaast_block_instructions(9),
+              vaast_test_block,
+              vaast_block_instructions(10),
+              vaast_test_block,
+              );
 
 // vaast - end
 timeline.push(vaast_instructions_6);
