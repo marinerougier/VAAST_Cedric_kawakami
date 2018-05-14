@@ -375,7 +375,7 @@ var if_not_enough_time = {
 var welcome_3 = {
   type: "html-keyboard-response",
   stimulus:
-    "<p class='instructions'>We will now proceede to a test of your connection to our server. " +
+    "<p class='instructions'>We will now proceed to a test of your connection to our server. " +
     " If this test fails, please check your Internet connection and make sure you have " +
     " actually disabled your ad-blocking software.</p>" +
     "<p class='instructions'>This test should last less than 5 seconds.</p>" +
