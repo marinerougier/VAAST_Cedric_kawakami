@@ -58,6 +58,25 @@ if(!is_compatible) {
   var latest,prev=name!=='Keen'&&window.Keen?window.Keen:false;ctx[name]=ctx[name]||{ready:function(fn){var h=document.getElementsByTagName('head')[0],s=document.createElement('script'),w=window,loaded;s.onload=s.onerror=s.onreadystatechange=function(){if((s.readyState&&!(/^c|loade/.test(s.readyState)))||loaded){return}s.onload=s.onreadystatechange=null;loaded=1;latest=w.Keen;if(prev){w.Keen=prev}else{try{delete w.Keen}catch(e){w.Keen=void 0}}ctx[name]=latest;ctx[name].ready(fn)};s.async=1;s.src=path;h.parentNode.insertBefore(s,h)}}
 }('KeenAsync','https://d26b395fwzu5fz.cloudfront.net/keen-tracking-1.1.3.min.js',this);
 
+
+ // cursor helper functions -------------------------------------------------------------
+var hide_cursor = function() {
+   document.querySelector('head').insertAdjacentHTML('beforeend', '<style id="cursor-toggle"> html { cursor: none; } </style>');
+}
+var show_cursor = function() {
+   document.querySelector('#cursor-toggle').remove();
+}
+
+var hiding_cursor = {
+    type: 'call-function',
+    func: hide_cursor
+}
+
+var showing_cursor = {
+    type: 'call-function',
+    func: show_cursor
+}
+
 // Variable input -----------------------------------------------------------------------
 // Variable used to define experimental condition.
 
@@ -202,7 +221,7 @@ var next_position = function(){
 // init ---------------------------------------------------------------------------------
 var saving_id = function(){
 
-  prolific_id = jsPsych.data.getDataByTimelineNode("0.0-6.0").values()[0].responses.slice(7, -2);
+  prolific_id = jsPsych.data.getDataByTimelineNode("0.0-5.0").values()[0].responses.slice(7, -2);
 
   KeenAsync.ready(function(){
     var client = new KeenAsync({
@@ -1281,12 +1300,13 @@ timeline.push(welcome,
 // keen.io connexion test
 timeline.push(keen_ping);
 
-// fullscreen
-timeline.push(fullscreen_trial);
-
 // prolific verification
 timeline.push(prolific_id,
               save_id);
+
+// fullscreen
+timeline.push(fullscreen_trial,
+              hiding_cursor);
 
 // initial instructions
 timeline.push(instructions);
@@ -1338,7 +1358,8 @@ timeline.push(iat_instructions_block_1, //iat_block_1,
 timeline.push(iat_instructions_2);
 
 // ending
-timeline.push(fullscreen_trial_exit);
+timeline.push(fullscreen_trial_exit,
+              showing_cursor);
 timeline.push(ending,
               ending_2);
 
