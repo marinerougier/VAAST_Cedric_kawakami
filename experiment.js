@@ -1388,14 +1388,14 @@ timeline.push(vaast_instructions_6);
 // iat - initial instructions
 timeline.push(iat_instructions_1)
 
-timeline.push(iat_instructions_block_1, //iat_block_1,
-              iat_instructions_block_2, //iat_block_2,
-              iat_instructions_block_3, //iat_block_3_training,
-              iat_instructions_block_3_test, //iat_block_3_test,
-              iat_instructions_block_4, //iat_block_4,
-              iat_instructions_block_5, //iat_block_5_training,
-              iat_instructions_block_5_test, //iat_block_5_test);
-);
+timeline.push(iat_instructions_block_1, iat_block_1,
+              iat_instructions_block_2, iat_block_2,
+              iat_instructions_block_3, iat_block_3_training,
+              iat_instructions_block_3_test, iat_block_3_test,
+              iat_instructions_block_4, iat_block_4,
+              iat_instructions_block_5, iat_block_5_training,
+              iat_instructions_block_5_test, iat_block_5_test);
+
 // iat - ending
 timeline.push(iat_instructions_2);
 
