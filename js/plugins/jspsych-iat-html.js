@@ -65,13 +65,13 @@
       html_when_wrong: {
         type: jsPsych.plugins.parameterType.HTML_STRING,
         pretty_name: 'HTML when wrong',
-        default: '<span style="color: red; font-size: 80px">X</span>',
+        default: '<span style="color: red; font-size: 80px">&times;</span>',
         description: 'The image to display when a user presses the wrong key.'
       },
       bottom_instructions: {
         type: jsPsych.plugins.parameterType.HTML_STRING,
         pretty_name: 'Bottom instructions',
-        default: '<p>If you press the wrong key, a red X will appear. Press any key to continue.</p>',
+        default: '<p>If you press the wrong key, a red X will appear. You will have to press the correct key to continue.</p>',
         description: 'Instructions shown at the bottom of the page.'
       },
       force_correct_key_press: {
