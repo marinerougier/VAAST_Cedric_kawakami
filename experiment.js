@@ -229,7 +229,7 @@ var saving_id = function(){
       writeKey: stream_writeKey,
     });
     if(data_stream) {
-      client.recordEvent('prolific_id_stream', {
+      client.recordEvent('stream_prolific_id', {
         session_id: jspsych_id,
         prolific_id: prolific_id,
         vaast_approach_training: vaast_approach_training,
@@ -258,7 +258,7 @@ var saving_vaast_trial = function(){
       writeKey: stream_writeKey
     });
     if(data_stream) {
-      client.recordEvent('vaast_stream', {
+      client.recordEvent('stream_vaast', {
         session_id: jspsych_id,
         prolific_id: prolific_id,
         vaast_approach_training: vaast_approach_training,
@@ -278,7 +278,7 @@ var saving_iat_trial = function(){
       writeKey: stream_writeKey
     });
     if(data_stream) {
-      client.recordEvent('iat_stream', {
+      client.recordEvent('stream_iat', {
         session_id: jspsych_id,
         prolific_id: prolific_id,
         vaast_approach_training: vaast_approach_training,
@@ -297,7 +297,7 @@ var saving_browser_events = function(completion) {
         writeKey: stream_writeKey
       });
       if(data_stream) {
-        client.recordEvent('meta_info_stream', {
+        client.recordEvent('stream_browser_events', {
           session_id: jspsych_id,
           event_data: jsPsych.data.getInteractionData().json(),
           completion: completion
