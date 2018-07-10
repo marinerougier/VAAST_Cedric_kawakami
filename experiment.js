@@ -459,7 +459,7 @@ var prolific_id = {
 var instructions = {
   type: "html-keyboard-response",
   stimulus:
-    "<p>You are now about to start the study. In this study, you will engage in different tasks. </p>" +
+    "<p>You are now about to start the study. In this study, you will engage in two different tasks. </p>" +
     "<p class = 'continue-instructions'>Press <strong>space</strong> to start Task 1.</p>",
   choices: [32]
 };
