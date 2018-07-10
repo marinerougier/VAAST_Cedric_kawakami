@@ -290,6 +290,21 @@ var saving_iat_trial = function(){
   });
 }
 
+var saving_extra = function(completion) {
+  KeenAsync.ready(function(){
+    var client = new KeenAsync({
+        projectId: stream_projectID,
+        writeKey: stream_writeKey
+      });
+      if(data_stream) {
+        client.recordEvent('stream_extra', {
+          session_id: jspsych_id,
+          extra_data: jsPsych.data.get().last(2).json(),
+        });
+      }
+  });
+}
+
 var saving_browser_events = function(completion) {
   KeenAsync.ready(function(){
     var client = new KeenAsync({
@@ -321,6 +336,10 @@ var save_iat_trial = {
     func: saving_iat_trial
 }
 
+var save_extra = {
+    type: 'call-function',
+    func: saving_extra
+}
 
 // iat sampling function ----------------------------------------------------------------
 var sample_n_iat = function(list, n) {
@@ -1253,6 +1272,29 @@ var fullscreen_trial_exit = {
   fullscreen_mode: false
 }
 
+// demographics + questions -------------------------------------------------------------
+
+var extra_information = {
+ type: 'survey-text',
+  questions: [{prompt: "<p class='instructions'>The experiment is almost over." +
+                       " You will just have to answer to a few questions.</p>" +
+                       "<p class='instructions'>Would you say you passed the experiment in" +
+                       " good conditions (ex. noise, disturbance, ...)? Note that your reward " +
+                       "for this experiment does not depend on your answer.</p>",
+               rows: 5, columns: 70}],
+  button_label: "Submit"
+};
+
+var extra_information_2 = {
+ type: 'survey-multi-choice',
+ preamble: "<p class='instructions'>Before this experiment, have you ever been completing the following tasks?</p>",
+  questions: [
+    {prompt: "Approach and avoidance task", options: ["Yes", "No", "I cannot remember"], required: true, horizontal: true},
+    {prompt: "Categorizaton task",          options: ["Yes", "No", "I cannot remember"], required: true, horizontal: true}
+    ],
+  button_label: "Submit"
+};
+
 // end insctruction ---------------------------------------------------------------------
 
 var ending = {
@@ -1360,6 +1402,11 @@ timeline.push(iat_instructions_2);
 // ending
 timeline.push(fullscreen_trial_exit,
               showing_cursor);
+
+timeline.push(extra_information,
+              extra_information_2,
+              save_extra);
+
 timeline.push(ending,
               ending_2);
 
