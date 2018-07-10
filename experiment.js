@@ -25,7 +25,7 @@
 // -> Any key à remplacer dans l'iat et dans le check de connection
 //
 // safari exclusion ---------------------------------------------------------------------
-var is_safari = /^((?!chrome|android).)*safari+ie/i.test(navigator.userAgent);
+var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 var is_ie = /*@cc_on!@*/false || !!document.documentMode;
 
 var is_compatible = !(is_safari || is_ie);
