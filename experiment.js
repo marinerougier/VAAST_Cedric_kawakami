@@ -1287,7 +1287,7 @@ var extra_information = {
 
 var extra_information_2 = {
  type: 'survey-multi-choice',
- preamble: "<p class='instructions'>Before this experiment, have you ever been completing the following tasks?</p>",
+ preamble: "<p class='instructions'>Prior to this experiment, have you ever been completing the following tasks?</p>",
   questions: [
     {prompt: "Approach and avoidance task", options: ["Yes", "No", "I cannot remember"], required: true, horizontal: true},
     {prompt: "Categorizaton task",          options: ["Yes", "No", "I cannot remember"], required: true, horizontal: true}
