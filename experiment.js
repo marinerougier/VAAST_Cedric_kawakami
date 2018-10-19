@@ -1334,56 +1334,56 @@ var ending_2 = {
 var timeline = [];
 
 // welcome
-timeline.push(welcome,
-              welcome_2,
-              if_not_enough_time,
-              welcome_3);
+// timeline.push(welcome,
+//               welcome_2,
+//               if_not_enough_time,
+ //              welcome_3);
 
 // keen.io connexion test
-timeline.push(keen_ping);
+// timeline.push(keen_ping);
 
 // prolific verification
-timeline.push(prolific_id,
+// timeline.push(prolific_id,
               save_id);
 
 // fullscreen
-timeline.push(fullscreen_trial,
-              hiding_cursor);
+// timeline.push(fullscreen_trial,
+//               hiding_cursor);
 
 // initial instructions
-timeline.push(instructions);
+// timeline.push(instructions);
 
 // vaast - instructions
-timeline.push(vaast_instructions_1,
-              vaast_instructions_2,
-              vaast_instructions_3);
+// timeline.push(vaast_instructions_1,
+//               vaast_instructions_2,
+//               vaast_instructions_3);
 
 // vaast - blocks
-timeline.push(vaast_training_block,
-              vaast_instructions_5,
-              vaast_test_block,
-              vaast_block_instructions(2),
-              vaast_test_block,
-              vaast_block_instructions(3),
-              vaast_test_block,
-              vaast_block_instructions(4),
-              vaast_test_block,
-              vaast_block_instructions(5),
-              vaast_test_block,
-              vaast_block_instructions(6),
-              vaast_test_block,
-              vaast_block_instructions(7),
-              vaast_test_block,
-              vaast_block_instructions(8),
-              vaast_test_block,
-              vaast_block_instructions(9),
-              vaast_test_block,
-              vaast_block_instructions(10),
-              vaast_test_block,
-              );
+// timeline.push(vaast_training_block,
+//               vaast_instructions_5,
+//               vaast_test_block,
+//               vaast_block_instructions(2),
+//               vaast_test_block,
+//               vaast_block_instructions(3),
+//               vaast_test_block,
+//               vaast_block_instructions(4),
+//               vaast_test_block,
+//               vaast_block_instructions(5),
+//               vaast_test_block,
+//               vaast_block_instructions(6),
+//               vaast_test_block,
+//               vaast_block_instructions(7),
+//               vaast_test_block,
+//               vaast_block_instructions(8),
+//               vaast_test_block,
+//               vaast_block_instructions(9),
+//               vaast_test_block,
+//               vaast_block_instructions(10),
+//               vaast_test_block,
+//               );
 
 // vaast - end
-timeline.push(vaast_instructions_6);
+// timeline.push(vaast_instructions_6);
 
 // iat - initial instructions
 timeline.push(iat_instructions_1)
